@@ -1,9 +1,13 @@
-const express = require('express')
-const mysql = require('mysql')
+'use strict'
+const express = require('express');
+const backend = express();
+var server = require('http').createServer(backend);
+var socket = require('socket.io')(server);
 const path = require('path') 
-const serve_static = require('serve-static') // // To access to files
-const dbconfig = require('./config/dbconfig.json') // To hide sensitive information in a json file
+const serve_static = require('serve-static') // To access files
 const session = require('express-session');
+const mysql = require('mysql')
+const dbconfig = require('./config/dbconfig.json') // To hide sensitive information in a json file
 
 // Pool : 
 // pre-made connections between node.js and database to avoid creating and breaking connections and have stable connections.
@@ -17,10 +21,10 @@ const pool = mysql.createPool({
 })
 
 // Configuration for clients
-const backend = express()
 backend.use(express.urlencoded({extended:true})) // Receive extended methods to encode URL
 backend.use(express.json())
 backend.use('/public', serve_static(path.join(__dirname, 'public'))) // Setting so that /public directory can be used
+backend.use('/node_modules/socket.io/client-dist', express.static(__dirname+'/node_modules/socket.io/client-dist')) // socket.io
 
 // Session setting
 backend.use(session({
@@ -145,6 +149,6 @@ backend.post('/process/add_user', (request,response)=>{
     })
 })
 
-backend.listen(3000, ()=>{
+server.listen(3000, ()=>{
     console.log('Listening on port 3000')
 })
