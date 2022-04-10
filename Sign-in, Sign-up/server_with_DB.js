@@ -24,12 +24,12 @@ backend.use('/public', serve_static(path.join(__dirname, 'public'))) // Setting 
 
 // Session setting
 backend.use(session({
-    //httpOnly: true,	//자바스크립트를 통해 세션 쿠키를 사용할 수 없도록 함
-    //secure: true,	//https 환경에서만 session 정보를 주고받도록처리
-    secret: 'secret key',	//암호화하는 데 쓰일 키
-    resave: false,	//세션을 언제나 저장할지 설정함
-    saveUninitialized: true,	//세션이 저장되기 전 uninitialized 상태로 미리 만들어 저장
-  }))
+    //httpOnly: true,	// Session cookie cannot be modified by javascript
+    //secure: true,	// Session cookie only available in https
+    secret: 'secret key', // hash key to be used for encryption
+    resave: false,
+    saveUninitialized: true,
+}));
 
 // Get request configuration
 backend.get("/", (req, res) => {
