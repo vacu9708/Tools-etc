@@ -10,14 +10,21 @@ const Signup = ({renderLogin}: SignupProps) => {
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
   const [name, setName] = React.useState("");
-  const [disabled, setDisabled] = React.useState(false);
+  const [disabled, setDisabled] = React.useState(false); // For password confirmation
 
   const onSubmit = () => {
     axios.post('/signup', {
       username: username,
       password: password,
       name: name,
-    }).then(res => console.log(res));
+    }).then(res => {
+      if(res.status !== 200) // Signup error
+        alert(res.data.error)
+      else {// Go to login page if sign up is successful
+        alert(res.data.title)
+        renderLogin()
+      }
+    })
   }
 
   React.useEffect(() => { // Password confirmation

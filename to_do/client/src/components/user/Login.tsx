@@ -9,26 +9,25 @@ interface LoginProps {
 const Login = ({renderSignup}: LoginProps) => {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const [logged_in, set_logged_in]=React.useState(false)
+  const [loggedIn, setLoggedIn] = React.useState(false)
   
   const onSubmit = () => {
     axios.post('/login', {
       username: username,
       password: password
     }).then(res => {
-      if (res.status === 200) { // sucessful, save the token
+      if (res.status === 200) { // Login sucessful, save the token
         const token = res.data.token;
         localStorage.setItem('token', token);
-        localStorage.setItem('name', res.data.name)
-        set_logged_in(true) // This CANNOT be before setting the token!!
-        console.log(res.data.title)
-      } else { // login failed
-        console.log(res.data.title)
+        setLoggedIn(true) // This CANNOT be before setting the token!!
+      } 
+      else { // Login failed
+        alert(res.data.error)
       }
-    });
+    })
   }
 
-  if(logged_in)
+  if(loggedIn)
     return <Redirect to={'/dashboard'} />
 
   return(

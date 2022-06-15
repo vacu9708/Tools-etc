@@ -1,5 +1,5 @@
-import axios from "axios";
 import React from "react";
+import axios from "axios";
 import './TodoList.css'
 import { Checkbox } from "@material-ui/core";
 
@@ -13,26 +13,25 @@ interface TodoListProps {
   todos: Todo[];
   setTodos: (todos: Todo[]) => void;
 }
-const TodoList = ({todos, setTodos}: TodoListProps) => {
-  const [state, setState] = React.useState(false);
 
-  const markCompleted = (todo: Todo) => {
-    axios.patch(`/todo/${todo._id}`, {isCompleted: !todo.isCompleted}, {headers: { token: localStorage.getItem('token')}})
+const TodoList = ({todos, setTodos}: TodoListProps) => {
+  const [rendering, render] = React.useState(false);
+
+  function markCompleted(todo: Todo) {
+    axios.patch(`/todo/${todo._id}`, {isCompleted: !todo.isCompleted}, {headers: {token: localStorage.getItem('token')}})
       .then(res => {
         if (res.status === 200){
           todo.isCompleted=!todo.isCompleted
-          console.log(res.data.title)
-          setState(!state)
+          render(!rendering)
         }
-      });
+      })
   }
 
   function delete_todo(todo: Todo){
-    axios.delete("/todo/"+todo._id, {headers: { token: localStorage.getItem('token')}})
+    axios.delete("/todo/"+todo._id, {headers: {token: localStorage.getItem('token')}})
       .then(res=>{
-        if(res.status===200){
-          setTodos(todos.filter((prev_todo)=>prev_todo._id!==todo._id))
-          console.log(res.data.title)
+        if(res.status === 200){
+          setTodos(todos.filter((prev_todo)=>prev_todo._id!==todo._id)) // Delete on client
         }
     })
   }

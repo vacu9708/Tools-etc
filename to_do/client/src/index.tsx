@@ -1,19 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Landing from './pages/Landing';
+import LoginSingup from './pages/LoginSingup';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 //import { Route } from "react-router";
-import RequireAuth from "./components/auth/RequireAuth";
+import RequireAuth from "./components/user/RequireAuth";
 import Dashboard from "./pages/Dashboard";
+import EditProfile from './pages/EditProfile';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Landing}/>
-        <Route exact path="/dashboard" component={RequireAuth(Dashboard)} />
+        <Route exact path="/" component={LoginSingup}/>
+        <Route exact path="/dashboard" component={RequireAuth(Dashboard)} /> {/*Prevents invalid access with authentification*/}
+        <Route exact path="/edit_profile" component={EditProfile}/>
       </Switch>
     </BrowserRouter>
   </React.StrictMode>,

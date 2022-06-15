@@ -32,7 +32,8 @@ app.use(express.static(path.join(__dirname, '/..', '/client/build'))) // React p
 app.get('/todos', (req, res) => {
   // verify
   jwt.verify(req.headers.token, 'secretkey', (err, decoded) => {
-    if (err) return res.status(401).json({
+    if (err) 
+      return res.status(401).json({
       title: 'not authorized'
     });
 
@@ -73,40 +74,39 @@ app.post('/signup', (req, res) => {
 
   newUser.save(err => {
     if (err) { // Duplicate not allowed
-      return res.status(400).json({
-        title: 'error',
-        error: 'Email already in use'
+      return res.status(201).json({
+        error: 'ID already in use'
       })
     }
+
     return res.status(200).json({
-      title: 'user successfully added'
+      title: 'User successfully added'
     })
   })
 });
 
 app.post('/login', (req,res) => {
-  console.log('login attempt')
   User.findOne({ username: req.body.username}, (err, user) => {
-    if (err) 
+    if (err) {
       return res.status(500).json({
-        title: 'server error',
         error: err
-      });
-    if (!user)
-      return res.status(400).json({
-        title: 'user is not found',
-        error: 'invalid username or password'
       })
-    if (!bcrypt.compareSync(req.body.password, user.password))
-      return res.status(401).json({
-        title: 'login failed',
-        error: 'invalid username or password'
+    }
+    if (!user){
+      return res.status(201).json({
+        error: 'Invalid username or password'
       })
+    }
+    if (!bcrypt.compareSync(req.body.password, user.password)){
+      return res.status(202).json({
+        error: 'Invalid username or password'
+      })
+    }
 
     // authentication is done, give them a token
     let token = jwt.sign({ userId: user._id}, 'secretkey');
     return res.status(200).json({
-      title: 'login successful',
+      title: 'Login successful',
       token: token,
       name: user.name
     });
@@ -130,7 +130,8 @@ app.post('/todo',(req, res) => {
     });
 
     newTodo.save(error => {
-      if (error) return console.log(error);
+      if (error) 
+        return console.log(error);
       return res.status(200).json({
         title: "successfully added",
         todo: newTodo
@@ -166,11 +167,11 @@ app.patch('/todo/:todoId', (req, res) => { // Update is_complete
   })
 })
 
-app.patch('/user/:userId', (req, res)=>{ // user modification
+app.patch('/user', (req, res)=>{ // Editing profile
   jwt.verify(req.headers.token, 'secretkey', (err, decoded) =>{
     User.findOne({_id: decoded.userId}, (err, user)=>{
 
-      user.name=req.body.name_to_change
+      user.name=req.body.nameToChange
       user.save(err =>{
         return res.status(200).json({
           title:'success',
@@ -199,35 +200,25 @@ app.delete("/todo/:todoId", async (req, res) => { // Delete a to-do
   })
 });
 
-// app.get('/user', (req, res) => {
-//   let token = req.headers.token;
-//   // verify
-//   jwt.verify(token, 'secretkey', (err, decoded) => {
-//     if (err) return res.status(401).json({
-//       title: 'not authorized'
-//     });
+app.get('/user', (req, res) => {
+  jwt.verify(req.headers.token, 'secretkey', (err, decoded) => {
+    if (err) 
+      return res.status(201).json({
+      title: 'not authorized'
+    });
 
-//     // now we know token is valid
-//     User.findOne({ _id: decoded.userId }, (err, user) => {
-//       if (err) return console.log(err);
-//       return res.status(200).json({
-//         title: 'success',
-//         user: {
-//           username: user.username
-//         }
-//       })
-//     })
-//   })
-// })
+    // now we know token is valid
+    User.findOne({ _id: decoded.userId }, (err, user) => {
+      if (err) 
+        return console.log(err)
 
-// const requireToken = (req, res, next) => {
-//   jwt.verify(req.headers.token, 'secretkey', (err, decoded) => {
-//     if (err) return res.status(401).json({
-//       title: 'not authorized'
-//     });
-//   })
-//   next();
-// }
+      return res.status(200).json({
+        username: user.username,
+        name: user.name
+      })
+    })
+  })
+})
 
 const port = process.env.PORT || 4000;
 app.listen(port, (err) => {
