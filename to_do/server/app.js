@@ -5,8 +5,8 @@ const app = express();
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 const User = require('./models/User');
-const bcrypt = require('bcrypt');
 const Todo = require('./models/Todo');
+const bcrypt = require('bcrypt');
 const path = require('path')
 
 // MongoDB connection
@@ -28,19 +28,17 @@ app.use(express.static(path.join(__dirname, '/..', '/client/build'))) // React p
 //   res.send('ok')
 // })
 
-// get todo route
 app.get('/todos', (req, res) => {
-  // verify
   jwt.verify(req.headers.token, 'secretkey', (err, decoded) => {
     if (err) 
       return res.status(401).json({
       title: 'not authorized'
     });
 
-    // now we know token is valid
+    // Now token is proved to be valid
     Todo.find({ author: decoded.userId }, (err, todos) => {
       if (err) 
-        return res.status(400).json({
+        return res.status(201).json({
           title: 'error',
           error: err
         })
@@ -113,15 +111,20 @@ app.post('/login', (req,res) => {
   })
 });
 
-// add todo route
-// mark todo as completed route
 app.post('/todo',(req, res) => {
   // verify
-  jwt.verify(req.headers.token, 'secretkey', (err, decoded) => {
+  jwt.verify(req.headers.token, 'secretkey', async (err, decoded) => {
     if (err) 
       return res.status(401).json({
       title: 'not authorized'
     });
+
+    // Putting to-do in user
+    // let new_todo={
+    //   title: req.body.title,
+    //   isCompleted: false
+    // }
+    //await User.updateOne({_id: decoded.userId}, {$push: {todos: new_todo}})
 
     let newTodo = new Todo({
       title: req.body.title,
@@ -140,30 +143,30 @@ app.post('/todo',(req, res) => {
   })
 });
 
-app.patch('/todo/:todoId', (req, res) => { // Update is_complete
-  jwt.verify(req.headers.token, 'secretkey', (err, decoded) => {
+app.patch('/todo/:todoId', (req, res) => { // Update isComplete
+  jwt.verify(req.headers.token, 'secretkey', async (err, decoded) => {
     if (err)
       return res.status(401).json({
       title: 'not authorized'
     });
 
-    // now we know token is valid
+    // Now token is proved to be vaild
     Todo.findOne({ author: decoded.userId, _id: req.params.todoId }, (err, todo) => {
       if (err) 
-        return console.log(err);
+        console.log(err)
+      
+      todo.isCompleted = req.body.isCompleted
 
-      todo.isCompleted = req.body.isCompleted;
       todo.save(error => {
         if (error) 
-          return console.log(error);
+          console.log(error);
 
         // Save
         return res.status(200).json({
-          title: 'success',
-          //todo: todo
-        });
-      });
-    })
+          todo: todo
+        })
+      })
+    });
   })
 })
 
@@ -188,7 +191,7 @@ app.delete("/todo/:todoId", async (req, res) => { // Delete a to-do
         title: 'not authorized'
     });
 
-    await Todo.findByIdAndDelete(req.params.todoId, (err, todo)=>{
+    Todo.findByIdAndDelete(req.params.todoId, (err, todo)=>{
       if(err) // DB error
         return console.log(err)
       //console.log(todo)
@@ -196,7 +199,7 @@ app.delete("/todo/:todoId", async (req, res) => { // Delete a to-do
         title: 'success'
         //todo: todo
       })
-    }); // does NOT work without await
+    });
   })
 });
 

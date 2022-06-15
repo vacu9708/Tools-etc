@@ -8,7 +8,8 @@ const userSchema = new Schema({
   },
   password: String,
   name: String
+  //todos: [{title: String, isCompleted: Boolean}] // Putting to-dos here seems better
 })
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('user', userSchema);
 module.exports = User;

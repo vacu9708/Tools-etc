@@ -22,12 +22,13 @@ const TodoList = ({todos, setTodos}: TodoListProps) => {
       .then(res => {
         if (res.status === 200){
           todo.isCompleted=!todo.isCompleted
+          //todo.isCompleted=res.data.todo.isCompleted // same as above
           render(!rendering)
         }
       })
   }
 
-  function delete_todo(todo: Todo){
+  function deleteTodo(todo: Todo){
     axios.delete("/todo/"+todo._id, {headers: {token: localStorage.getItem('token')}})
       .then(res=>{
         if(res.status === 200){
@@ -45,7 +46,7 @@ const TodoList = ({todos, setTodos}: TodoListProps) => {
             {todo.title}
           </label>
           <input type="button" className="py-2 px-3 bg-green-400 text-white rounded-md cursor-pointer" value="DONE" 
-          onClick={() => delete_todo(todo)} />
+          onClick={() => deleteTodo(todo)} />
         </div>
       ))}
     </>

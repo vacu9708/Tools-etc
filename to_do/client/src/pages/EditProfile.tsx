@@ -7,7 +7,7 @@ const EditProfile = () => {
     const [move, setMove] = React.useState(false);
 
     function edit(nameToChange: string) {
-        axios.patch('/user', {nameToChange: nameToChange}, {headers: { token: localStorage.getItem('token')}})
+        axios.patch('/user', {nameToChange: nameToChange}, {headers: {token: localStorage.getItem('token')}})
           .then(res => {
             if (res.status === 200){
                 setMove(!move)
