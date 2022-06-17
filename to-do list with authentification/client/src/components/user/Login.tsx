@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import {Redirect} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 //const api_url='http://localhost:3001'
 
 interface LoginProps {
@@ -10,6 +10,7 @@ const Login = ({renderSignup}: LoginProps) => {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [loggedIn, setLoggedIn] = React.useState(false)
+  const history = useHistory();
   
   const onSubmit = () => {
     axios.post('/login', {
@@ -19,16 +20,13 @@ const Login = ({renderSignup}: LoginProps) => {
       if (res.status === 200) { // Login sucessful, save the token
         const token = res.data.token;
         localStorage.setItem('token', token);
-        setLoggedIn(true) // This CANNOT be before setting the token!!
+        history.push("/dashboard");
       } 
       else { // Login failed
         alert(res.data.error)
       }
     })
   }
-
-  if(loggedIn)
-    return <Redirect to={'/dashboard'} />
 
   return(
     <div style={{height: '300px'}}>

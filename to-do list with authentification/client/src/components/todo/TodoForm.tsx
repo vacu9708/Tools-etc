@@ -1,13 +1,8 @@
 import React from "react";
 import axios from "axios";
-import { Todo } from "./TodoList";
+import {TodoProps} from "../../pages/Dashboard";
 
-interface TodoFormProps {
-  todos: Todo[];
-  setTodos: (todos: Todo[]) => void;
-}
-
-const TodoForm = ({todos, setTodos}: TodoFormProps) => { // To-do input box
+const TodoForm = ({todos, setTodos}: TodoProps) => { // To-do input box
   const [title, setTitle] = React.useState("");
   const onSubmit = () => {
     if (title.length > 0) {

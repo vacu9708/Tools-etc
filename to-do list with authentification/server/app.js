@@ -43,7 +43,7 @@ const upload = multer({
 app.use(cors());
 app.use((bodyParser.json()));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/client/build', express.static(path.join(__dirname, '/..', '/client/build'))) // React path
+app.use(express.static(path.join(__dirname, '/..', '/client/build'))) // React path
 app.use('/uploads/images', express.static(path.join(__dirname,'/uploads/images')))
 
 app.get('/todos', (req, res) => {
@@ -220,9 +220,7 @@ app.patch('/todoIsCompleted/:todoId', (req, res) => { // Update isComplete
       if (err) 
         console.log(err)
       
-      console.log(todo.isCompleted)
       todo.isCompleted = !todo.isCompleted
-      console.log(todo.isCompleted)
 
       todo.save(error => {
         if (error) 

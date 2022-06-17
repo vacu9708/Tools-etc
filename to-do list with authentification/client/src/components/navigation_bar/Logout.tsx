@@ -1,16 +1,14 @@
-import { Redirect } from "react-router";
 import React from "react";
+import {useHistory} from "react-router-dom";
 
 const Logout = () => {
-  const [move, setMove] = React.useState(false);
-  if(move)
-    return <Redirect to={'/'}/>
+  const history = useHistory();
 
   return(
     <input type="button" className="px-3 py-3 bg-gray-400 text-white rounded-md cursor-pointer" value="Log out" 
           onClick={() => {
             localStorage.removeItem('token');
-            setMove(!move)
+            history.push("/dashboard");
           }}
     />
   )

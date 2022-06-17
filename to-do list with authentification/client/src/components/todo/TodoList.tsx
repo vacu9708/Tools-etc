@@ -1,19 +1,9 @@
 import React from "react";
 import axios from "axios";
 import { Checkbox } from "@material-ui/core";
+import {Todo, TodoProps} from "../../pages/Dashboard";
 
-export interface Todo {
-  _id: string;
-  title: string;
-  isCompleted: boolean;
-}
-
-interface TodoListProps {
-  todos: Todo[];
-  setTodos: (todos: Todo[]) => void;
-}
-
-const TodoList = ({todos, setTodos}: TodoListProps) => {
+const TodoList = ({todos, setTodos}: TodoProps) => {
   const [rendering, render] = React.useState(false);
   //const [beingEdited, setBeingEdited] = React.useState(new Array(todos.length))
   const [todoBeingEdited, setTodoBeingEdited] = React.useState<number>(-1)

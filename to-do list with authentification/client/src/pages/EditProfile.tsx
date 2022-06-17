@@ -1,11 +1,12 @@
 import React from "react";
 import axios from "axios";
-import {Redirect} from "react-router-dom";
+import {Redirect, useHistory} from "react-router-dom";
 
 const EditProfile = () => {
     const [nameToChange, setNameToChange] = React.useState("");
-    const [goBack, setGoBack] = React.useState(false);
     const [profileImg, setProfileImg] = React.useState('');
+    const [goBack, setGoBack] = React.useState(false);
+    const history = useHistory();
 
     function edit(nameToChange: string) {
         const formData=new FormData()
@@ -25,7 +26,8 @@ const EditProfile = () => {
     }
 
     if(goBack)
-        return <Redirect to={'/dashboard'}/>
+        history.push("/dashboard");
+        //return <Redirect to={'/dashboard'}/>
 
     return(
         <div className="w-full h-screen">
