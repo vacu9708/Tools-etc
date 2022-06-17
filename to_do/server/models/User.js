@@ -7,7 +7,8 @@ const userSchema = new Schema({
     type: String
   },
   password: String,
-  name: String
+  name: String,
+  img: String
   //todos: [{title: String, isCompleted: Boolean}] // Putting to-dos here seems better
 })
 

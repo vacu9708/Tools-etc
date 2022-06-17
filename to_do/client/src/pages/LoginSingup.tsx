@@ -1,7 +1,7 @@
 import React from "react";
 import Login from "../components/user/Login"
 import Signup from "../components/user/Signup"
-import Users_inquiry from "../components/user/UsersInquiry"
+import UsersInquiry from "../components/user/UsersInquiry"
 
 const LoginSingup = () => {
   const [is_sign_up_page, set_sign_up_page] = React.useState(false);
@@ -18,11 +18,11 @@ const LoginSingup = () => {
         </div>
       </div>
 
-      <div className="w-1/2 bg-yellow-400 cursor-pointer" onClick={()=>set_show_user_list(!show_user_list)}
-      style={{overflow:'scroll'}}> {/*Green side on the right*/}
+      <div className="w-1/2 cursor-pointer" onClick={()=>set_show_user_list(!show_user_list)}
+      style={{overflow:'scroll', backgroundColor:'rgb(250,153,218)'}}> {/*Green side on the right*/}
         <h1 className="font-bold text-center p-3" style={{fontSize:'55px', color:'yellow'}}>User list</h1>
         <div className="max-w-md mx-auto">
-          {show_user_list && <Users_inquiry/>}
+          {show_user_list && <UsersInquiry/>}
         </div>
       </div>
     </div>

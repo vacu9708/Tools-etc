@@ -11,20 +11,30 @@ const Signup = ({renderLogin}: SignupProps) => {
   const [confirmPassword, setConfirmPassword] = React.useState("");
   const [name, setName] = React.useState("");
   const [disabled, setDisabled] = React.useState(false); // For password confirmation
+  const [profileImg, setProfileImg] = React.useState("");
 
-  const onSubmit = () => {
-    axios.post('/signup', {
-      username: username,
-      password: password,
-      name: name,
-    }).then(res => {
+  function onSubmit() {
+    const formData=new FormData()
+    formData.append('username', username)
+    formData.append('password', password)
+    formData.append('name', name)
+    formData.append('profileImg', profileImg)
+
+    axios.post('/signup', formData)
+    .then(res => {
       if(res.status !== 200) // Signup error
         alert(res.data.error)
       else {// Go to login page if sign up is successful
         alert(res.data.title)
-        renderLogin()
+        renderLogin() // Go to login page
       }
     })
+  }
+
+  const onImageChange=(e: any)=>{
+    //setProfileImg(JSON.stringify(e.target.files[0]))
+    setProfileImg(e.target.files[0])
+    //console.log(profileImg)
   }
 
   React.useEffect(() => { // Password confirmation
@@ -56,6 +66,10 @@ const Signup = ({renderLogin}: SignupProps) => {
         <label>name</label>
         <input onChange={(e) => setName(e.target.value)} className="w-full px-3 py-2 border border-gray-400 rounded-md" 
         type="text" placeholder="name" />
+      </div>
+      <div className="mb-4">
+        <label>profile image </label>
+        <input onChange={onImageChange} type="file" name="image" id="image" accept='image/*' className="imgInput"/>
       </div>
       <div className="flex justify-between items-center">
         <div>

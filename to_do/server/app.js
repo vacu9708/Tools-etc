@@ -8,6 +8,7 @@ const User = require('./models/User');
 const Todo = require('./models/Todo');
 const bcrypt = require('bcrypt');
 const path = require('path')
+const multer = require('multer');
 
 // MongoDB connection
 const connectionParams = {
@@ -15,24 +16,40 @@ const connectionParams = {
   useCreateIndex: true,
   useUnifiedTopology: true,
 };
-mongoose.connect('mongodb://localhost:27017/auth_todo2',
-                  connectionParams);
+mongoose.connect('mongodb://localhost:27017/auth_todo2', connectionParams);
+
+// storage for images
+const storage = multer.diskStorage({
+  // destination for files
+  destination: function (req, file, callback) {
+    callback(null, './uploads/images');
+  },
+
+  // decide filename
+  filename: function (req, file, callback) {
+    callback(null, Date.now() + file.originalname);
+  }
+})
+
+// parameter for image upload
+const upload = multer({
+  storage: storage,
+  limits: {
+    fieldSize: 1024 * 1024 * 3,
+  },
+})
 
 app.use(cors());
 app.use((bodyParser.json()));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '/..', '/client/build'))) // React path
-
-// app.get('/', (req, res) => { // Any route that is not handled in express will be redirected to react router
-//   console.log(req.ip)
-//   res.send('ok')
-// })
+app.use('/uploads/images', express.static(path.join(__dirname,'/uploads/images')))
 
 app.get('/todos', (req, res) => {
   jwt.verify(req.headers.token, 'secretkey', (err, decoded) => {
     if (err) 
       return res.status(401).json({
-      title: 'not authorized'
+        error: 'Not authorized'
     });
 
     // Now token is proved to be valid
@@ -63,11 +80,34 @@ app.get('/all_users', (req, res)=>{
   })
 })
 
-app.post('/signup', (req, res) => {
+app.get('/user', (req, res) => {
+  jwt.verify(req.headers.token, 'secretkey', (err, decoded) => {
+    if (err) 
+      return res.status(201).json({
+        error: 'Not authorized'
+    });
+
+    // Now token is proved to be valid
+    User.findOne({ _id: decoded.userId }, (err, user) => {
+      if (err) 
+        return console.log(err)
+
+      return res.status(200).json({
+        username: user.username,
+        name: user.name,
+        profileImg: user.img
+      })
+    })
+  })
+})
+
+app.post('/signup', upload.single('profileImg'), (req, res) => {
+  console.log(req.body.username)
   const newUser = new User({ // New document
     username: req.body.username,
     password: bcrypt.hashSync(req.body.password, 10), // Encryption
-    name: req.body.name
+    name: req.body.name,
+    img: req.file.filename
   });
 
   newUser.save(err => {
@@ -202,26 +242,6 @@ app.delete("/todo/:todoId", async (req, res) => { // Delete a to-do
     });
   })
 });
-
-app.get('/user', (req, res) => {
-  jwt.verify(req.headers.token, 'secretkey', (err, decoded) => {
-    if (err) 
-      return res.status(201).json({
-      title: 'not authorized'
-    });
-
-    // now we know token is valid
-    User.findOne({ _id: decoded.userId }, (err, user) => {
-      if (err) 
-        return console.log(err)
-
-      return res.status(200).json({
-        username: user.username,
-        name: user.name
-      })
-    })
-  })
-})
 
 const port = process.env.PORT || 4000;
 app.listen(port, (err) => {

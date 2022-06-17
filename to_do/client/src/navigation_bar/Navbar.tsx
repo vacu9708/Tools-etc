@@ -6,7 +6,7 @@ import axios from "axios";
 function Navbar() {
   const [name, setName] = React.useState("");
 
-  React.useEffect(() => { // Password confirmation
+  React.useEffect(() => {
     axios.get('/user', {headers: {token: localStorage.getItem('token')}})
       .then(res => {
         if (res.status === 200){
