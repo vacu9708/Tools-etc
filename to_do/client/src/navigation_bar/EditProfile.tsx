@@ -7,7 +7,7 @@ const EditProfile = () => {
     return <Redirect to={'/edit_profile'}/>
 
   return(
-    <input type="button" className="py-3 px-3 bg-yellow-400 text-white rounded-md cursor-pointer" value="Edit profile" 
+    <input type="button" className="px-3 py-3 text-white rounded-md cursor-pointer" style={{backgroundColor:'rgb(250,153,218)'}} value="Edit profile" 
           onClick={() => {
             setMove(!move)
           }}

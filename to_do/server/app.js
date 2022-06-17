@@ -6,9 +6,10 @@ const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 const User = require('./models/User');
 const Todo = require('./models/Todo');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt'); // For encryption
 const path = require('path')
-const multer = require('multer');
+const multer = require('multer'); // For image uploading
+const fs = require('fs'); // To delete files
 
 // MongoDB connection
 const connectionParams = {
@@ -20,7 +21,7 @@ mongoose.connect('mongodb://localhost:27017/auth_todo2', connectionParams);
 
 // storage for images
 const storage = multer.diskStorage({
-  // destination for files
+  // destination of file
   destination: function (req, file, callback) {
     callback(null, './uploads/images');
   },
@@ -42,7 +43,7 @@ const upload = multer({
 app.use(cors());
 app.use((bodyParser.json()));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, '/..', '/client/build'))) // React path
+app.use('/client/build', express.static(path.join(__dirname, '/..', '/client/build'))) // React path
 app.use('/uploads/images', express.static(path.join(__dirname,'/uploads/images')))
 
 app.get('/todos', (req, res) => {
@@ -141,7 +142,7 @@ app.post('/login', (req,res) => {
       })
     }
 
-    // authentication is done, give them a token
+    // Authentication is done, give a token
     let token = jwt.sign({ userId: user._id}, 'secretkey');
     return res.status(200).json({
       title: 'Login successful',
@@ -210,14 +211,22 @@ app.patch('/todo/:todoId', (req, res) => { // Update isComplete
   })
 })
 
-app.patch('/user', (req, res)=>{ // Editing profile
+app.patch('/user', upload.single('profileImg'), (req, res)=>{ // Editing profile
   jwt.verify(req.headers.token, 'secretkey', (err, decoded) =>{
     User.findOne({_id: decoded.userId}, (err, user)=>{
-
       user.name=req.body.nameToChange
+
+      if(req.body.profileImg !== ''){
+        fs.unlink("./uploads/images/"+user.img, err => { // Delete previous profile image
+          if(err)
+              console.log(err)
+        })
+        user.img=req.file.filename // New profile image
+      }
+
       user.save(err =>{
         return res.status(200).json({
-          title:'success',
+          title:'success'
         })
       })
     })
@@ -227,8 +236,8 @@ app.patch('/user', (req, res)=>{ // Editing profile
 app.delete("/todo/:todoId", async (req, res) => { // Delete a to-do
   jwt.verify(req.headers.token, 'secretkey', async (err, decoded) => {
     if (err) // Token error
-      return res.status(401).json({
-        title: 'not authorized'
+      return res.status(201).json({
+        title: 'Not authorized'
     });
 
     Todo.findByIdAndDelete(req.params.todoId, (err, todo)=>{

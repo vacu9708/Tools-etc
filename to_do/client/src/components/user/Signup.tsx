@@ -32,9 +32,7 @@ const Signup = ({renderLogin}: SignupProps) => {
   }
 
   const onImageChange=(e: any)=>{
-    //setProfileImg(JSON.stringify(e.target.files[0]))
     setProfileImg(e.target.files[0])
-    //console.log(profileImg)
   }
 
   React.useEffect(() => { // Password confirmation

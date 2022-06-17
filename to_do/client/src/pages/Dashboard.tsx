@@ -9,13 +9,13 @@ const Dashboard = () => {
   const [profileImg, setProfileImg] = React.useState("");
   
   React.useEffect(() => {
-    axios.get('/todos', { headers: { token: localStorage.getItem('token')}})
+    axios.get('/todos', { headers: { token: localStorage.getItem('token')}}) // Get to-do list
       .then(res => {
         if (res.status === 200)
           setTodoList(res.data.todos);
         })
 
-    axios.get('/user', {headers: {token: localStorage.getItem('token')}})
+    axios.get('/user', {headers: {token: localStorage.getItem('token')}}) // Get profile image
     .then(res => {
       if (res.status === 200){
         setProfileImg("/uploads/images/"+res.data.profileImg)
@@ -25,7 +25,7 @@ const Dashboard = () => {
 
   return(
     <>
-      <Navbar/> {/*The bar that has the logout button*/}
+      <Navbar/>
       <p className='text-green-400' style={{marginTop:'20px', marginLeft:'100px', fontWeight:'bolder' , fontSize:'30px'}}>Profile</p>
       <div className='text-green-400' style={{marginLeft:'5px', marginTop:'10px', border:'5px solid', width:'300px', height:'420px'}}>
         <img src={profileImg} width='300' height='200' alt="..."></img>
