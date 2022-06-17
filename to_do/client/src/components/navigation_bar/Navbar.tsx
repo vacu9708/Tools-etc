@@ -18,7 +18,7 @@ function Navbar() {
 
   return(
     <div className="flex justify-between p-8 text-white" style={{background:'#34D399'}}>
-      <p style={{fontSize: '33px'}} className="font-bold text-lg">To-do with authentification</p>
+      <p style={{fontSize: '33px'}} className="font-bold text-lg">To-do list</p>
       <div className="flex justify-between" style={{width:'11%'}}>
         <p style={{fontSize: '33px'}} className="font-bold">Name:</p> 
         <p style={{fontSize: '33px', color:'rgb(250,153,218)'}} className='fond-bold'>{name}</p>

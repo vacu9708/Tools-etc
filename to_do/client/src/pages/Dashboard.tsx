@@ -31,7 +31,7 @@ const Dashboard = () => {
         <img src={profileImg} width='300' height='200' alt="..."></img>
       </div>
       <div className="mx-auto pt-12" style={{position: 'relative', bottom:'500px', width:'50%'}}>
-        <h1 className="font-bold text-green-400 text-center text-xl mb-12">To-do list</h1>
+        <h1 className="font-bold text-green-400 text-center text-xl mb-12" style={{fontSize:'33px'}}>To-do list</h1>
         <TodoForm todos={todoList} setTodos={setTodoList}/>
         <TodoList todos={todoList} setTodos={setTodoList} />
       </div>
