@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import {Redirect} from "react-router-dom";
-import { styled } from "@material-ui/core";
 
 const EditProfile = () => {
     const [nameToChange, setNameToChange] = React.useState("");
@@ -11,10 +10,7 @@ const EditProfile = () => {
     function edit(nameToChange: string) {
         const formData=new FormData()
         formData.append('nameToChange', nameToChange)
-        if(profileImg === '')
-            formData.append('profileImg', '')
-        else
-            formData.append('profileImg', profileImg)
+        formData.append('profileImg', profileImg)
 
         axios.patch('/user', formData, {headers: {token: localStorage.getItem('token')}})
           .then(res => {

@@ -108,7 +108,7 @@ app.post('/signup', upload.single('profileImg'), (req, res) => {
     username: req.body.username,
     password: bcrypt.hashSync(req.body.password, 10), // Encryption
     name: req.body.name,
-    img: req.file.filename
+    img: req.body.profileImg!==''? req.file.filename : ''
   });
 
   newUser.save(err => {
@@ -182,9 +182,61 @@ app.post('/todo',(req, res) => {
       })
     })
   })
-});
+})
 
-app.patch('/todo/:todoId', (req, res) => { // Update isComplete
+app.patch('/user', upload.single('profileImg'), (req, res)=>{ // Editing profile
+  jwt.verify(req.headers.token, 'secretkey', (err, decoded) =>{
+    User.findOne({_id: decoded.userId}, (err, user)=>{
+      user.name=req.body.nameToChange
+
+      if(req.body.profileImg !== ''){ // If there's a new profile image
+        fs.unlink("./uploads/images/"+user.img, err => { // Delete the previous profile image
+          if(err)
+              console.log(err)
+        })
+        user.img=req.file.filename // New profile image
+      }
+
+      user.save(err =>{
+        return res.status(200).json({
+          title:'success'
+        })
+      })
+    })
+  })
+})
+
+app.patch('/todoIsCompleted/:todoId', (req, res) => { // Update isComplete
+  jwt.verify(req.headers.token, 'secretkey', async (err, decoded) => {
+    if (err){
+      console.log(err)
+      return res.status(401).json({
+      title: 'Not authorized'
+      })
+    }
+
+    // Now token is proved to be vaild
+    Todo.findOne({ author: decoded.userId, _id: req.params.todoId }, (err, todo) => {
+      if (err) 
+        console.log(err)
+      
+      console.log(todo.isCompleted)
+      todo.isCompleted = !todo.isCompleted
+      console.log(todo.isCompleted)
+
+      todo.save(error => {
+        if (error) 
+          console.log(error)
+
+        return res.status(200).json({
+          todo: todo
+        })
+      })
+    })
+  })
+})
+
+app.patch('/todoTitle/:todoId', (req, res) => { // Update isComplete
   jwt.verify(req.headers.token, 'secretkey', async (err, decoded) => {
     if (err)
       return res.status(401).json({
@@ -196,37 +248,14 @@ app.patch('/todo/:todoId', (req, res) => { // Update isComplete
       if (err) 
         console.log(err)
       
-      todo.isCompleted = req.body.isCompleted
+      todo.title = req.body.newTitle
 
       todo.save(error => {
         if (error) 
-          console.log(error);
+          console.log(error)
 
-        // Save
         return res.status(200).json({
           todo: todo
-        })
-      })
-    });
-  })
-})
-
-app.patch('/user', upload.single('profileImg'), (req, res)=>{ // Editing profile
-  jwt.verify(req.headers.token, 'secretkey', (err, decoded) =>{
-    User.findOne({_id: decoded.userId}, (err, user)=>{
-      user.name=req.body.nameToChange
-
-      if(req.body.profileImg !== ''){ // If there's a new profile image
-        fs.unlink("./uploads/images/"+user.img, err => { // Delete previous profile image
-          if(err)
-              console.log(err)
-        })
-        user.img=req.file.filename // New profile image
-      }
-
-      user.save(err =>{
-        return res.status(200).json({
-          title:'success'
         })
       })
     })

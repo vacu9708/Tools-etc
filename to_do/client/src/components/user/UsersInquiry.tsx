@@ -22,7 +22,7 @@ function Users_inquiry(){
         {user_list.map((user, index)=>( // THE FUCKING ERROR IS HERE, THE PARENTHESIS
             <div className="flex border border-green-400 p-3 rounded-md mb-4 items-center" key={user.username}
                 style={{borderWidth:'medium', justifyContent:'space-evenly'}}>
-                <label>Index: {index}</label>
+                <label>Index: {index+1}</label>
                 <label>ID: {user.username}</label>
                 <label>Name: {user.name}</label>
             </div>

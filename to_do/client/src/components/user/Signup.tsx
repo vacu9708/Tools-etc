@@ -11,7 +11,7 @@ const Signup = ({renderLogin}: SignupProps) => {
   const [confirmPassword, setConfirmPassword] = React.useState("");
   const [name, setName] = React.useState("");
   const [disabled, setDisabled] = React.useState(false); // For password confirmation
-  const [profileImg, setProfileImg] = React.useState("");
+  const [profileImg, setProfileImg] = React.useState('');
 
   function onSubmit() {
     const formData=new FormData()

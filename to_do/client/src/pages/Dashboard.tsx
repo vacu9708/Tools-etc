@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../navigation_bar/Navbar";
+import Navbar from "../components/navigation_bar/Navbar";
 import TodoForm from "../components/todo/TodoForm";
 import axios from "axios";
 import TodoList, { Todo } from "../components/todo/TodoList";
@@ -30,7 +30,7 @@ const Dashboard = () => {
       <div className='text-green-400' style={{marginLeft:'5px', marginTop:'10px', border:'5px solid', width:'300px', height:'420px'}}>
         <img src={profileImg} width='300' height='200' alt="..."></img>
       </div>
-      <div className="max-w-md mx-auto pt-12" style={{position: 'relative', bottom:'500px'}}>
+      <div className="mx-auto pt-12" style={{position: 'relative', bottom:'500px', width:'50%'}}>
         <h1 className="font-bold text-green-400 text-center text-xl mb-12">To-do list</h1>
         <TodoForm todos={todoList} setTodos={setTodoList}/>
         <TodoList todos={todoList} setTodos={setTodoList} />
