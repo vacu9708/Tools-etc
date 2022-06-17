@@ -5,12 +5,12 @@
 ![image](https://user-images.githubusercontent.com/67142421/174329202-1582e3ea-f525-4ced-b2b5-5d21a0ec8de9.png)
 
 ## To-do list page
-![image](https://user-images.githubusercontent.com/67142421/174400024-d6e759ef-c20c-4c1b-ab6f-d9d3cd6b9e29.png)
+![image](https://user-images.githubusercontent.com/67142421/174402237-fb637dd9-ac73-4662-99c6-ec3c71a39aee.png)
 
 ## Editing a to-do's title
-![image](https://user-images.githubusercontent.com/67142421/174401225-feea687f-f64a-4e49-a205-40a821cee650.png)
+![image](https://user-images.githubusercontent.com/67142421/174402304-6ec66eb4-520b-4791-be31-3844b8e05b59.png)
 
-![image](https://user-images.githubusercontent.com/67142421/174401254-a84f8043-90b3-4182-87c2-86ac723cd1a5.png)
+![image](https://user-images.githubusercontent.com/67142421/174402317-7ae8ce3c-5ad7-4e34-b5f3-c62a877cba70.png)
 
 ## Editing user information
 ![image](https://user-images.githubusercontent.com/67142421/174338298-b5f8d3bf-4b9e-4fd9-829b-d527f896cde8.png)
