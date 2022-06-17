@@ -216,7 +216,7 @@ app.patch('/user', upload.single('profileImg'), (req, res)=>{ // Editing profile
     User.findOne({_id: decoded.userId}, (err, user)=>{
       user.name=req.body.nameToChange
 
-      if(req.body.profileImg !== ''){
+      if(req.body.profileImg !== ''){ // If there's a new profile image
         fs.unlink("./uploads/images/"+user.img, err => { // Delete previous profile image
           if(err)
               console.log(err)
