@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
-//const api_url='http://localhost:3001'
 
 interface LoginProps {
   renderSignup: () => void;
@@ -9,7 +8,6 @@ interface LoginProps {
 const Login = ({renderSignup}: LoginProps) => {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const [loggedIn, setLoggedIn] = React.useState(false)
   const history = useHistory();
   
   const onSubmit = () => {

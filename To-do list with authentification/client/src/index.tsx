@@ -14,7 +14,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={LoginSingup}/>
-        <Route exact path="/dashboard" component={RequireAuth(Dashboard)} /> {/*Prevents invalid access with authentification*/}
+        <Route exact path="/dashboard" component={RequireAuth(Dashboard)} /> {/*Prevents invalid access without authentification*/}
         <Route exact path="/edit_profile" component={EditProfile}/>
       </Switch>
     </BrowserRouter>
