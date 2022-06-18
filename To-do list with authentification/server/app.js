@@ -10,6 +10,7 @@ const bcrypt = require('bcrypt'); // For encryption
 const path = require('path')
 const multer = require('multer'); // For image uploading
 const fs = require('fs'); // To delete files
+//import './react_router'
 
 // MongoDB connection
 const connectionParams = {
@@ -186,6 +187,13 @@ app.post('/todo',(req, res) => {
 
 app.patch('/user', upload.single('profileImg'), (req, res)=>{ // Editing profile
   jwt.verify(req.headers.token, 'secretkey', (err, decoded) =>{
+    if (err){
+      console.log(err)
+      return res.status(401).json({
+      title: 'Not authorized'
+      })
+    }
+
     User.findOne({_id: decoded.userId}, (err, user)=>{
       user.name=req.body.nameToChange
 
@@ -278,6 +286,14 @@ app.delete("/todo/:todoId", async (req, res) => { // Delete a to-do
     });
   })
 });
+
+app.get('/*', function(req, res) { // React router
+  res.sendFile(path.join(__dirname, '/..', '/client/build/index.html'), err=>{
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
 
 const port = process.env.PORT || 4000;
 app.listen(port, (err) => {

@@ -15,10 +15,11 @@ const Login = ({renderSignup}: LoginProps) => {
       username: username,
       password: password
     }).then(res => {
-      if (res.status === 200) { // Login sucessful, save the token
-        const token = res.data.token;
-        localStorage.setItem('token', token);
-        history.push("/dashboard");
+      if (res.status === 200) { // Login sucessful
+        const token = res.data.token
+        localStorage.setItem('token', token)
+        //window.location.href="/dashboard"
+        history.push("/dashboard") // This is way faster than window.location.href
       } 
       else { // Login failed
         alert(res.data.error)
