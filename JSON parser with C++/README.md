@@ -47,10 +47,10 @@ void parseJSON(char* document, int document_size, JSON* json) {
     for (int i = 1; i < document_size; i++) { // Repeat up to the last character.
         if (document[i] == '"') { // If a beginning " has been found
             int beginning_of_string = i + 1; // +1 to exclude the " at the front
-            int closing_of_string=0;
-            for (int j = beginning_of_string; j < document_size; j++)
-                if (document[j] == '"') {
-                    closing_of_string = j;
+            int closing_of_string = 0;
+            for (i = beginning_of_string; i < document_size; i++)
+                if (document[i] == '"') {
+                    closing_of_string = i;
                     break;
                 }
             if (closing_of_string == 0) // Error if the string doesn't have a ending "
@@ -59,10 +59,8 @@ void parseJSON(char* document, int document_size, JSON* json) {
             // Put the found string to token array.
             int string_length = closing_of_string - beginning_of_string;
             json->tokens[json->token_i] = new char[string_length + 1]{ 0 };
-            memcpy(json->tokens[json->token_i], document+beginning_of_string, string_length);
+            memcpy(json->tokens[json->token_i], document + beginning_of_string, string_length);
             json->token_i++;
-
-            i = closing_of_string; // To closing quotation mark
         }
     }
 }
