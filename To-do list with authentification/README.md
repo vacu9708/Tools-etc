@@ -15,4 +15,4 @@
 ![image](https://user-images.githubusercontent.com/67142421/175507917-faa4fbae-832a-45d0-826b-e61cedae32d5.png)
 
 ## Editing user information
-![image](https://user-images.githubusercontent.com/67142421/174338298-b5f8d3bf-4b9e-4fd9-829b-d527f896cde8.png)
+![image](https://user-images.githubusercontent.com/67142421/175508254-803abf59-0364-4b46-b0c3-7207ce1b8996.png)
