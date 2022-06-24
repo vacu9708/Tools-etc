@@ -1,18 +1,18 @@
 <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=MongoDB&logoColor=white" width=150 height=50/> <img src="https://img.shields.io/badge/Express.js-339933?style=flat&logo=Node.js&logoColor=white" width=150 height=50/> <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=React&logoColor=white" width=150 height=50/>
 
 ## Log in page
-![image](https://user-images.githubusercontent.com/67142421/174329269-0ac26216-cd46-4701-bee5-3ba70015a099.png)
+![image](https://user-images.githubusercontent.com/67142421/175507705-f635e670-f2dd-49f4-9ab8-a758ef472c53.png)
 
 ## Sign up page
-![image](https://user-images.githubusercontent.com/67142421/174329202-1582e3ea-f525-4ced-b2b5-5d21a0ec8de9.png)
+![image](https://user-images.githubusercontent.com/67142421/175507815-b1c1f0af-87f4-430e-8dc9-c3a955ad5e68.png)
 
 ## To-do list page
-![image](https://user-images.githubusercontent.com/67142421/174400024-d6e759ef-c20c-4c1b-ab6f-d9d3cd6b9e29.png)
+![image](https://user-images.githubusercontent.com/67142421/175508106-1cd92179-502b-4263-a569-8fcf82a381bb.png)
 
 ## Editing a to-do's title
-![image](https://user-images.githubusercontent.com/67142421/174401225-feea687f-f64a-4e49-a205-40a821cee650.png)
+![image](https://user-images.githubusercontent.com/67142421/175508038-13079fa5-46d9-4ae5-a125-f603aaa9076d.png)
 
-![image](https://user-images.githubusercontent.com/67142421/174401254-a84f8043-90b3-4182-87c2-86ac723cd1a5.png)
+![image](https://user-images.githubusercontent.com/67142421/175507917-faa4fbae-832a-45d0-826b-e61cedae32d5.png)
 
 ## Editing user information
 ![image](https://user-images.githubusercontent.com/67142421/174338298-b5f8d3bf-4b9e-4fd9-829b-d527f896cde8.png)
