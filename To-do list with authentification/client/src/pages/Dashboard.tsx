@@ -37,12 +37,13 @@ const Dashboard = () => {
   return(
     <>
       <Navbar/>
-      <p className='text-green-400' style={{marginTop:'20px', marginLeft:'100px', fontWeight:'bolder' , fontSize:'30px'}}>Profile</p>
-      <div className='text-green-400' style={{marginLeft:'5px', marginTop:'10px', border:'5px solid', width:'300px', height:'420px'}}>
+      <p style={{color:'grey', marginTop:'20px', marginLeft:'100px', fontWeight:'bolder' , fontSize:'30px'}}>Profile</p>
+      <div style={{color:'grey', marginLeft:'5px', marginTop:'10px', border:'5px solid', width:'300px', height:'420px'}}>
         <img src={profileImgPath} width='300' height='200' alt="..."></img>
       </div>
       <div className="mx-auto pt-12" style={{position: 'relative', bottom:'500px', width:'50%'}}>
-        <h1 className="font-bold text-green-400 text-center text-xl mb-12" style={{fontSize:'33px'}}>To-do list</h1>
+        {/*<h1 className="font-bold text-green-400 text-center text-xl mb-12" style={{fontSize:'33px'}}>To-do list</h1>*/}
+        <img src="https://imgs3.fontbrain.com/custom_imgs/7b/68/77c40c714afa3f4964fe446cd989/td-720-60-334f4bdd13a48affc321758acc45bfca.png"></img>
         <TodoForm todos={todoList} setTodos={setTodoList}/>
         <TodoList todos={todoList} setTodos={setTodoList} />
       </div>

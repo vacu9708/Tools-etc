@@ -45,7 +45,7 @@ const EditProfile = () => {
                         <input onChange={onImageChange} type="file" name="image" id="image" accept='image/*' className="imgInput"/>
                     </div>
 
-                    <button className={`rounded-lg px-6 py-3 font-bold text-white`} style={{backgroundColor:'rgb(250,153,218)'}} 
+                    <button className={`rounded-lg px-6 py-3 font-bold text-white bg-green-400`} 
                     onClick={() => setGoBack(!goBack)}>Cancel</button>
                     <button className={`rounded-lg px-6 py-3 ml-1 font-bold text-white bg-green-400`} 
                     onClick={() => edit(nameToChange)}>Edit</button>

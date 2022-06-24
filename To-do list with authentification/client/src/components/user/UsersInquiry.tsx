@@ -20,7 +20,7 @@ function Users_inquiry(){
     return(
         <>
         {user_list.map((user, index)=>( // THE FUCKING ERROR IS HERE, THE PARENTHESIS
-            <div className="flex border border-green-400 p-3 rounded-md mb-4 items-center" key={user.username}
+            <div className="flex border border-black-400 p-3 rounded-md mb-4 items-center" key={user.username}
                 style={{borderWidth:'medium', justifyContent:'space-evenly'}}>
                 <label>Index: {index+1}</label>
                 <label>ID: {user.username}</label>
