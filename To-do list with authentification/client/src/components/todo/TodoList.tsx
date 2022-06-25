@@ -41,6 +41,7 @@ const TodoList = ({todos, setTodos}: TodoProps) => {
 
   return(
     <>
+
       {todos.map((todo, i) => (
         i!==todoBeingEdited?
         <div className="flex border border-gray-400 p-4 rounded-md mb-4 justify-between items-center" key={todo._id}>

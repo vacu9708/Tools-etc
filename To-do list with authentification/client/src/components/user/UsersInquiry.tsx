@@ -17,17 +17,23 @@ function Users_inquiry(){
                 })
     }, [])
 
+    function user_list_drawer(){
+        const elements=[]
+        for(let i=0; i<user_list.length; i++){
+            elements.push(
+                <div className="flex border border-black-400 p-3 rounded-md mb-4 items-center" key={user_list[i].username}
+                    style={{borderWidth:'medium', justifyContent:'space-evenly'}}>
+                    <label>Index: {i+1}</label>
+                    <label>ID: {user_list[i].username}</label>
+                    <label>Name: {user_list[i].name}</label>
+                </div>
+            )
+        }
+        return <div>{elements}</div>
+    }
+
     return(
-        <>
-        {user_list.map((user, index)=>( // THE FUCKING ERROR IS HERE, THE PARENTHESIS
-            <div className="flex border border-black-400 p-3 rounded-md mb-4 items-center" key={user.username}
-                style={{borderWidth:'medium', justifyContent:'space-evenly'}}>
-                <label>Index: {index+1}</label>
-                <label>ID: {user.username}</label>
-                <label>Name: {user.name}</label>
-            </div>
-        ))}
-        </>
+        user_list_drawer()
     )
 }
 
