@@ -85,6 +85,8 @@ while True:
 ~~~
 
 ## Outout
+### Client
 ![Untitled](https://user-images.githubusercontent.com/67142421/175810762-fe0b9567-4b82-4c07-a93c-bc6fd7c9020a.png)
+### Server
 ![image](https://user-images.githubusercontent.com/67142421/175810768-dec44ecb-9e1f-493c-9bea-583ac71639ce.png)
 
