@@ -1,9 +1,9 @@
 ### JavaScript Object Notation (JSON) is a standard text-based format for representing structured data.
 
 ## Process
-1. Read a txt file and put the text to document buffer.
-2. Find string tokens in the document buffer and save them in token array.
-3. Print the elements of the token array.
+1. Reading a txt file and put the text to document buffer.
+2. Finding string tokens in the document buffer and save them in token array.
+3. Printing the elements of the token array.
 4. Deallocation
 
 ~~~c++
