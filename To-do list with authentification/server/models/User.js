@@ -9,7 +9,7 @@ const userSchema = new Schema({
   password: String,
   name: String,
   img: String
-  //todos: [{title: String, isCompleted: Boolean}] // Putting to-dos here seems better
+  //todos: [{title: String, isCompleted: Boolean}] // Putting to-dos here will be better than having a separate to_do collection.
 })
 
 const User = mongoose.model('user', userSchema);
