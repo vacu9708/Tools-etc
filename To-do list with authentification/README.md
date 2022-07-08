@@ -19,4 +19,4 @@
 
 ## My opinion
 MongoDB was used like an SQL database where data is connected by the JOIN clause. I think this is ineffective and it would be better for the **user** collection to
-have to-do list as an array without a separate to-do collection.
+have a to-do list in the document without a separate to-do collection.
