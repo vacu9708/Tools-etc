@@ -16,3 +16,7 @@
 
 ## Editing user information
 ![image](https://user-images.githubusercontent.com/67142421/175508254-803abf59-0364-4b46-b0c3-7207ce1b8996.png)
+
+## My opinion
+MongoDB was used like an SQL database where data is connected by the JOIN clause. I think this is ineffective and it would be better for the **user** collection to
+have a to-do list in the document without a separate to-do collection.
