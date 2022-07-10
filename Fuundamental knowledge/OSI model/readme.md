@@ -1,3 +1,7 @@
+## Router VS Switch
+A **switch** is designed to connect computers within a network, while a **router** is designed to connect multiple networks together.<br>
+In a home network, a single router is usually all that is required for connecting devices to the Internet.<br>
+
 ![image](https://user-images.githubusercontent.com/67142421/178091500-8d4a7114-0dfb-453b-9c43-cf390349dcb7.png)
 
 ### Why does the OSI model matter?
