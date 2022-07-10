@@ -1,5 +1,5 @@
 # UDP (User Datagram Protocol)
-UDP is an unreliable and connectionless protocol. So, there is no need to establish a connection prior to data transfer, which speeds up transmissions.
+UDP is an unreliable and connectionless communication protocol. There is no need to establish a connection prior to data transfer, which speeds up transmissions.
 
 This is all of UDP. We can see how simple it is, It is lighter and faster than TCP but unreliable.<br>
 ![image](https://user-images.githubusercontent.com/67142421/178133335-70ef1d74-9b94-4d5f-bb30-f166eb2f93a0.png)<br>
