@@ -3,7 +3,7 @@
 * [JSON parser](https://github.com/vacu9708/Web-development/tree/main/Fundamental%20knowledge/JSON%20parser%20with%20C%2B%2B)
 
 ### javascript
-* [Closure, Prototype]()
+* [Javascript](https://github.com/vacu9708/Web-development/tree/main/Fundamental%20knowledge/Javascript)
 
 ### Low level
 * [OSI model](https://github.com/vacu9708/Web-development/tree/main/Fundamental%20knowledge/OSI%20model)
