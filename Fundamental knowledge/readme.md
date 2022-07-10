@@ -5,3 +5,5 @@
 ### Low level
 * [OSI model](https://github.com/vacu9708/Web-development/tree/main/Fuundamental%20knowledge/OSI%20model)
 * [UDP, TCP](https://github.com/vacu9708/Web-development/tree/main/Fuundamental%20knowledge/UDP%2C%20TCP)
+
+[Fundamental knowledge of computer](https://github.com/vacu9708/Fundamental-knowledge)
