@@ -14,16 +14,16 @@ const Login = ({renderSignup}: LoginProps) => {
     axios.post('/login', {
       username: username,
       password: password
-    }).then(res => {
-      if (res.status === 200) { // Login sucessful
-        const token = res.data.token
-        localStorage.setItem('token', token)
-        //window.location.href="/dashboard"
-        history.push("/dashboard") // This is way faster than window.location.href
-      } 
-      else { // Login failed
-        alert(res.data.error)
-      }
+    }).then(res => { // Login sucessful
+      const token = res.data.token
+      localStorage.setItem('token', token)
+      history.push("/dashboard") // This is way faster than window.location.href
+      //window.location.href="/dashboard"
+    })
+    .catch(error=>{
+      // Login failed
+      console.log(error.response)
+      alert(error.response.data.error)
     })
   }
 

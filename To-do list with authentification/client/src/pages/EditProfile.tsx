@@ -14,11 +14,12 @@ const EditProfile = () => {
         formData.append('profileImg', profileImg)
 
         axios.patch('/user', formData, {headers: {token: localStorage.getItem('token')}})
-          .then(res => {
-            if (res.status === 200){
-                setGoBack(!goBack)
-            }
-          })
+        .then(res => {
+            setGoBack(!goBack)
+        })
+        .catch(error=>{
+            alert(error)
+        })
     }
 
     const onImageChange=(e: any)=>{

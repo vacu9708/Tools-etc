@@ -6,15 +6,15 @@ const bcrypt = require('bcrypt'); // For encryption
 const get_todos = async (req, res) => {
   jwt.verify(req.headers.token, 'secretkey', (err, decoded) => {
       if (err) 
-      return res.status(300).json({
+      return res.status(401).json({
           error: 'Not authorized'
       })
 
       //Now token is proved to be valid
       Todo.find({ author: decoded.userId }, (err, todos) => {
         if (err) 
-          return res.status(201).json({error: err})
-        console.log(todos)
+          return res.status(404).json({error: err})
+        //console.log(todos)
         return res.status(200).json({todos: todos})
       })
   })
@@ -23,26 +23,26 @@ const get_todos = async (req, res) => {
 const get_all_users = async (req, res)=>{
   User.find({}, (err, users) => {
     if (err) 
-      return res.status(300).json({error: error})
+      return res.status(401).json({error: err})
 
     return res.status(200).json({
       title: 'success',
       users: users
-    });
+    })
   })
 }
 
 const get_user=async (req, res) => {
   jwt.verify(req.headers.token, 'secretkey', (err, decoded) => {
     if (err) 
-      return res.status(300).json({
+      return res.status(401).json({
           error: 'Not authorized'
       })
 
     // Now token is proved to be valid
     User.findOne({ _id: decoded.userId }, (err, user) => {
       if (err) 
-        return res.status(201).json({error: err})
+        return res.status(401).json({error: err})
 
       return res.status(200).json({
           username: user.username,
@@ -63,7 +63,7 @@ const sign_up=async (req, res) => {
 
   newUser.save(err => {
     if (err) { // Duplicate not allowed
-      return res.status(201).json({error: 'ID already in use'})
+      return res.status(409).json({error: 'ID already in use'})
     }
 
     return res.status(200).json({title: 'User successfully added'})
@@ -71,14 +71,14 @@ const sign_up=async (req, res) => {
 }
 
 const login=async (req,res) => {
-  console.log(req.body)
+  //console.log(req.body)
   User.findOne({username: req.body.username}, (err, user) => {
     if (err) 
-      return res.status(201).json({error: err})
+      return res.status(404).json({error: err})
     if (!user)
-      return res.status(202).json({error: 'Invalid username or password'})
+      return res.status(401).json({error: 'Invalid username'})
     if (!bcrypt.compareSync(req.body.password, user.password))
-      return res.status(203).json({error: 'Invalid username or password'})
+      return res.status(401).json({error: 'Invalid password'})
 
     // Authentication is done, give a token
     let token = jwt.sign({ userId: user._id}, 'secretkey');
@@ -94,7 +94,7 @@ const post_todo=async (req, res) => {
   // verify
   jwt.verify(req.headers.token, 'secretkey', async (err, decoded) => {
     if (err) 
-      return res.status(300).json({
+      return res.status(401).json({
         error: 'not authorized'
     });
 
@@ -106,7 +106,7 @@ const post_todo=async (req, res) => {
 
     newTodo.save(err => {
       if (err) 
-        return res.status(201).json({error: err})
+        return res.status(500).json({error: err})
       return res.status(200).json({todo: newTodo})
     })
   })
@@ -127,7 +127,7 @@ const post_todo=async (req, res) => {
 const patch_user=async (req, res)=>{ // Editing profile
   jwt.verify(req.headers.token, 'secretkey', (err, decoded) =>{
     if (err)
-      return res.status(301).json({error: 'Not authorized'})
+      return res.status(401).json({error: 'Not authorized'})
 
     User.findOne({_id: decoded.userId}, (err, user)=>{
       user.name=req.body.nameToChange
@@ -135,14 +135,14 @@ const patch_user=async (req, res)=>{ // Editing profile
       if(req.body.profileImg !== ''){ // If there's a new profile image
         fs.unlink("./uploads/images/"+user.img, err => { // Delete the previous profile image
           if(err)
-            return res.status(202).json({error: err})
+            return res.status(500).json({error: err})
         })
         user.img=req.file.filename // New profile image
       }
 
       user.save(err =>{
         if (err) 
-          return res.status(201).json({error: err})
+          return res.status(500).json({error: err})
 
         return res.status(200).json({title:'success'})
       })
@@ -153,18 +153,18 @@ const patch_user=async (req, res)=>{ // Editing profile
 const patch_is_completed=async (req, res) => { // Update isComplete
   jwt.verify(req.headers.token, 'secretkey', async (err, decoded) => {
     if (err)
-      return res.status(301).json({error: 'Not authorized'})
+      return res.status(401).json({error: 'Not authorized'})
 
     // Now token is proved to be vaild
     Todo.findOne({ author: decoded.userId, _id: req.params.todoId }, (err, todo) => {
       if (err) 
-        return res.status(202).json({error: err})
+        return res.status(404).json({error: err})
       
       todo.isCompleted = !todo.isCompleted
 
       todo.save(err => {
         if (err) 
-          return res.status(201).json({error: err})
+          return res.status(500).json({error: err})
 
         return res.status(200).json({title: 'success'})
       })
@@ -175,11 +175,11 @@ const patch_is_completed=async (req, res) => { // Update isComplete
 const delete_todo=async (req, res) => { // Delete a to-do
   jwt.verify(req.headers.token, 'secretkey', async (err, decoded) => {
     if (err) // Token error
-      return res.status(301).json({error: 'Not authorized'});
+      return res.status(401).json({error: 'Not authorized'});
 
     Todo.findByIdAndDelete(req.params.todoId, (err, todo)=>{
       if (err) 
-        return res.status(201).json({error: err})
+        return res.status(404).json({error: err})
 
       return res.status(200).json({title: 'success'})
     })
@@ -189,20 +189,20 @@ const delete_todo=async (req, res) => { // Delete a to-do
 const patch_todo_title=async (req, res) => { // Update isComplete
   jwt.verify(req.headers.token, 'secretkey', async (err, decoded) => {
     if (err)
-      return res.status(301).json({
+      return res.status(401).json({
       error: 'not authorized'
     });
 
     // Now token is proved to be vaild
     Todo.findOne({ author: decoded.userId, _id: req.params.todoId }, (err, todo) => {
       if (err) 
-        return res.status(202).json({error: err})
+        return res.status(404).json({error: err})
       
       todo.title = req.body.newTitle
 
       todo.save(err => {
         if (err) 
-          return res.status(201).json({error: err})
+          return res.status(500).json({error: err})
 
         return res.status(200).json({
           title: 'success'

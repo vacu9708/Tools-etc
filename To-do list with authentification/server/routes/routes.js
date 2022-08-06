@@ -39,9 +39,8 @@ router.delete("/todo/:todoId", controller.delete_todo)
   
 router.get('/*', function(req, res) { // React router
     res.sendFile(path.join(__dirname, '/..', '/client/build/index.html'), err=>{
-        if (err) {
-        res.status(500).send(err)
-        }
+        if (err) 
+            res.status(500).send(err)
     })
 })
 

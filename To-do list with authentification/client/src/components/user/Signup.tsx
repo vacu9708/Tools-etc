@@ -21,13 +21,14 @@ const Signup = ({renderLogin}: SignupProps) => {
     formData.append('profileImg', profileImg)
 
     axios.post('/signup', formData)
-    .then(res => {
-      if(res.status !== 200) // Signup error
-        alert(res.data.error)
-      else {// Go to login page if sign up is successful
-        alert(res.data.title)
-        renderLogin() // Go to login page
-      }
+    .then(res => { // Go to login page if sign up is successful
+      alert(res.data.title)
+      renderLogin() // Go to login page
+    })
+    .catch(error=>{
+      // Login failed
+      console.log(error.response)
+      alert(error.response.data.error)
     })
   }
 
