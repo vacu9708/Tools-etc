@@ -6,7 +6,9 @@
 
 ## HTML, CSS, and javascript code received is parsed.
 1. A *DOM(Document Object Model) tree* is built from HTML.
-![image](https://user-images.githubusercontent.com/67142421/183269942-7f22e121-8549-4a51-b585-ddd479f10f61.png)
+>The Document Object Model (DOM) represents a web document as a tree.
+
+![image](https://user-images.githubusercontent.com/67142421/183269942-7f22e121-8549-4a51-b585-ddd479f10f61.png)<br>
 2. The *preload scanner* requests high priority resources like CSS, JavaScript, and images so that by the time the HTML parser reaches requested assets, their download may have already been started.
 ~~~HTML
 <link rel="stylesheet" src="styles.css"/>
