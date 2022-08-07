@@ -10,3 +10,6 @@ In HTTPS, the communication is encrypted using SSL handshake.(or Transport Layer
 
 ### What is a restful API?
 A restful API has to contain enough information that represents what it does to facilitate collaboration.
+
+### UI/UX
+UI refers to visual elements that users interact with. UX refers more generally to users' overall experience, including how they feel about the interaction.
