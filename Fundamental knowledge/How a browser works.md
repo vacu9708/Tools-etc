@@ -4,17 +4,20 @@
 3. (For a secure connection established over HTTPS), *TLS handshake* is performed additionally.
 4. The browser sends an initial *HTTP GET request* (most often to get an HTML).
 
-## HTML, CSS, and javascript code received is parsed.
-1. A *DOM(Document Object Model) tree* is built from HTML.
+## 5. HTML, CSS, and javascript code received is parsed.
+- The *preload scanner* requests high priority resources like CSS, JavaScript, and images so that by the time the HTML parser reaches requested assets, their download may have already been started.
+~~~HTML
+<link rel="stylesheet" src="styles.css"/>
+<script src="myscript.js" defer></script>
+<img src="myimage.jpg" alt="image description"/>
+~~~
+- A *DOM(Document Object Model) tree* is built from HTML.
 >The Document Object Model (DOM) represents a web document as a tree.
 
 ![image](https://user-images.githubusercontent.com/67142421/183269942-7f22e121-8549-4a51-b585-ddd479f10f61.png)<br>
-2. The *preload scanner* requests high priority resources like CSS, JavaScript, and images so that by the time the HTML parser reaches requested assets, their download may have already been started.
-~~~HTML
-<link rel="stylesheet" src="styles.css"/>
-<script src="myscript.js" async></script>
-<img src="myimage.jpg" alt="image description"/>
-<script src="anotherscript.js" async></script>
-~~~
-3. A *CSSOM tree* is built.(the same process as building a DOM tree)
-4. Javascript code is parsed into *abstract syntax trees* and passed into a javascript interpreter. (<script> tags without an async or defer attribute block rendering to prevent showing a webpage without javascript.)
+
+- A *CSSOM tree* is built.(the same process as building a DOM tree)
+- Javascript code is parsed into *abstract syntax trees* and passed into a javascript interpreter. (<script> tags without an async or defer attribute block rendering to prevent showing a superficial webpage without javascript.)
+
+6. The DOM and CSSOM trees created in the parsing step are combined into a render tree which is then used to compute the layout of every visible element.
+7. Each node of the render tree is painted to the screen.
