@@ -12,7 +12,7 @@ A cookie is sent included on the HTTP header.
 ## Authentification by session
 ### How a session is made
 1. Valid log-in information
-2. The server creates a session object and sends its session ID encrypted by a private key to the client
+2. The server creates a session object and sends its session ID to the client
 3. The session ID is stored as a cookie
 
 ### How authorized clinets are distinguished
