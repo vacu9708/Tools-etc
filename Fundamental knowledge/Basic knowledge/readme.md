@@ -9,12 +9,13 @@ HTTP (HyperText Transfer Protocol) is an application-layer protocol for transmit
 In HTTPS, the communication is encrypted using SSL handshake.(or Transport Layer Security). It is secure but delays the speed of the website.
 
 ## Restful API
+A web API that obeys the REST constraints is described as RESTful API.
 ### A restful API consists of
 * HTTP methods(GET, POST, PUT, DELETE)
 * URL like http://myweb/users, called *resource*
 * message(in a form of either JSON or XML)
 
-A restful API has to be *self-descriptive*, in other words, contain enough information that represents what it does.
+One of the rest constraints is *self-descriptive*, which means an API has to contain enough information that represents what it does.
 
 ![image](https://user-images.githubusercontent.com/67142421/183272701-c6526ec7-79dd-4a9e-a72e-204dee53a978.png)<br>
 
