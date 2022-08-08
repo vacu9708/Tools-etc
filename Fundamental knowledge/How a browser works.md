@@ -17,7 +17,7 @@
 ![image](https://user-images.githubusercontent.com/67142421/183269942-7f22e121-8549-4a51-b585-ddd479f10f61.png)<br>
 
 - A *CSSOM tree* is built.(the same process as building a DOM tree)
-- Javascript code is parsed into *abstract syntax trees* and passed into a javascript interpreter. (<script> tags without an async or defer attribute block rendering to prevent showing a superficial webpage without javascript.)
+- Javascript code is parsed into *abstract syntax trees* and passed into a javascript interpreter. (<script> tags without an async or defer attribute block rendering, which prevents showing a superficial webpage without javascript.)
 
 6. The DOM and CSSOM trees created in the parsing step are combined into a render tree which is then used to compute the layout of every visible element.
 7. Each node of the render tree is painted to the screen.
