@@ -15,7 +15,7 @@ A web API that obeys the REST constraints is described as RESTful API.
 * URL like http://myweb/users, called *resource*
 * message(in a form of either JSON or XML)
 
-One of the rest constraints is *self-descriptive*, which means an API has to contain enough information that represents what it does.
+One of the REST constraints is *self-descriptive*, which means an API has to contain enough information that represents what it does.
 
 ![image](https://user-images.githubusercontent.com/67142421/183272701-c6526ec7-79dd-4a9e-a72e-204dee53a978.png)<br>
 
