@@ -1,6 +1,6 @@
 # CORS(Cross-Origin Resource sharing)
 
-# CSRF(Cross-Site-Request-Forgery)
+# CSRF(Cross-Site Request Forgery)
 
 # XSS(Cross-Site Scripting)
 
