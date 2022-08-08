@@ -4,7 +4,7 @@
 - [Javascript](https://github.com/vacu9708/Web-development/tree/main/Fundamental%20knowledge/Javascript)
 - [How a browser works](https://github.com/vacu9708/Web-development/blob/main/Fundamental%20knowledge/How%20a%20browser%20works.md)
 - [SSR, CSR](https://github.com/vacu9708/Web-development/blob/main/Fundamental%20knowledge/SSR,%20CSR,.md)
-- [Authorization)[https://github.com/vacu9708/Web-development/blob/main/Fundamental%20knowledge/Authorization.md]
+- [Authorization](https://github.com/vacu9708/Web-development/blob/main/Fundamental%20knowledge/Authorization.md)
 - [Security](https://github.com/vacu9708/Web-development/blob/main/Fundamental%20knowledge/Security.md)
 
 ### Network
