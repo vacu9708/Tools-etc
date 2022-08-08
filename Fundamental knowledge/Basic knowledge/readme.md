@@ -1,16 +1,20 @@
-### Hyperlink
+# Hyperlink
 something you can click on to jump to another place of the web. (It creates a nonlinear network of information)
 
-### The HyperText Markup Language, or HTML
+# The HyperText Markup Language, or HTML
 the standard markup language that is used to define the structure of a webpage(, which can include hypermedia such as text, graphics, sound, video, and so on).
 
-### HTTP and HTTPS
+# HTTP and HTTPS
 HTTP (HyperText Transfer Protocol) is an application-layer protocol for transmitting HTML documents where security is not considered.
 In HTTPS, the communication is encrypted using SSL handshake.(or Transport Layer Security). It is secure but delays the speed of the website.
 
-## Restful API
+# HTTP methods
+- **GET** is used to request data where the request parameter is appended to the URL and has a length restriction.
+- **POST** is used to send data to a server where the request parameter is appended into the HTTP body doesn't have a length restriction.
+
+# Restful API
 A web API that obeys the REST constraints is described as RESTful API.
-### A restful API consists of
+## A restful API consists of
 * HTTP methods(GET, POST, PUT, DELETE)
 * URL like http://myweb/users, called *resource*
 * message(in a form of either JSON or XML)
@@ -19,5 +23,5 @@ One of the REST constraints is *self-descriptive*, which means an API has to con
 
 ![image](https://user-images.githubusercontent.com/67142421/183272701-c6526ec7-79dd-4a9e-a72e-204dee53a978.png)<br>
 
-### UI/UX
+# UI/UX
 UI refers to visual elements that users interact with. UX refers more generally to users' overall experience, including how they feel about the interaction.
