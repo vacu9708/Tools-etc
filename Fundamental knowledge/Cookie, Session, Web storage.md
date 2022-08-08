@@ -7,17 +7,20 @@ The 2 major features of HTTP are **"connectionless"** and **"stateless"** as a r
 ## HTTP cookie and session
 * **An HTTP cookie** is a small piece of data created by a server and placed on the user's computer. It can be read by both the client and server and is automatically sent back to the server through the HTTP request header on every request.
 A cookie is sent included on the HTTP header.
-* **An HTTP session** is a kind of cookie that is managed by the server. The session ID is stored in the client side as a cookie and the session object is stored in the server. The session is more secure because it is managed by server not by client but the problem is the more users the more resource of the server is taken.
+* **An HTTP session** consists of session ID. The session ID is stored in the client side as a cookie and the session object is stored in the server. The session is more secure because it is managed by server not by client but the problem is that the more users the more resource of the server is taken.
 
 ## Authentification by session
 ### How a session is made
-1. Log in successful
-2. The server creates a session object and returns the session ID to the client
+1. Valid log-in information
+2. The server creates a session object and sends its session ID encrypted by a private key to the client
+3. The session ID is stored as a cookie
 
 ### How authorized clinets are distinguished
-1. The client sends an HTTP request with its session ID cookie through the HTTP header.
+1. The client sends an HTTP request with its session ID in the HTTP request header.
 2. The server looks up if it has a matched session ID.
 3. If there is a matched session ID, the server sends the response the client wants.
+
+If the session ID finds its way into the hands of a hacker, they can masquerade as that user. This is known as **session hijacking**.
 
 || Cookie | Session |
 | :---: | :---: | :---: |
