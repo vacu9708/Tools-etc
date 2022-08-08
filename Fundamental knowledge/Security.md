@@ -1,11 +1,11 @@
-# CORS
+# CORS(Cross-Origin Resource sharing)
 
-# CSRF
+# CSRF(Cross-Site-Request-Forgery)
 
-# XSS
+# XSS(Cross-Site Scripting)
 
 # SQL injection
 
 # Symmetric key cryptography, Asymmetric key cryptography
 
-# TLS
+# TLS(Transport Layer Security)
