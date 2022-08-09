@@ -30,7 +30,7 @@ Symmetric encryption uses a single key while asymmetric encryption uses a pair o
 ## The process where a confidential message is delivered in the public key crptography
 ![image](https://user-images.githubusercontent.com/67142421/183536116-574d043c-768c-4339-911c-99e308dcbd58.png)
 
-1. Bob generates 2 keys : public key, private key
+1. Bob generates 2 keys : public key and private key
 2. Bob gives the public key to Alice
 3. Alice encrypts the secret message using the public key she received.
 4. Alice gives the encrypted message to Bob
