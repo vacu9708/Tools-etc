@@ -22,7 +22,7 @@ CSRF exploits the trust a user has for a particular site. It tricks a victim int
 >Both CSRF and XSS allow an attacker to masquerade as a victim user, to carry out any actions that the user is able to perform.<br>
 
 # SQL injection
-An SQL injection is to inject malicious SQL statements into an entry box to gain unauthorized access to database.
+An SQL injection is to inject malicious SQL statements into an input to gain unauthorized access to database.
 
 # Symmetric key cryptography, Asymmetric key cryptography
 Symmetric encryption uses a single key while asymmetric encryption uses a pair of public key and a private key to encrypt and decrypt messages.
