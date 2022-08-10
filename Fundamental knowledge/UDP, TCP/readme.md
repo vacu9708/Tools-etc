@@ -18,17 +18,19 @@ The TCP is used to ensure the successful delibery of packets.<br>
 * performs flow control and congestion control
 
 ## 3-way handshake
+A three-way handshake is used to establish a reliable connection.<br>
 ![image](https://user-images.githubusercontent.com/67142421/178132002-1b60b862-4723-4def-9b8a-594f42bfd82e.png)
 
 * The **sequence number** is used to keep track of every byte sent to ensure reliable transmission. If a TCP packet contains 100bytes, 
 then the sequence number of the next packet will start with 101.
 * SYN stands for Synchronize sequence number and ACK stands for Ackknowledgement.
 
-1. The client sends a SYN with a sequence number "a".
-2. If the data does not contain errors, server responds to the client request with an SYN(b) and ACK(a+1) signal, where a+1 ensures that it was sent right after a.
-3. Client sends ACK(b+1) to the server and they both establishes a reliable connection.
+1. The client sends a SYN with a sequence number "M".
+2. If the data does not contain errors, server responds to the client request with an SYN(N) and ACK(M+1) signal, where M+1 ensures that it was sent right after M.
+3. Client sends ACK(N+1) to the server and they both establishes a reliable connection.
 
 ## 4-way handshake
+TCP connection tear-down is performed with a 4-way handshake.<br>
 ![image](https://user-images.githubusercontent.com/67142421/178133057-8290aaef-1b2d-4c66-8c49-69b35f40e2b8.png)
 
 1. Client sends FIN and enters the FIN_WAIT_1 state. While in the FIN_WAIT_1 state, the client waits for **ACK**.
