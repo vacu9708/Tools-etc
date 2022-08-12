@@ -1,5 +1,5 @@
 ## DNS
-The Domain Name System (DNS) is the phonebook of the Internet. Web browsers interact through Internet Protocol (IP) addresses. DNS translates domain names to IP addresses to eliminate the need for humans to memorize IP addresses.
+The Domain Name System (DNS) is the phonebook of the Internet. Web browsers interact through IP addresses. DNS translates domain names to IP addresses to eliminate the need for humans to memorize IP addresses.
 
 # What happens when www.google.com is entered? 
 
