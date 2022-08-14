@@ -26,7 +26,7 @@ new Promise(function(resolve, reject){
   }
 }
 .then(response=>{return process_response(response)})
-.then(processed_response=>{return display(processed_response)})
+.then(processed_response=>{return display(processed_response)}) //The return gives the returned value to the next then
 .then(displayed_data=>{
   console.log(displaye_data)
 })
