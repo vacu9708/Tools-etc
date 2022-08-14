@@ -25,8 +25,8 @@ new Promise(function(resolve, reject){
     resolve(response)
   }
 }
-.then(response=>{return process_response(response)}
-.then(processed_response=>{return display(processed_response)}
+.then(response=>{return process_response(response)})
+.then(processed_response=>{return display(processed_response)})
 .then(displayed_data=>{
   console.log(displaye_data)
-}
+})
