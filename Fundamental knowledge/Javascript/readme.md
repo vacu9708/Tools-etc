@@ -22,7 +22,7 @@ foo2() //ReferenceError: i is not defined
 ||var|let|const|
 |---|---|---|---|
 |Scope|Functional scope|Block scope|Block scope|
-|declaration|Can be declared without initialization with a default value "undefined"|Can be declared without initialization but accessing without initilization returns an error|Cannot be declared without initialization|
+|declaration|Can be declared without initialization where its default value is "undefined"|Can be declared without initialization but accessing without initilization returns an error|Cannot be declared without initialization|
 |Update|Can be updated|Can be updated|Cannot be updated but updating by dereferencing is possible|
 
 # Closure
