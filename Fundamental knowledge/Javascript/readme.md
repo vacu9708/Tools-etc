@@ -1,6 +1,29 @@
-## *This* keyword in javascript
+# *This* keyword in javascript
 * In an object : points to the address of an object.
 * Outside an object : points to the global scope
+
+# Difference between var, let and const
+## Prior knowledge(block scope VS function scope)
+~~~javascript
+function foo1() {
+    for(var i=0; i<3; i++);
+    console.log(i)
+}
+
+function foo2() {
+    for(let i=0; i<3; i++);
+    console.log(i)
+}
+
+foo1() //3
+foo2() //ReferenceError: i is not defined
+~~~
+
+||var|let|const|
+|---|---|---|---|
+|Scope|Functional scope|Block scope|Block scope|
+|declaration|Can be declared without initialization with a default value "undefined"|Can be declared without initialization but accessing without initilization returns an error|Cannot be declared without initialization|
+|Update|Can be updated|Can be updated|Cannot be updated but updating by dereferencing is possible|
 
 # Closure
 Each function in JavaScript form closures. A **closure** is the combination of an inner function and the lexical environment within which the inner function is declared.<br>
