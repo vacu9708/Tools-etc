@@ -24,8 +24,8 @@ char* read_file(const char* filename, int* document_size) // File to string buff
     if (fp == NULL)
         return NULL;
 
-    fseek(fp, 0, SEEK_END); // To the end_of_string of file
-    *document_size = ftell(fp); // File document_size
+    fseek(fp, 0, SEEK_END); // To the end_of_string of file to get the document size
+    *document_size = ftell(fp);
     fseek(fp, 0, SEEK_SET); // To the beginning of file
     char* buffer = new char[*document_size + 1];
     //memset(buffer, 0, document_size + 1);
