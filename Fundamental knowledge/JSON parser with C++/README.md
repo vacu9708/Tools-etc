@@ -27,18 +27,18 @@ char* read_file(const char* filename, int* document_size) // File to string buff
     fseek(fp, 0, SEEK_END); // To the end_of_string of file to get the document size
     *document_size = ftell(fp);
     fseek(fp, 0, SEEK_SET); // To the beginning of file
-    char* buffer = new char[*document_size + 1];
+    char* document = new char[*document_size + 1];
     //memset(buffer, 0, document_size + 1);
 
-    if (fread(buffer, *document_size, 1, fp) == 0) { // Put the content of file to buffer.
+    if (fread(document, *document_size, 1, fp) == 0) { // Put the content of file to buffer.
         cout << "Error in file reading";
-        delete buffer;
+        delete document;
         fclose(fp);
         return NULL;
     }
 
     fclose(fp); // The content of file has been sent to buffer, so the file is no longer necessary.
-    return buffer;
+    return document;
 }
 
 void parseJSON(char* document, int document_size, JSON* json) {
@@ -59,9 +59,8 @@ void parseJSON(char* document, int document_size, JSON* json) {
 
             // Put the found string to token array.
             int string_length = closing_of_string - beginning_of_string;
-            json->tokens[json->token_i] = new char[string_length + 1]{ 0 };
-            memcpy(json->tokens[json->token_i], document + beginning_of_string, string_length);
-            json->token_i++;
+            json->tokens[json->token_i] = new char[string_length + 1]{0};
+            memcpy(json->tokens[json->token_i++], document + beginning_of_string, string_length);
         }
     }
 }
