@@ -32,7 +32,6 @@ char* read_file(const char* filename, int* document_size) // File to string buff
 
     if (fread(buffer, *document_size, 1, fp) == 0) { // Put the content of file to buffer.
         cout << "Error in file reading";
-        *document_size = 0;
         delete buffer;
         fclose(fp);
         return NULL;
