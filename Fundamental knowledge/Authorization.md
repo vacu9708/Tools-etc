@@ -30,8 +30,8 @@ If the payload was manipulated, the signature of the manipulated payload doesn't
 ### Session-cookie
 - All the information except session ID is stored in the server
 ### JWT
-- All the information is stored in the token(stateless), so no additional storage is required
-- All the information is stored in the token, so JWT is bigger than session ID, which might lead to big traffic.
+- All the information is stored in the token(stateless), so no additional storage is required.
+- All the information is stored in the token, so the token is bigger than session ID, which might lead to big traffic.
 
 # OAuth 2.0
 Due to the security issue of OAuth 1.0, OAuth 2.0 was developed.
