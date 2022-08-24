@@ -18,11 +18,11 @@ const Login = ({renderSignup}: LoginProps) => {
       const token = res.data.token
       localStorage.setItem('token', token)
       history.push("/dashboard") // This is way faster than window.location.href
-      //window.location.href="/dashboard"
+      //location.href="/dashboard"
     })
     .catch(error=>{
       // Login failed
-      console.log(error.response)
+      //console.log(error.response)
       alert(error.response.data.error)
     })
   }

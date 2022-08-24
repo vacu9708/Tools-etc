@@ -9,8 +9,8 @@ const routes=require("./routes/routes.js")
 app.use(cors());
 app.use((bodyParser.json()));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, '/..', '/client/build'))) // React path
-app.use('/uploads/images', express.static(path.join(__dirname,'/uploads/images')))
+app.use(express.static(path.join(__dirname, '..', 'client/build'))) // React path
+app.use('/uploads/images', express.static(path.join(__dirname,'uploads/images')))
 app.use('/', routes)
 
 // MongoDB connection

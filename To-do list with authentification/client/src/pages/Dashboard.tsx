@@ -18,6 +18,7 @@ export interface TodoProps {
 const Dashboard = () => {
   const [todoList, setTodoList] = React.useState<Todo[]>([]);
   const [profileImgPath, setProfileImgPath] = React.useState("");
+  let [name, set_name]=React.useState('')
   
   React.useEffect(() => {
     axios.get('/todos', { headers: { token: localStorage.getItem('token')}}) // Get to-do list
@@ -29,14 +30,15 @@ const Dashboard = () => {
     axios.get('/user', {headers: {token: localStorage.getItem('token')}}) // Get profile image
     .then(res => {
       if (res.status === 200){
-        setProfileImgPath("/uploads/images/"+res.data.profileImg)
+        setProfileImgPath(res.data.profileImg)
+        set_name(res.data.name)
       }
   })
   }, [])
 
   return(
     <>
-      <Navbar/>
+      <Navbar name={name}/>
       <p style={{color:'grey', marginTop:'20px', marginLeft:'100px', fontWeight:'bolder' , fontSize:'30px'}}>Profile</p>
       <div style={{color:'grey', marginLeft:'5px', marginTop:'10px', border:'5px solid', width:'300px', height:'420px'}}>
         <img src={profileImgPath} width='300' height='200' alt="..."></img>

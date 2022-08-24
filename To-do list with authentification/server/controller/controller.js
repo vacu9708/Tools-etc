@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken');
 const Todo = require('../models/Todo');
 const User = require('../models/User');
 const bcrypt = require('bcrypt'); // For encryption
+const fs = require('fs'); // To delete files
+const path=require('path')
 
 const get_todos = async (req, res) => {
   jwt.verify(req.headers.token, 'secretkey', (err, decoded) => {
@@ -58,7 +60,7 @@ const sign_up=async (req, res) => {
     username: req.body.username,
     password: bcrypt.hashSync(req.body.password, 10), // Encryption
     name: req.body.name,
-    img: req.body.profileImg!==''? req.file.filename : ''
+    img: req.file? '/uploads/images/'+req.file.filename: ''
   });
 
   newUser.save(err => {
@@ -82,6 +84,7 @@ const login=async (req,res) => {
 
     // Authentication is done, give a token
     let token = jwt.sign({ userId: user._id}, 'secretkey');
+    console.log(token)
     return res.status(200).json({
       title: 'Login successful',
       token: token,
@@ -128,22 +131,19 @@ const patch_user=async (req, res)=>{ // Editing profile
   jwt.verify(req.headers.token, 'secretkey', (err, decoded) =>{
     if (err)
       return res.status(401).json({error: 'Not authorized'})
-
     User.findOne({_id: decoded.userId}, (err, user)=>{
       user.name=req.body.nameToChange
-
-      if(req.body.profileImg !== ''){ // If there's a new profile image
-        fs.unlink("./uploads/images/"+user.img, err => { // Delete the previous profile image
+      if(req.file){ // If there's a new profile image
+        fs.unlink(path.join(__dirname, '..', user.img), err => { // Delete the previous profile image
           if(err)
             return res.status(500).json({error: err})
         })
-        user.img=req.file.filename // New profile image
+        user.img='/uploads/images/'+req.file.filename // New profile image
       }
 
       user.save(err =>{
-        if (err) 
+        if (err)
           return res.status(500).json({error: err})
-
         return res.status(200).json({title:'success'})
       })
     })

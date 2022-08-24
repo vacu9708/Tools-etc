@@ -3,13 +3,13 @@ const app = express();
 const router=express.Router()
 const controller=require("../controller/controller.js")
 const multer = require('multer'); // For image uploading
-const fs = require('fs'); // To delete files
+const path=require('path')
 
 // storage for images
 const storage = multer.diskStorage({
     // destination of file
     destination: function (req, file, callback) {
-      callback(null, './uploads/images');
+      callback(null, path.join(__dirname, '..', '/uploads/images'));
     },
   
     // decide filename
