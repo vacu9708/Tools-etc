@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const router=express.Router()
 const controller=require("../controller/controller.js")
+const naver_OAuth=require("../controller/naver_OAuth.js")
 const multer = require('multer'); // For image uploading
 const path=require('path')
 
@@ -26,13 +27,16 @@ const upload = multer({
     },
 })
 
-router.get('/todos', controller.get_todos)
-router.get('/all_users', controller.get_all_users)
-router.get('/user', controller.get_user)
 router.post('/signup', upload.single('profileImg'), controller.sign_up)
 router.post('/login', controller.login)
-router.post('/todo', controller.post_todo)
+router.get('/naver/OAuth/login', naver_OAuth.login)
+router.get('/naver/OAuth/callback', naver_OAuth.callback)
+router.get('/all_users', controller.get_all_users)
+router.get('/user', controller.get_user)
 router.patch('/user', upload.single('profileImg'), controller.patch_user)
+router.delete("/user", controller.delete_user)
+router.get('/todos', controller.get_todos)
+router.post('/todo', controller.post_todo)
 router.patch('/todoIsCompleted/:todoId', controller.patch_is_completed)
 router.patch('/todoTitle/:todoId', controller.patch_todo_title)
 router.delete("/todo/:todoId", controller.delete_todo)

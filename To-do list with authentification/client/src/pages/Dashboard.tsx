@@ -33,7 +33,7 @@ const Dashboard = () => {
         setProfileImgPath(res.data.profileImg)
         set_name(res.data.name)
       }
-  })
+    })
   }, [])
 
   return(

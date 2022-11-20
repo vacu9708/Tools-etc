@@ -11,9 +11,12 @@ const TodoForm = ({todos, setTodos}: TodoProps) => { // To-do input box
           if (res.status === 200) {
             let todo = res.data.todo;
             setTodos([...todos, todo]);
+            // console.log(todo)
+            // setTodos([])
             setTitle("");
           }
         })
+        .catch(err=>{alert(err)})
     }
   }
 

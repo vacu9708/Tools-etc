@@ -6,7 +6,8 @@ interface SignupProps {
 }
 
 const Signup = ({renderLogin}: SignupProps) => {
-  let username=''
+  //let userID=''
+  const [userID, setUserID] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
   const [name, setName] = React.useState("");
@@ -15,7 +16,7 @@ const Signup = ({renderLogin}: SignupProps) => {
 
   function onSubmit() {
     const formData=new FormData()
-    formData.append('username', username)
+    formData.append('userID', userID)
     formData.append('password', password)
     formData.append('name', name)
     formData.append('profileImg', profileImg)
@@ -47,9 +48,9 @@ const Signup = ({renderLogin}: SignupProps) => {
     <div style={{height: '300px'}}>
       <h1 style={{fontSize:'33px'}} className="text-center text-green-400 font-bold">Sign up page</h1>
       <div className="mb-4">
-        <label>username</label>
-        <input onChange={(e) => username=e.target.value} className="w-full px-3 py-2 border border-gray-400 rounded-md" 
-        type="text" placeholder="username" />
+        <label>user ID</label>
+        <input onChange={(e) => setUserID(e.target.value)} className="w-full px-3 py-2 border border-gray-400 rounded-md" 
+        type="text" placeholder="user ID" />
       </div>
       <div className="mb-4">
         <label>password</label>

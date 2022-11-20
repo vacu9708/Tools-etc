@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 
 interface User{
-    username: string;
+    userID: string;
     name: string;
 }
 
@@ -21,10 +21,10 @@ function Users_inquiry(){
         const elements=[]
         for(let i=0; i<user_list.length; i++){
             elements.push(
-                <div className="flex border border-black-400 p-3 rounded-md mb-4 items-center" key={user_list[i].username}
+                <div className="flex border border-black-400 p-3 rounded-md mb-4 items-center" key={user_list[i].userID}
                     style={{borderWidth:'medium', justifyContent:'space-evenly'}}>
                     <label>Index: {i+1}</label>
-                    <label>ID: {user_list[i].username}</label>
+                    <label>ID: {user_list[i].userID}</label>
                     <label>Name: {user_list[i].name}</label>
                 </div>
             )

@@ -4,7 +4,7 @@ import { Checkbox } from "@material-ui/core";
 import {Todo, TodoProps} from "../../pages/Dashboard";
 
 const TodoList = ({todos, setTodos}: TodoProps) => {
-  const [rendering, render] = React.useState(false);
+  const [render, set_render] = React.useState(false);
   //const [beingEdited, setBeingEdited] = React.useState(new Array(todos.length))
   const [todoBeingEdited, setTodoBeingEdited] = React.useState<number>(-1)
   const [newTitle, setNewTitle] = React.useState("");
@@ -15,7 +15,7 @@ const TodoList = ({todos, setTodos}: TodoProps) => {
         if (res.status === 200){
           todo.isCompleted=!todo.isCompleted
           //todo.isCompleted=res.data.todo.isCompleted // same as above
-          render(!rendering)
+          set_render(!render)
         }
       })
   }
@@ -30,20 +30,26 @@ const TodoList = ({todos, setTodos}: TodoProps) => {
       })
   }
 
-  function deleteTodo(todo: Todo){
-    axios.delete("/todo/"+todo._id, {headers: {token: localStorage.getItem('token')}})
+  function deleteTodo(todo_id: String){
+    axios.delete("/todo/"+todo_id, {headers: {token: localStorage.getItem('token')}})
       .then(res=>{
         if(res.status === 200){
-          setTodos(todos.filter((prev_todo)=>prev_todo._id!==todo._id)) // Delete on client
+          setTodos(todos.filter((todo)=>todo._id!==todo_id))   
+          // for(let i=0; i<todos.length; i++) // doesn't work
+          //   if(todos[i]._id===todo_id){
+          //     todos.splice(i,1)
+          //     setTodos(todos)
+          //     break
+          //   }
         }
     })
   }
 
   return(
     <>
-
       {todos.map((todo, i) => (
-        i!==todoBeingEdited?
+        i!==todoBeingEdited
+        ?
         <div className="flex border border-gray-400 p-4 rounded-md mb-4 justify-between items-center" key={todo._id}>
           <Checkbox checked={todo.isCompleted} onClick={() => markCompleted(todo)}></Checkbox>
           <label style={todo.isCompleted? {textDecoration:'line-through'}: {}}>{(i+1)+'. '+todo.title}</label>
@@ -51,7 +57,7 @@ const TodoList = ({todos, setTodos}: TodoProps) => {
             <input type="button" className="py-2 px-3 bg-green-400 text-white rounded-md cursor-pointer"
             value="EDIT" onClick={() => setTodoBeingEdited(i)} />
             <input type="button" className="py-2 px-3 bg-green-400 text-white rounded-md cursor-pointer"
-            value="DONE" onClick={() => deleteTodo(todo)} />
+            value="DONE" onClick={() => deleteTodo(todo._id)} />
           </div>
         </div>
         :

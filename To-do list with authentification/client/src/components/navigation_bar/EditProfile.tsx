@@ -1,17 +1,12 @@
-import { Redirect } from "react-router";
+import { useHistory } from "react-router";
 import React from "react";
 
 const EditProfile = () => {
-  const [move, setMove] = React.useState(false);
-  if(move)
-    return <Redirect to={'/edit_profile'}/>
-
+  const history=useHistory()
   return(
     <input type="button" className="px-3 py-3 text-black rounded-md cursor-pointer" 
     style={{backgroundColor:'lightgray'}} value="Edit profile" 
-      onClick={() => {
-        setMove(!move)
-      }}
+      onClick={() => {history.push('/edit_profile')}}
     />
   )
 }

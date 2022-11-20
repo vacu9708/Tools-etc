@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  username: {
+  userID: {
+    type: String,
     unique: true, // To prevent duplicate values
-    type: String
   },
   password: String,
   name: String,

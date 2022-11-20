@@ -8,7 +8,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import RequireAuth from "./components/user/RequireAuth";
 import Dashboard from "./pages/Dashboard";
 import EditProfile from './pages/EditProfile';
-
+import Naver_OAuth from './pages/Naver_OAuth';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -16,6 +16,7 @@ ReactDOM.render(
         <Route exact path="/" component={LoginSingup}/>
         <Route exact path="/dashboard" component={RequireAuth(Dashboard)} />
         <Route exact path="/edit_profile" component={EditProfile}/>
+        <Route exact path="/naver/OAuth/callback" component={Naver_OAuth}/>
       </Switch>
     </BrowserRouter>
   </React.StrictMode>,

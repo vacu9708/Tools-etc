@@ -1,21 +1,33 @@
 import React from "react";
 import axios from "axios";
-import {Redirect, useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 const EditProfile = () => {
     const [nameToChange, setNameToChange] = React.useState("");
     const [profileImg, setProfileImg] = React.useState('');
-    const [goBack, setGoBack] = React.useState(false);
     const history = useHistory();
 
-    function edit(nameToChange: string) {
+    function delete_user(){
+        axios.delete(`/user`, {headers: {token: localStorage.getItem('token')}})
+        .then(res=>{
+        if(res.status === 200){
+            alert('Deleted')
+            history.push('/')
+        }
+        })
+        .catch(error=>{
+            alert(error.response.data.error)
+        })
+      }
+
+    function edit() {
         const formData=new FormData()
         formData.append('nameToChange', nameToChange)
         formData.append('profileImg', profileImg)
 
         axios.patch('/user', formData, {headers: {token: localStorage.getItem('token')}})
         .then(res => {
-            setGoBack(!goBack)
+            history.push("/dashboard");
         })
         .catch(error=>{
             alert(error)
@@ -25,10 +37,6 @@ const EditProfile = () => {
     const onImageChange=(e: any)=>{
         setProfileImg(e.target.files[0])
     }
-
-    if(goBack)
-        history.push("/dashboard");
-        //return <Redirect to={'/dashboard'}/>
 
     return(
         <div className="w-full h-screen">
@@ -47,9 +55,11 @@ const EditProfile = () => {
                     </div>
 
                     <button className={`rounded-lg px-6 py-3 font-bold text-white bg-green-400`} 
-                    onClick={() => setGoBack(!goBack)}>Cancel</button>
-                    <button className={`rounded-lg px-6 py-3 ml-1 font-bold text-white bg-green-400`} 
-                    onClick={() => edit(nameToChange)}>Edit</button>
+                    onClick={() => history.push("/dashboard")}>Cancel</button>
+                    <button className={`rounded-lg px-6 py-3 mx-1 mt-1 font-bold text-white bg-green-400`} 
+                    onClick={edit}>Edit</button>
+                    <button className={`rounded-lg px-6 py-3 mt-1 font-bold text-white bg-green-400`} 
+                    onClick={delete_user}>Delete my account</button>
                 </div>
             </div>
         </div>
