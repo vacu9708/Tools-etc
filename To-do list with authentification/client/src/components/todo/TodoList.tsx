@@ -33,7 +33,7 @@ const TodoList = ({todos, setTodos}: TodoProps) => {
   function deleteTodo(todo_id: String){
     axios.delete("/todo/"+todo_id, {headers: {token: localStorage.getItem('token')}})
       .then(res=>{
-        if(res.status === 200){
+        if(res.status === 200)
           setTodos(todos.filter((todo)=>todo._id!==todo_id))   
           // for(let i=0; i<todos.length; i++) // doesn't work
           //   if(todos[i]._id===todo_id){
@@ -41,7 +41,6 @@ const TodoList = ({todos, setTodos}: TodoProps) => {
           //     setTodos(todos)
           //     break
           //   }
-        }
     })
   }
 

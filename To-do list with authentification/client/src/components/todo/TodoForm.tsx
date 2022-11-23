@@ -12,7 +12,7 @@ const TodoForm = ({todos, setTodos}: TodoProps) => { // To-do input box
             let todo = res.data.todo;
             setTodos([...todos, todo]);
             // console.log(todo)
-            // setTodos([])
+            //setTodos([])
             setTitle("");
           }
         })

@@ -147,7 +147,7 @@ const post_todo= (req, res) => {
       isCompleted: false,
       author: decoded.userID
     });
-    console.log(newTodo._id)
+    //console.log(newTodo._id)
 
     newTodo.save(err => {
       if (err) 

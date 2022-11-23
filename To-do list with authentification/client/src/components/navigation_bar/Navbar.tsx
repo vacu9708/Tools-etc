@@ -1,7 +1,6 @@
 import React from "react";
 import Logout from "./Logout";
 import EditProfile from "./EditProfile";
-import axios from "axios";
 
 function Navbar(params: any) {
 
@@ -20,4 +19,4 @@ function Navbar(params: any) {
   )
 }
 
-export default Navbar;
+export default React.memo(Navbar);
