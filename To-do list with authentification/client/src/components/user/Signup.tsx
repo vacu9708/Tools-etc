@@ -75,7 +75,7 @@ const Signup = ({renderLogin}: SignupProps) => {
         <div>
           <p>Already a member? <span className="text-green-400 cursor-pointer" onClick={renderLogin}>Log in</span></p>
         </div>
-        <button className={`rounded-lg px-6 py-3 font-bold text-white ${disabled ? "bg-gray-400" : "bg-green-400"}`} 
+        <button className={`rounded-lg px-6 py-3 font-bold text-white ${disabled? "bg-gray-400": "bg-green-400"}`} 
         disabled={disabled} onClick={() => onSubmit()}>Sign up</button>
       </div>
     </div>

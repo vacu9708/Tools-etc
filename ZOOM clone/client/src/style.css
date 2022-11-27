@@ -1,0 +1,54 @@
+.room_frame {
+    display: flex;
+    padding: 10px;
+    background-color: lightgray;
+    height: 94vh;
+}
+    .left_window{
+        display: flex;
+        flex-direction: column;
+        flex:0.8;
+        background-color: darkgrey;
+    }
+        .video_grid{
+            flex-grow: 1;
+            background-color: black;
+        }
+        .controller{
+            flex: 0.15
+        }
+    .chat_window{
+        display: flex;
+        flex-direction: column;
+        flex: 0.2;
+        background-color: white;
+    }
+        .chat_header{
+            border-bottom: 1px solid black;
+            padding-top: 5px;
+            text-align: center;
+            flex:0.06;
+            color: black;
+            font-size: 25px;
+        }
+        .message_window{
+            flex-grow: 1;
+            overflow: scroll;
+        }
+            .new_participant_msg{
+                display: flex;
+                margin: 3px;
+                font-size: 20px;
+                color: green;
+                text-align: center;
+            }
+            .msg{
+                display: flex;
+                font-size: 15px;
+                margin: 3px;
+                border: 1px solid black;
+            }
+        .msg_input{
+            resize: none;
+            flex: 0.2;
+        }
