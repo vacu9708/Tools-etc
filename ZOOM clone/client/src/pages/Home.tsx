@@ -36,7 +36,7 @@ const Home = () => {
       </div>
       <input onChange={(e) => localStorage.setItem('name', e.target.value)} className="name_box" type="text" placeholder="name" />
       <input onChange={(e) => localStorage.setItem('roomID', e.target.value)} className="roomID_box" type="text" placeholder="room ID" />
-      <button className={`join room button`} onClick={()=>(navigate(`/room`))}>Join room</button>
+      <button onClick={()=>(navigate(`/room/${created_roomID}`))}>Join room</button>
     </div>
   )
 }
