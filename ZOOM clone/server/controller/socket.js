@@ -1,9 +1,8 @@
 const websocket = require('ws');
-
 const rooms=new Map()
 const clients_info=new Map()
 const connected_ips=new Map()
-const server_socket=new websocket.Server({port:4001})
+const server_socket=new websocket.Server({port: 4001})
 
 server_socket.on('connection', (client, req)=>{
     // Prevent multiple connections from one IP
@@ -19,12 +18,12 @@ server_socket.on('connection', (client, req)=>{
             client_.send(msg)
     }
     
-    const get_participants=()=>{
-        let participants=''
-        for(let [client_, name] of rooms.get(clients_info.get(client)[1]))
-            participants+=`${name},`
-        return participants.substring(0,participants.length-1)
-    }
+    // const get_participants=()=>{
+    //     let participants=''
+    //     for(let [client_, name] of rooms.get(clients_info.get(client)[1]))
+    //         participants+=`${name},`
+    //     return participants.substring(0,participants.length-1)
+    // }
 
     client.on('message', (msg)=>{
         //try{
@@ -36,10 +35,10 @@ server_socket.on('connection', (client, req)=>{
     
                 rooms.get(json.roomID).set(client, name)
                 clients_info.set(client, [name, json.roomID])
-                emit_msg(`{"type": "new_participant", "msg": "${name} has entered the room", "participants": "${get_participants()}"}`)
+                emit_msg(`{"type": "new_participant", "name": "${name}"}`)
             }
             else if(json.target==='chat_msg'){
-                emit_msg(`{"type": "msg", "msg": "${clients_info.get(client)[0]}: ${json.msg}"}`)
+                emit_msg(`{"type": "msg", "name": "${clients_info.get(client)[0]}", "msg": "${json.msg}"}`)
             }
         //}
         //catch{

@@ -5,18 +5,18 @@ const find_roomID=()=>{
     let url=window.location.href
     let p=url.length-1
     while(url[p]!=='/') p--
-    localStorage.setItem('roomID', url.substring(p+1, url.length))
+    sessionStorage.setItem('roomID', url.substring(p+1, url.length))
 }
 
-const Door_to_room=()=>{
+const DoorToRoom=()=>{
     find_roomID()
     const navigate = useNavigate();
     return(
         <>
-        <input onChange={(e) => localStorage.setItem('name', e.target.value)} className="name_box" type="text" placeholder="name"
+        <input onChange={(e) => sessionStorage.setItem('name', e.target.value)} className="name_box" type="text" placeholder="name"
         style={{fontSize: '30px'}}/>
         <button className={`join room button`} onClick={()=>(navigate(`/room`))}style={{fontSize: '30px'}}>Join room</button>
         </>
     )
 }
-export default Door_to_room
+export default DoorToRoom

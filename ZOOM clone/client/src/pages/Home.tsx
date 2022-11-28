@@ -34,8 +34,8 @@ const Home = () => {
         {created_roomID.length>0 && <button className={`copy button`} onClick={to_clip_board}>Copy room address</button>}
         <textarea style={{resize: 'none'}} disabled={true} value={created_roomID}></textarea>
       </div>
-      <input onChange={(e) => localStorage.setItem('name', e.target.value)} className="name_box" type="text" placeholder="name" />
-      <input onChange={(e) => localStorage.setItem('roomID', e.target.value)} className="roomID_box" type="text" placeholder="room ID" />
+      <input onChange={(e) => sessionStorage.setItem('name', e.target.value)} className="name_box" type="text" placeholder="name" />
+      <input onChange={(e) => sessionStorage.setItem('roomID', e.target.value)} className="roomID_box" type="text" placeholder="room ID" />
       <button onClick={()=>(navigate(`/room/${created_roomID}`))}>Join room</button>
     </div>
   )

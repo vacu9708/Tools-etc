@@ -4,14 +4,14 @@ import {Msg} from '../components/Messages'
 
 const Room = () => {
   const [msg, set_msg] = React.useState("");
-  const [participants, set_participants] = React.useState<any>("");
+  const [participants, set_participants] = React.useState<string[]>([]);
   const [messages, set_messages]=React.useState<Msg[]>([])
   const messages_ref=React.useRef<Msg[]>([])
   const ws=React.useRef(new WebSocket("ws://125.240.141.53:4001"))
 
   React.useEffect(()=>{
     ws.current.onopen = () => {
-      ws.current.send(`{"target": "join_room", "name": "${localStorage.getItem('name')}", "roomID": "${localStorage.getItem('roomID')}"}`)
+      ws.current.send(`{"target": "join_room", "name": "${sessionStorage.getItem('name')}", "roomID": "${sessionStorage.getItem('roomID')}"}`)
     }
     ws.current.onclose = (msg) => {
       console.log(msg)
@@ -25,10 +25,13 @@ const Room = () => {
         window.location.reload()
         return
       }
-      if(new_msg.type==='new_participant')
-        set_participants(new_msg.participants)
-
-      new_msg={type: new_msg.type, msg: new_msg.msg}
+      else if(new_msg.type==='new_participant'){
+        set_participants([...participants, new_msg.name])
+        new_msg={type: new_msg.type, name: new_msg.name, msg: null}
+      }
+      else if(new_msg.type==='msg'){
+        new_msg={type: new_msg.type, name: new_msg.name, msg: new_msg.msg}
+      }
       set_messages([...messages, new_msg])
       messages_ref.current=[...messages_ref.current, new_msg]
     };
