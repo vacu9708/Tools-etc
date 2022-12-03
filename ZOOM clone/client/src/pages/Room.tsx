@@ -2,40 +2,47 @@ import React from "react";
 import Messages from '../components/Messages'
 import {Msg} from '../components/Messages'
 import My_websocket from '../my_websocket'
-// let ws=new My_websocket("wss://localhost:4000")
+import Streams from '../components/Streams'
+
+let ws: My_websocket
 const Room = () => {
+  const [render, set_render] = React.useState(false);
   const [input_msg, set_input_msg] = React.useState("");
   const [participants, set_participants] = React.useState<string[]>([])
   const [messages, set_messages]=React.useState<Msg[]>([])
   const messages_ref=React.useRef<Msg[]>([])
   const message_window=React.useRef<any>()
-  const ws=React.useRef<any>()
+
   React.useEffect(()=>{
-    ws.current=new My_websocket("wss://localhost:4000")
-    ws.current.add_target('err', (json: any)=>{
+    ws=new My_websocket("wss://localhost:4000")
+    ws.add_target('err', (json: any)=>{
       window.location.reload()
       console.log(json)
     })
-    const interval=setInterval(()=>{
-      if(ws.current.is_open){
-        ws.current.send(`{"target": "join_room", "name": "${sessionStorage.getItem('name')}", "roomID": "${sessionStorage.getItem('roomID')}"}`)
-        clearInterval(interval)
-      }
-    }, 1)
-  },[])
-
-  React.useEffect(()=>{
-    ws.current.add_target('participant', (json: any)=>{
+    ws.add_target('participant', (json: any)=>{
       set_participants(json.participants.split('/'))
       json={target: json.target, name: json.name, msg: json.msg}
       messages_ref.current=[...messages_ref.current, json]
       set_messages(messages_ref.current)
     })
-    ws.current.add_target('chat_msg', (json: any)=>{
+    ws.add_target('chat_msg', (json: any)=>{
       json={target: json.target, name: json.name, msg: json.msg}
       messages_ref.current=[...messages_ref.current, json]
       set_messages(messages_ref.current)
     })
+    const interval=setInterval(()=>{
+      if(ws.is_open){
+        // Find roomID
+        let url=window.location.href
+        let p=url.length-1
+        while(url[p]!=='/') p--
+        sessionStorage.setItem('roomID', url.substring(p+1, url.length))
+
+        ws.send(`{"target": "join_room", "name": "${sessionStorage.getItem('name')}", "roomID": "${sessionStorage.getItem('roomID')}"}`)
+        clearInterval(interval)
+        set_render(!render)
+      }
+    }, 1)
   },[])
 
   React.useEffect(()=>{
@@ -46,16 +53,14 @@ const Room = () => {
     if(e.key!=='Enter')
       return
     e.preventDefault()
-    ws.current.send(JSON.stringify({target: 'chat_msg', msg: input_msg}))
+    ws.send(JSON.stringify({target: 'chat_msg', msg: input_msg}))
     set_input_msg('')
   }
 
   return(
     <div className="room_frame">
       <div className="left_window" style={{fontSize: '50px', textAlign: 'center'}}>
-        <div className="video_grid">
-
-        </div>
+        {ws? <Streams ws={ws}/>: <></>} 
         <div className="controller" style={{fontSize: '50px', textAlign: 'center'}}>
           
         </div>

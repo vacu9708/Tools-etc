@@ -12,6 +12,8 @@
         background-color: darkgrey;
     }
         .video_grid{
+            display: flex;
+            /* justify-content: left; */
             height: 80%;
             background-color: black;
         }
@@ -57,3 +59,7 @@
             height: 15%;
             border: 1px solid black;
         }
+video{
+    height: 35%;
+    margin: 1%;
+}

@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 
 const Home = () => {
   const [created_roomID, set_created_roomID] = React.useState("");
+  const [entered_roomID, set_entered_roomID] = React.useState("");
   const navigate = useNavigate();
   // React.useEffect(()=>{
   // },[])
@@ -37,8 +38,8 @@ const Home = () => {
         <textarea style={{resize: 'none'}} disabled={true} value={created_roomID}></textarea>
       </div>
       <input onChange={(e) => sessionStorage.setItem('name', e.target.value)} className="name_box" type="text" placeholder="name" />
-      <input onChange={(e) => sessionStorage.setItem('roomID', e.target.value)} className="roomID_box" type="text" placeholder="room ID" />
-      <button onClick={()=>(navigate(`/room/${created_roomID}`))}>Join room</button>
+      <input onChange={(e) => set_entered_roomID(e.target.value)} className="roomID_box" type="text" placeholder="room ID" />
+      <button onClick={()=>(navigate(`/room/${entered_roomID}`))}>Join room</button>
     </div>
   )
 }
