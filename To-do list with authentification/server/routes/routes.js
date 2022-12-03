@@ -42,7 +42,7 @@ router.patch('/todoTitle/:todoId', controller.patch_todo_title)
 router.delete("/todo/:todoId", controller.delete_todo)
   
 router.get('/*', function(req, res) { // React router
-    res.sendFile(path.join(__dirname, '/..', '/client/build/index.html'), err=>{
+    res.sendFile(path.join(__dirname, '../../client/build/index.html'), err=>{
         if (err) 
             res.status(500).send(err)
     })

@@ -15,6 +15,7 @@ const Room = () => {
 
   React.useEffect(()=>{
     ws=new My_websocket("wss://localhost:4000")
+    // ws=new My_websocket("wss://125.240.141.53:4000")
     ws.add_target('err', (json: any)=>{
       window.location.reload()
       console.log(json)

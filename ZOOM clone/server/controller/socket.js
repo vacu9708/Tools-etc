@@ -64,6 +64,7 @@ const init=(server)=>{
                 broadcast(`{"target": "participant", "name": "${clients_info.get(client)[0]}", "msg": "has left the room", "participants": "${get_participants()}"}`)
                 rooms.get(clients_info.get(client)[1]).delete(client)
                 clients_info.delete(client)
+                // Peer 삭제 추가
             }catch{}
         })
     })
