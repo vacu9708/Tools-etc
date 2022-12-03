@@ -1,48 +1,53 @@
 import React from "react";
 import Messages from '../components/Messages'
 import {Msg} from '../components/Messages'
-
+import My_websocket from '../my_websocket'
+// let ws=new My_websocket("wss://localhost:4000")
 const Room = () => {
-  const [msg, set_msg] = React.useState("");
-  const [participants, set_participants] = React.useState<string[]>([]);
+  const [input_msg, set_input_msg] = React.useState("");
+  const [participants, set_participants] = React.useState<string[]>([])
   const [messages, set_messages]=React.useState<Msg[]>([])
   const messages_ref=React.useRef<Msg[]>([])
-  const ws=React.useRef(new WebSocket("ws://125.240.141.53:4001"))
+  const message_window=React.useRef<any>()
+  const ws=React.useRef<any>()
+  React.useEffect(()=>{
+    ws.current=new My_websocket("wss://localhost:4000")
+    ws.current.add_target('err', (json: any)=>{
+      window.location.reload()
+      console.log(json)
+    })
+    const interval=setInterval(()=>{
+      if(ws.current.is_open){
+        ws.current.send(`{"target": "join_room", "name": "${sessionStorage.getItem('name')}", "roomID": "${sessionStorage.getItem('roomID')}"}`)
+        clearInterval(interval)
+      }
+    }, 1)
+  },[])
 
   React.useEffect(()=>{
-    ws.current.onopen = () => {
-      ws.current.send(`{"target": "join_room", "name": "${sessionStorage.getItem('name')}", "roomID": "${sessionStorage.getItem('roomID')}"}`)
-    }
-    ws.current.onclose = (msg) => {
-      console.log(msg)
-    };
-    ws.current.onerror = (error) => {
-      console.log(error)
-    };
-    ws.current.onmessage = (msg)=>{
-      let new_msg=JSON.parse(msg.data)
-      if(new_msg.type==='err'){
-        window.location.reload()
-        return
-      }
-      else if(new_msg.type==='new_participant'){
-        set_participants([...participants, new_msg.name])
-        new_msg={type: new_msg.type, name: new_msg.name, msg: null}
-      }
-      else if(new_msg.type==='msg'){
-        new_msg={type: new_msg.type, name: new_msg.name, msg: new_msg.msg}
-      }
-      set_messages([...messages, new_msg])
-      messages_ref.current=[...messages_ref.current, new_msg]
-    };
+    ws.current.add_target('participant', (json: any)=>{
+      set_participants(json.participants.split('/'))
+      json={target: json.target, name: json.name, msg: json.msg}
+      messages_ref.current=[...messages_ref.current, json]
+      set_messages(messages_ref.current)
+    })
+    ws.current.add_target('chat_msg', (json: any)=>{
+      json={target: json.target, name: json.name, msg: json.msg}
+      messages_ref.current=[...messages_ref.current, json]
+      set_messages(messages_ref.current)
+    })
   },[])
+
+  React.useEffect(()=>{
+    message_window.current.scrollTop = message_window.current.scrollHeight
+  },[messages])
 
   const send_msg=(e: any)=>{
     if(e.key!=='Enter')
       return
     e.preventDefault()
-    ws.current.send(`{"target": "chat_msg", "msg": "${msg}"}`)
-    set_msg('')
+    ws.current.send(JSON.stringify({target: 'chat_msg', msg: input_msg}))
+    set_input_msg('')
   }
 
   return(
@@ -60,10 +65,11 @@ const Room = () => {
           Chat<br/>
           <div className='participants'>{participants}</div>
         </div>
-        <div className="message_window">
-          <Messages messages={messages_ref.current}/>
+        <div className="message_window" ref={message_window}>
+          <Messages messages={messages}/>
         </div>
-        <textarea className="msg_input" onChange={(e) => set_msg(e.target.value)} onKeyDown={send_msg} placeholder='Type message here' value={msg} />
+        <textarea className="msg_input" onChange={
+          (e) => set_input_msg(e.target.value)} onKeyDown={send_msg} placeholder='target message here' value={input_msg} />
       </div>
     </div>
   )

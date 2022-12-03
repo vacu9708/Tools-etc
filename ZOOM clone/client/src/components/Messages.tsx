@@ -1,7 +1,7 @@
 import React from 'react'
 
 export interface Msg{
-    type: string;
+    target: string;
     name: string
     msg: string;
 }
@@ -21,14 +21,14 @@ const Messages=({messages}: Msgs)=>{
     return(
     <>
     {messages.map((message, i)=>(
-        message.type==='msg'?
+        message.target==='chat_msg'?
         <div className='msg' key={i}>
             <div style={{fontSize: '20px'}}>{message.name} {`(${get_time()})`}</div>
             {message.msg}
         </div>
-        : message.type==='new_participant'?
+        : message.target==='participant'?
         <div className='new_participant_msg' key={i}>
-            {`${message.name} has entered the room`}
+            {`${message.name} ${message.msg}`}
         </div>
         :{}
     ))}

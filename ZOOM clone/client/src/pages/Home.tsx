@@ -5,6 +5,8 @@ import {useNavigate} from "react-router-dom";
 const Home = () => {
   const [created_roomID, set_created_roomID] = React.useState("");
   const navigate = useNavigate();
+  // React.useEffect(()=>{
+  // },[])
 
   const create_room=()=>{
     axios.get('/create_room', )
@@ -13,7 +15,7 @@ const Home = () => {
     })
     .catch(error=>{
       alert(error.response.data.error)
-    })
+    }) 
   }
 
   const to_clip_board=async()=>{
