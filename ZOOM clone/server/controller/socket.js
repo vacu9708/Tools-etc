@@ -11,7 +11,7 @@ class My_websocket{
         this.server_socket=new websocket.Server({server: server})
         this.server_socket.on('connection', (client, req)=>{
             // Prevent multiple connections from one IP
-            if(false&&connected_ips.has(req.socket.remoteAddress)){
+            if(this.connected_ips.has(req.socket.remoteAddress)){
                 client.send(`{"target": "err", "msg": "Existing IP"}`)
                 client.close()
                 return
