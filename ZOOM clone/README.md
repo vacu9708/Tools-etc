@@ -1,1 +1,7 @@
-![image](https://user-images.githubusercontent.com/67142421/162636956-6af18b6c-2c47-456d-9284-e9cd517d3fbb.png)
+# Used things
+- React: for frontend
+- express: for creating a server
+- websocket: for real-time chat, broker of webRTC
+- webRTC: for real-time video, audio streaming
+
+![image](https://user-images.githubusercontent.com/67142421/205516267-3dce3320-d7c7-42da-b30e-95051d048138.png)
