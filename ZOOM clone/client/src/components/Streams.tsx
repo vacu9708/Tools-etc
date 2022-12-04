@@ -11,7 +11,7 @@ const Streams=({ws}: My_websocket_)=>{
     const video_grid=React.useRef<any>()
 
     React.useEffect(()=>{
-        navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
         .then(stream => {
             my_stream=stream
             const my_video = document.createElement('video')

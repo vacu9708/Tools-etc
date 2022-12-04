@@ -13,6 +13,7 @@
     }
         .video_grid{
             display: flex;
+            flex-wrap: wrap;
             /* justify-content: left; */
             height: 80%;
             background-color: black;
