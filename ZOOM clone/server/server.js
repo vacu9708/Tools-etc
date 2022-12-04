@@ -9,9 +9,10 @@ const path=require('path')
 
 
 app.use(express.json()); // to accept json data
-const path_=path.join(__dirname,'../client/build')
-app.use(express.static(path_)) // React build
-app.use('/', routes)
+const react_path=path.join(__dirname,'../client/build')
+app.use(express.static(react_path))
+// app.use('/icon', path.join(__dirname,'/icons'))
+app.use('/', routes.app)
 
 const options = { 
   key: fs.readFileSync('./private.pem'),
@@ -25,4 +26,5 @@ server.listen(4000, (err) => {
   console.log('Server running on port: ', 4000);
 });
 
-socket.init(server)
+const server_socket=socket.init(server)
+routes.init(server_socket)

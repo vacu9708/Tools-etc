@@ -2,7 +2,10 @@ const express = require('express');
 const app = express();
 const controller=require("../controller/controller.js")
 const path=require('path');
-const { dirname } = require('path');
+
+const init=(server_socket)=>{
+    controller.init(server_socket)
+}
 
 app.get('/create_room', controller.create_room)
   
@@ -14,4 +17,4 @@ app.get('/*', function(req, res) { // React
     })
 })
 
-module.exports = app;
+module.exports = {init, app};

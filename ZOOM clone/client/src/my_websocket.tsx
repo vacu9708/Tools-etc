@@ -3,9 +3,9 @@ class My_websocket{
     ws: any
     is_open: boolean
     constructor(address: string) {
+        this.ws=new WebSocket(address)
         // console.log('my_websocket allocated')
         this.targets=new Map()
-        this.ws=new WebSocket(address)
         this.is_open=false
         this.ws.onopen = () => {
             this.is_open=true
@@ -22,8 +22,7 @@ class My_websocket{
             this.targets.get(json.target)(json)
         }
     }
-    add_target(target: string, callback: (json: any)=>void){
-
+    on(target: string, callback: (json: any)=>void){
         this.targets.set(target, callback)
     }
     send(msg: string){

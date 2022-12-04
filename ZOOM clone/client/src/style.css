@@ -12,16 +12,61 @@
         background-color: darkgrey;
     }
         .video_grid{
+            height: 85%;
             display: flex;
             flex-wrap: wrap;
-            /* justify-content: left; */
-            height: 80%;
+            overflow: auto;
+            justify-content: left;
             background-color: black;
         }
         .controller{
-            height: 20%;
+            height: 15%;
+            display: flex;
             background-color: grey;
+            color: #D2D2D2;
+            justify-content: space-between;
+            padding: 5px;
+            font-size: 22px;
         }
+        /* Prevent text blue selection of controller */
+        .controller ::selection {
+            color: none;
+            background: none;
+        }
+            .stream_control_block{
+                display: flex;
+            }
+                .stream_control_button{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 8px 10px;
+                    min-width: 15%;
+                    cursor: pointer;
+                }
+                .stream_control_button img{
+                    height: 50px;
+                }
+                .stream_control_button:hover {
+                    background-color: #343434;
+                    border-radius: 5px;
+                }
+                .unmute, .play {
+                    color: #CC3B33;
+                }
+            .leave_meetig{
+                display: flex;
+                color: white;
+                background-color: #EB534B;
+            }
+            .leave_meetig:hover{
+                display: flex;
+                color: white;
+                background-color: red;
+                border-radius: 5px;
+            }
+
     .chat_window{
         width: 20%;
         display: flex;
