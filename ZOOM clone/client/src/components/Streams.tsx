@@ -1,15 +1,13 @@
 import React from "react";
 import My_websocket from '../my_websocket'
 import Peer from 'peerjs'
-import {useNavigate} from "react-router-dom";
 
 let peers=new Map()
 let my_stream_: MediaStream
-interface My_websocket_{
-    ws: My_websocket;
-}
-const Streams=({ws}: My_websocket_)=>{
-    const navigate = useNavigate();
+interface ws_{
+    ws: My_websocket
+  }
+const Streams=({ws}: ws_)=>{
     const video_grid=React.useRef<any>()
     const [play_toggled, set_play_toggled]=React.useState(false)
     const [mute_toggled, set_mute_toggled]=React.useState(false)
@@ -44,7 +42,7 @@ const Streams=({ws}: My_websocket_)=>{
 
     const leave_meeting=()=>{
         ws.ws.close()
-        navigate(`/`)
+        window.location.href='/'
     }
 
     React.useEffect(()=>{
@@ -90,6 +88,7 @@ const Streams=({ws}: My_websocket_)=>{
         })
         
         ws.on('peer_disconnected', (json: any)=>{
+            console.log('peer left')
             peers.get(json.peerID).close()
             peers.delete(json.peerID)
         })

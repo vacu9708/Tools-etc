@@ -20,10 +20,11 @@ const options = {
 }
 // const server = http.createServer(app);
 const server = https.createServer(options, app);
-server.listen(4000, (err) => {
+const port=443
+server.listen(port, (err) => {
   if (err) 
     return console.log(err);
-  console.log('Server running on port: ', 4000);
+  console.log('server running on '+port)
 });
 
 const server_socket=socket.init(server)

@@ -11,8 +11,8 @@ class My_websocket{
         this.server_socket=new websocket.Server({server: server})
         this.server_socket.on('connection', (client, req)=>{
             // Prevent multiple connections from one IP
-            if(this.connected_ips.has(req.socket.remoteAddress)){
-                client.send(`{"target": "err", "msg": "Existing IP"}`)
+            if(false&&this.connected_ips.has(req.socket.remoteAddress)){
+                client.send(`{"target": "err", "msg": "Existing IP${req.socket.remoteAddress}"}`)
                 client.close()
                 return
             }
@@ -28,13 +28,13 @@ class My_websocket{
                 try{
                     this.connected_ips.delete(req.socket.remoteAddress)
                     const roomID=this.clients_info.get(client)[1]
-                    this.rooms.get(roomID).delete(client)
                     const name=this.clients_info.get(client)[0]
                     console.log(`${name} left the room`)
                     let msg=JSON.stringify({target: "participant", name: name, msg: "has left the room", participants: this.get_participants(roomID)})
                     this.broadcast(roomID, msg)
                     msg=JSON.stringify({target: 'peer_disconnected', peerID: this.clients_info.get(client)[2]})
                     this.broadcast(roomID, msg)
+                    this.rooms.get(roomID).delete(client)
                     this.clients_info.delete(client)
                 }catch{}
             })

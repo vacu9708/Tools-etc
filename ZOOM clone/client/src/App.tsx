@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Room from './pages/Room';
 import DoorToRoom from './pages/DoorToRoom';
 import "./style.css";
+import My_websocket from './my_websocket'
 
 export default function App() {
   return (

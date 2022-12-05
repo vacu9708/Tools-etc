@@ -1,4 +1,4 @@
-class My_websocket{
+ class My_websocket{
     targets: Map<string, any>;
     ws: any
     is_open: boolean

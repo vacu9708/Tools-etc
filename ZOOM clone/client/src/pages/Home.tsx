@@ -40,7 +40,7 @@ const Home = () => {
       </div>
       <input onChange={(e) => sessionStorage.setItem('name', e.target.value)} className="name_box" type="text" placeholder="name" />
       <input onChange={(e) => set_entered_roomID(e.target.value)} className="roomID_box" type="text" placeholder="room ID" />
-      <button onClick={()=>(navigate(`/room/${entered_roomID}`))}>Join room</button>
+      <button onClick={()=>(window.location.href=`/room/${entered_roomID}`)}>Join room</button>
     </div>
   )
 }
