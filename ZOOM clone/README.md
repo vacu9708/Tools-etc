@@ -1,4 +1,5 @@
 # Used things
+- HTTPS connection
 - React: for frontend
 - express: for creating a server
 - websocket: for real-time chat, broker of webRTC
