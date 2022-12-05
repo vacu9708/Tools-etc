@@ -7,16 +7,16 @@ const routes=require("./routes/routes.js");
 const socket=require("./controller/socket.js");
 const path=require('path')
 
-
 app.use(express.json()); // to accept json data
+app.use(express.static(__dirname))
 const react_path=path.join(__dirname,'../client/build')
 app.use(express.static(react_path))
-// app.use('/icon', path.join(__dirname,'/icons'))
+
 app.use('/', routes.app)
 
 const options = { 
-  key: fs.readFileSync('./private.pem'),
-  cert: fs.readFileSync('./public.pem'),
+  key: fs.readFileSync('./keys/privkey.pem'),
+  cert: fs.readFileSync('./keys/fullchain.pem'),
 }
 // const server = http.createServer(app);
 const server = https.createServer(options, app);
