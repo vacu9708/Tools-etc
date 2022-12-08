@@ -66,3 +66,15 @@ The inheritance in javascript is performed through **prototype chain**.
 The chain ends when it reaches a prototype whose parent prototype is null.<br>
 
 ![image](https://user-images.githubusercontent.com/67142421/178171952-1f5cbcf8-f262-48d8-bde0-77f568ebb650.png)
+
+# Javascript is single threaded
+Technically, the Event loop is single threaded.
+![image](https://user-images.githubusercontent.com/67142421/206545525-f88161cc-572b-4628-9db8-291eb7b1a466.png)
+- ## How console.log() is processed
+1. console.log() is placed into call stack and executed.
+2. It is pulled out of call stack.
+- ## How setTimeout() is processed
+1. setTimeout() is placed into call stack and executed.
+2. setTimeout() is pulled out of call stack and executed in web browser thread(C++ thread pool in nodeJS).
+3. Once time is up, the callback of setTimeout() is put into callback queue.
+4. The callback is executed in call stack
