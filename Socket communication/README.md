@@ -15,7 +15,6 @@ def bind():
             break
         except:
             continue
-    server_socket.listen() # Be ready to get incoming connection requests
 
 def request_parser(message):
     # Parsing
@@ -50,6 +49,7 @@ def client_accepter():
         threading.Thread(target=client_data_receiver, args=(accepted_client, address)).start()
 
 bind()
+server_socket.listen() # Be ready to get incoming connection requests
 client_accepter()
 ~~~
 
