@@ -1,3 +1,9 @@
+![image](https://user-images.githubusercontent.com/67142421/220212116-cbe091b2-27fa-49bb-a238-29883df1fbf9.png)
+- socket(): creates a socket
+- bind():  associates the socket with a local address
+- listen(): gets the socket ready to accept client connection requests
+- accept(), send(), receive(), close(): literal
+
 ## Server
 ~~~python
 import socket, threading
