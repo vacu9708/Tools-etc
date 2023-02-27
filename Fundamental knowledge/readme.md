@@ -6,6 +6,7 @@
 - [SSR, CSR](https://github.com/vacu9708/Web-development/blob/main/Fundamental%20knowledge/SSR,%20CSR,.md)
 - [Authorization](https://github.com/vacu9708/Web-development/blob/main/Fundamental%20knowledge/Authorization.md)
 - [Security](https://github.com/vacu9708/Web-development/blob/main/Fundamental%20knowledge/Security.md)
+- [Socket communication](https://github.com/vacu9708/Web-development/tree/main/Socket%20communication)
 
 ### Network
 - [OSI model](https://github.com/vacu9708/Web-development/tree/main/Fundamental%20knowledge/OSI%20model)
