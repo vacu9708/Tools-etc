@@ -1,9 +1,9 @@
 # Basic commands
 - Creating a project: django-admin startproject [name]
 - Starting the server: python manage.py runserver
-- Creating an app: 1. django-admin startapp [name] 2. Add INSTALLED_APPS in settings.py
+- Creating and registering an app: 1. django-admin startapp [name] 2. Add '[name].apps.[Name]Config' in INSTALLED_APPS of settings.py
 - Creating an admin account: python manage.py createsuperuser [name]
-- Migrating updated model: python manage.py makemigration
+- Migrating model to database: python manage.py makemigration -> migrate
 
 # Model
 - null: the attribute can have a null value
