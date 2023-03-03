@@ -14,9 +14,9 @@
 # Static files
 - STATIC_ROOT<br>
 >The path to the directory where collectstatic will collect static files (statics from INSTALLED_APPS) for deployment.<br>
->Statics from INSTALLED_APPS are only available on debug mode.
+>Statics from INSTALLED_APPS are only available on debug mode. (middleware **WhiteNoise** is required)
 - STATIC_URL: URL on HTTP requests to use when referring to static files located in STATIC_ROOT.
-- MEDIA_ROOT, MEDIA_URL: for uploded files, used same way as STATIC
+- MEDIA_ROOT, MEDIA_URL: for user-uploaded files.
 
 ### Connecting STATIC_URL to STATIC_ROOT
 ~~~python
