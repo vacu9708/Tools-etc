@@ -12,7 +12,9 @@
 - ID attribute is incremented automatically but can be overriden with something else like UUID
 
 # Static files
-- STATIC_ROOT: The path to the directory where collectstatic will collect static files (statics from INSTALLED_APPS) for deployment.
+- STATIC_ROOT<br>
+>The path to the directory where collectstatic will collect static files (statics from INSTALLED_APPS) for deployment.<br>
+>Statics from INSTALLED_APPS are only available on debug mode.
 - STATIC_URL: URL on HTTP requests to use when referring to static files located in STATIC_ROOT.
 - MEDIA_ROOT, MEDIA_URL: for uploded files, used same way as STATIC
 
