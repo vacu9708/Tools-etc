@@ -1,3 +1,15 @@
+# Symmetric key encryption
+Traditional encryption where only one key is used to both encrypt and decrypt data.
+
+# Public key encryption
+A type of encryption where a public key and a corresponding private key are used.
+## Pros
+- Increased security because the private key does not need to be revealed to anyone
+- Easier management of keys because all that needs to be revealed is one public key while Symmetric key encryption requires that many private keys be sent.
+## Example
+![image](https://user-images.githubusercontent.com/67142421/222992037-5f45d95f-5a57-4a36-af02-6b1850d03899.png)
+
+
 # CORS(Cross-Origin Resource sharing)
 Same-Origin Policy was introduced to prevent malicious requests(CSRF) from sites of different origins(pages).
 However, there are times when cross-origin resources are needed.<br>
