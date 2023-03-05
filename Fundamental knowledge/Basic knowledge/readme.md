@@ -1,6 +1,10 @@
 # Hyperlink
 something you can click on to jump to another place of the web. (It creates a nonlinear network of information)
 
+# URI, URL
+- URI: A unique string identifying a resource (i.e. www.example.com)
+- URL: URI + protocol (i.e. http://www.example.com)
+
 # The HyperText Markup Language, or HTML
 the standard markup language that is used to define the structure of a webpage(, which can include hypermedia such as text, graphics, sound, video, and so on).
 
@@ -11,13 +15,14 @@ In HTTPS, the communication is encrypted using SSL handshake.(or Transport Layer
 # HTTP methods
 - **GET** is used to request data where the request parameter is appended to the URL and has a length restriction.
 - **POST** is used to send data to a server where the request parameter is appended into the HTTP body doesn't have a length restriction.
+- PUT, PATCH, DELETE, etc
 
 # Restful API
 A web API that obeys the REST constraints is described as RESTful API.
 ## A restful API consists of
 * HTTP methods(GET, POST, PUT, DELETE)
 * URL like http://myweb/users, called *resource*
-* message(in a form of either JSON or XML)
+* message(in a form of either JSON or XML but primarily JSON)
 
 One of the REST constraints is *self-descriptive*, which means an API has to contain enough information that represents what it does.
 
