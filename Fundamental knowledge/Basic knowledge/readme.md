@@ -2,8 +2,8 @@
 something you can click on to jump to another place of the web. (It creates a nonlinear network of information)
 
 # URI, URL
-- URI: A unique string identifying a resource (i.e. www.example.com)
-- URL: URI + protocol (i.e. http://www.example.com)
+- URI: A unique string identifying a resource (e.g. www.example.com)
+- URL: URI + protocol (e.g. http://www.example.com)
 
 # The HyperText Markup Language, or HTML
 the standard markup language that is used to define the structure of a webpage(, which can include hypermedia such as text, graphics, sound, video, and so on).
