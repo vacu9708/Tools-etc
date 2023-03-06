@@ -1,6 +1,7 @@
 # Basics
 - Inversion of control: Instead of a program controlling the objects it uses, the control is shifted to a separate framework.
-- Dependency injection is a technique used to implement dependency inversion (of [SOLID principles](https://github.com/vacu9708/Fundamental-knowledge/edit/main/Etc/Object%20Oriented%20Programming/readme.md)).
+- [Dependency Inversion](https://github.com/vacu9708/Fundamental-knowledge/edit/main/Etc/Object%20Oriented%20Programming/readme.md#L199) is automated by the spring annotation **@autowired**, which is called **Dependency Injection**.
+
 
 # Spring container
 - Spring container: manages spring beans
