@@ -1,6 +1,8 @@
 # Basics
 - Inversion of control: Instead of a program controlling the objects it uses, the control is shifted to a separate framework.
-- [Dependency Inversion](https://github.com/vacu9708/Fundamental-knowledge/blob/main/Etc/Object%20Oriented%20Programming) is automated by the spring annotation **@autowired**, which is called **Dependency Injection**.
+- ## Dependency Injection
+  [Dependency Inversion](https://github.com/vacu9708/Fundamental-knowledge/blob/main/Etc/Object%20Oriented%20Programming) is automated by the spring annotation **@Autowired**, which is called **Dependency Injection**. @Autowired is also automated in Spring.
+
 
 
 # Spring container
