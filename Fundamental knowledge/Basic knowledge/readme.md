@@ -20,7 +20,7 @@ In HTTPS, the communication is encrypted using SSL handshake.(or Transport Layer
 # Restful API
 A web API that obeys the REST constraints is described as RESTful API.
 ## A restful API consists of
-* HTTP methods(GET, POST, PUT, DELETE)
+* HTTP methods(GET, POST, PUT, DELETE) (HTTP does not maintain any client state)
 * URL like http://myweb/users, called *resource*
 * message(in a form of either JSON or XML but primarily JSON)
 
