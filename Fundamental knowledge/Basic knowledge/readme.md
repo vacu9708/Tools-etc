@@ -17,8 +17,9 @@ In HTTPS, the communication is encrypted using SSL handshake.(or Transport Layer
 - **POST** is used to send data to a server where the request parameter is appended into the HTTP body doesn't have a length restriction.
 - PUT, PATCH, DELETE, etc
 
-# Restful API
-A web API that obeys the REST constraints is described as RESTful API.
+# RESTful API
+A web API that obeys the REST constraints is described as RESTful API.<br>
+Server side framework can be just about anything thanks to RESTful API that abstracts the implementation.
 ## A restful API consists of
 * HTTP methods(GET, POST, PUT, DELETE) (HTTP does not maintain any client state)
 * URL like http://myweb/users, called *resource*
