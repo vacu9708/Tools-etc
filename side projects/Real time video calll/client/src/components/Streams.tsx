@@ -54,7 +54,7 @@ const Streams=({ws}: ws_)=>{
             add_video_stream(my_video, my_stream)
 
             let my_peer: Peer
-            ws.on('uuid', (json: any)=>{
+            ws.on('uuid', (json: any)=>{ // received my uuid
                 my_peer=new Peer(json.uuid)
                 my_peer.on('call', (call: any) => {
                     console.log('Call from a peer')
@@ -65,12 +65,12 @@ const Streams=({ws}: ws_)=>{
                     })
                 })
                 my_peer.on('open', peerID => {
-                    console.log('Join room as '+peerID)
+                    console.log('You joined room as '+peerID)
                     ws.send(JSON.stringify({target: "new_peer", peerID: peerID}))
                 })
             })
             ws.on('new_peer', (json: any)=>{ // New peer received
-                console.log('Call a new peer')
+                console.log('you called a new peer')
                 const call = my_peer.call(json.peerID, my_stream);
                 const remote_video = document.createElement('video')
                 call.on("stream", (remoteStream) => { // answer of the call
