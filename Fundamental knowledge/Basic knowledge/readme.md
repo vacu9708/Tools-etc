@@ -9,8 +9,8 @@ something you can click on to jump to another place of the web. (It creates a no
 the standard markup language that is used to define the structure of a webpage(, which can include hypermedia such as text, graphics, sound, video, and so on).
 
 # HTTP and HTTPS
-HTTP (HyperText Transfer Protocol) is an application-layer protocol for transmitting HTML documents where security is not considered.
-In HTTPS, the communication is encrypted using SSL handshake.(or Transport Layer Security). It is secure but delays the speed of the website.
+- **HTTP**: a stateless, insecure protocol for a client and a server to communicate, comprised of a request and a response.
+- **HTTPS**: HTTP that is encrypted using SSL handshake. It is secure but delays the speed of the website.
 
 # HTTP methods
 - **GET** is used to request data where the request parameter is appended to the URL and has a length restriction.
