@@ -1,9 +1,12 @@
+# Socket
+A socket is a low-level bidirectional network interface. Sockets can be used for both TCP and UDP protocols.<br>
 ![image](https://user-images.githubusercontent.com/67142421/220212116-cbe091b2-27fa-49bb-a238-29883df1fbf9.png)
 - socket(): creates a socket
 - bind():  associates the socket with a local address
 - listen(): gets the socket ready to accept client connection requests
 - accept(), send(), receive(), close(): literal
 
+# Socket example
 ## Server
 ~~~python
 import socket, threading
@@ -96,3 +99,5 @@ while True:
 ### Server
 ![image](https://user-images.githubusercontent.com/67142421/175810768-dec44ecb-9e1f-493c-9bea-583ac71639ce.png)
 
+# Websocket
+WebSocket is a higher-level protocol specifically designed for web over TCP, which uses HTTP in the initial handshake process to establish the connection between the client and the server, and then upgrades the connection to a two-way real-time communication channel.
