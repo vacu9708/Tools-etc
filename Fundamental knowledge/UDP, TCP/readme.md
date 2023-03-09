@@ -12,35 +12,39 @@ This is all of UDP. We can see how simple it is, It is lighter and faster than T
 * DNS
 
 # TCP (Transmission Control Protocol)
-The TCP is used to ensure the successful delibery of packets.<br>
-* establishes a connection by a 3-way handshake and terminates it by a 4-way handshake.
-* slower than UDP(UDP is low latency)
-* performs flow control and congestion control
+TCP ensures the successful delibery of packets using handshakes, acknowledgments, flow control and congestion control<br>
+1. A connection is established by a 3-way handshake
+2. Once a connection is established, TCP segments data into small packets to send.
+3. The connection is terminated by a 4-way handshake.
 
 ## 3-way handshake
-A three-way handshake is used to establish a reliable connection.<br>
-![image](https://user-images.githubusercontent.com/67142421/178132002-1b60b862-4723-4def-9b8a-594f42bfd82e.png)
+During the handshake, the two hosts exchange control messages to agree on the parameters of the connection, such as the initial sequence number, window size, etc.
 
-* The **sequence number** is used to keep track of every byte sent to ensure reliable transmission. If a TCP packet contains 100bytes, 
-then the sequence number of the next packet will start with 101.
-* SYN stands for Synchronize sequence number and ACK stands for Ackknowledgement.
+![image](https://user-images.githubusercontent.com/67142421/223919290-f64023df-7cce-4681-a3d7-b580e4c5dfd5.png)
 
-1. The client sends a SYN with a sequence number "M".
-2. If the data does not contain errors, server responds to the client request with an SYN(N) and ACK(M+1) signal, where M+1 ensures that it was sent right after M.
-3. Client sends ACK(N+1) to the server and they both establishes a reliable connection.
+- The **sequence number** is used to keep track of every byte sent to ensure reliable transmission.
+- If a TCP packet contains 100bytes, then the sequence number of the next packet will start with 101.
+- **SYN** stands for Synchronize sequence number and **ACK** stands for Acknowledgement.
+
+1. The A sends a SYN with a sequence number "M".
+2. If the data does not contain errors, B responds to A request with an SYN(N) and ACK(M+1) signal, where M+1 ensures that it was sent right after M.
+3. A sends ACK(N+1) to the B and they both establishes a reliable connection.
+
+## Acknowledgement
+**Receiver** acknowledges each packet as it arrives and sends an acknowledgment back to the **Sender**. If a packet is lost or corrupted during transmission, **Sender** retransmits the packet until **Receiver** acknowledges its successful receipt
 
 ## 4-way handshake
 TCP connection tear-down is performed with a 4-way handshake.<br>
 ![image](https://user-images.githubusercontent.com/67142421/178133057-8290aaef-1b2d-4c66-8c49-69b35f40e2b8.png)
 
-1. Client sends FIN and enters the FIN_WAIT_1 state. While in the FIN_WAIT_1 state, the client waits for **ACK**.
-2. Server responds with **ACK** to the client.
-3. When the client receives **ACK**, it enters the FIN_WAIT_2 state. While in the FIN_WAIT_2 state, the client waits for **FIN**.
-4. The server sends the **FIN** to the client after some time when the server sends the **ACK** above. (because of some closing process in the server).
-5. The client receives **FIN** and responds with **ACK** to the server and enters the TIME_WAIT state because client may still be receiving data.
-6. The server receives **ACK** and closes the connectionm. After the wwait, client too.
+1. Sender sends FIN and enters the FIN_WAIT_1 state. While in the FIN_WAIT_1 state, Sender waits for **ACK**.
+2. Receiver responds with **ACK** to the Sender.
+3. When Sender receives **ACK**, it enters the FIN_WAIT_2 state. While in the FIN_WAIT_2 state, Sender waits for **FIN**.
+4. Receiver sends the **FIN** to the Sender after some time when Receiver sends the **ACK** above. (because of some closing process in the B).
+5. Sender receives **FIN** and responds with **ACK** to Receiver and enters the TIME_WAIT state because A may still be receiving data.
+6. Receiver receives **ACK** and closes the connection. After the wait, Sender too.
 
 ## Flow control and Congestion control
-Receiver buffer has a limited size, so TCP provides a means for the receiver to govern the amount of data sent by the sender, which is called Flow control.<br>
-Flow control limits the rate at which a sender transfers data. This is done to ensure reliable delivery.<br>
-**Congestion control** : a method to handle the speed difference between a sender and a network. (Flow control is done between sender and receiver)
+- **Flow control** between **Sender** and **Receiver**: ensures that **Receiver** can handle the incoming data by regulating the rate at which **Sender* transfers data because **Receiver**'s buffer has a limited size.<br>
+Flow control is achieved by using a sliding window, where **Sender** sends data in chunks and waits for an acknowledgment from **Receiver** before sending more data.
+- **Congestion control**: regulates the rate at which TCP sends data over the ***network*** based on the current state of the ***network***.
