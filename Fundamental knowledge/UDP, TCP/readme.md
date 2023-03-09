@@ -16,12 +16,11 @@ This is all of UDP. We can see how simple it is, It is lighter and faster than T
 # TCP (Transmission Control Protocol)
 TCP ensures the ordered, reliable delibery of packets using handshakes, acknowledgments, flow control and congestion control.<br>
 1. A connection is established by a 3-way handshake
-2. Once a connection is established, TCP segments data into small packets to send.
+2. TCP segments data into small packets to send.
 3. The connection is terminated by a 4-way handshake.
-**Sequence number** is used to keep track of every byte sent to ensure reliable transmission.
 
 ## 3-way handshake
-establishes a reliable connection between two devices over a network.
+A process to establishes a reliable connection between two devices over a network.
 
 ![image](https://user-images.githubusercontent.com/67142421/223976212-ecc67af5-a969-4b56-bf09-d728357b96db.png)
 
@@ -30,17 +29,17 @@ establishes a reliable connection between two devices over a network.
 1. client: is server ready? (SYN)
 2. server: yes, is client ready? (SYN-ACK)
 3. client: yes (ACK)
-4. server: ok let's establish our connection
+4. A reliable connection is established now that both are ready
 ### Process
 >The process is blocked until ACK is received.
-1. **Client** sends a SYN(M) packet to **Server**. **Ex(Client's sequence number M: 1000)**
-2. If the packet is intact, **Server** responds to **Client**'s request with a SYN(N)-ACK(M+1) packet, where M+1 indicates that it was sent right after M.
-**Ex(Server's sequence number N: 2000, acknowledgement number M+1: 1001)**
+1. **Client** generates its initial sequence number M and sends a SYN(M) packet to **Server**. **Ex(Client's initial sequence number M: 1000)**
+2. If the packet is intact, **Server** generates its initial sequence number N and responds to **Client** with a SYN(N)-ACK(M+1) packet, where M+1 indicates that it was sent right after M. **Ex(Server's initial sequence number N: 2000, acknowledgement number M+1: 1001)**
 3. **Client** sends ACK(N+1) to **Server** and they both establishes a reliable connection. **Ex(Client's acknowledgement number N+1: 2001)**
+4. A reilable connection is established by using the 2 initial sequence numbers to generate their subsequent sequence numbers.
 
-## On connection
-- **Server** acknowledges each packet as it arrives and sends an acknowledgment back to **Client**.<br>
-- The Client continues to send as many packets as possible until it receives an ACK packet from the Server or until it times out.
+## Data exchange
+- Client and server analyze and acknowledge each packet as it arrives using each other's sequence numbers.<br>
+- They continue to send as many packets as possible until they receive an ACK packet or until the communication times out.
 
 ## 4-way handshake
 TCP connection tear-down is performed with a 4-way handshake.<br>
