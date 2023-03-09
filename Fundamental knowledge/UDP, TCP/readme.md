@@ -1,10 +1,12 @@
 # UDP (User Datagram Protocol)
-UDP is an unreliable and connectionless communication protocol. There is no need to establish a connection prior to data transfer, which speeds up transmissions.
+UDP is a simple communication protocol. There is no need to establish a connection prior to data transfer.<br>
+**Features of UDP**: unreliable, unordered, fast
 
-This is all of UDP. We can see how simple it is, It is lighter and faster than TCP but unreliable.<br>
-![image](https://user-images.githubusercontent.com/67142421/178133335-70ef1d74-9b94-4d5f-bb30-f166eb2f93a0.png)<br>
+![image](https://user-images.githubusercontent.com/67142421/178133335-70ef1d74-9b94-4d5f-bb30-f166eb2f93a0.png)
+
 * Length: the length of UDP including the header and the data. It is a 16-bits field.
 * Checksum: used to check data for errors.(only checks errors. does not control errors.)
+This is all of UDP. We can see how simple it is, It is lighter and faster than TCP but unreliable.<br>
 
 ## When to use UDP?
 * used for real-time applications such as games, real-time broadcasting, etc which cannot tolerate delays
@@ -12,7 +14,7 @@ This is all of UDP. We can see how simple it is, It is lighter and faster than T
 * DNS
 
 # TCP (Transmission Control Protocol)
-TCP ensures the successful delibery of packets using handshakes, acknowledgments, flow control and congestion control<br>
+TCP ensures the ordered, reliable delibery of packets using handshakes, acknowledgments, flow control and congestion control.<br>
 1. A connection is established by a 3-way handshake
 2. Once a connection is established, TCP segments data into small packets to send.
 3. The connection is terminated by a 4-way handshake.
