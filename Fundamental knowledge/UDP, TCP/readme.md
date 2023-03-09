@@ -19,21 +19,26 @@ TCP ensures the ordered, reliable delibery of packets using handshakes, acknowle
 2. Once a connection is established, TCP segments data into small packets to send.
 3. The connection is terminated by a 4-way handshake.
 
+### Notice!!
+The sender does not stop sending packets until it receives an ACK packet from the receiver or until it times out
+
+- **Sequence number** is used to keep track of every byte sent to ensure reliable transmission.
+- If a TCP packet contains 100bytes, then the sequence number of the next packet will start with 101.
+
 ## 3-way handshake
 During the handshake, the two hosts exchange control messages to agree on the parameters of the connection, such as the initial sequence number, window size, etc.
 
 ![image](https://user-images.githubusercontent.com/67142421/223919290-f64023df-7cce-4681-a3d7-b580e4c5dfd5.png)
 
-- The **sequence number** is used to keep track of every byte sent to ensure reliable transmission.
-- If a TCP packet contains 100bytes, then the sequence number of the next packet will start with 101.
-- **SYN** stands for Synchronize sequence number and **ACK** stands for Acknowledgement.
-
-1. The A sends a SYN with a sequence number "M".
-2. If the data does not contain errors, B responds to A request with an SYN(N) and ACK(M+1) signal, where M+1 ensures that it was sent right after M.
-3. A sends ACK(N+1) to the B and they both establishes a reliable connection.
+>sequence numbers are randomly generated!
+1. **Sender** sends a SYN(M) packet to **Receiver**. **Ex(sender's sequence number M: 1000)**
+2. If the data is intact, **Receiver** responds to **Sender**'s request with a SYN(N)-ACK(M+1) packet, where M+1 indicates that it was sent right after M.
+**Ex(receiver's sequence number N: 2000, acknowledgement number M+1: 1001)**
+3. **Sender** sends ACK(N+1) to **Receiver** and they both establishes a reliable connection. **Ex(sender's acknowledgement number N+1: 2001)**
 
 ## Acknowledgement
-**Receiver** acknowledges each packet as it arrives and sends an acknowledgment back to the **Sender**. If a packet is lost or corrupted during transmission, **Sender** retransmits the packet until **Receiver** acknowledges its successful receipt
+**Receiver** acknowledges each packet as it arrives and sends an acknowledgment back to **Sender**.<br>
+If a packet is lost or corrupted during transmission, **Sender** retransmits the packet until **Receiver** acknowledges its successful receipt.<br>
 
 ## 4-way handshake
 TCP connection tear-down is performed with a 4-way handshake.<br>
