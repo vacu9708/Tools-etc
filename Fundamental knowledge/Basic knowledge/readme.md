@@ -20,8 +20,9 @@ the standard markup language that is used to define the structure of a webpage(,
 # RESTful API
 An API that obeys the REST constraints is described as RESTful API.<br>
 Server side framework can be just about anything thanks to RESTful API that abstracts the implementation.
-## A restful API consists of
-- Uniform interface for communication between clients and servers, including HTTP methods(GET, POST, PUT, DELETE, etc) + URL. (e.g. GET https://myweb/users)
+## A restful API
+- has uniform interface for communication between clients and servers, including HTTP methods(GET, POST, PUT, DELETE, etc) + URL. (e.g. GET https://myweb/users)
+- does not maintain any client state 
 
 One of the REST constraints is *self-descriptive*, which means an API has to contain enough information that represents what it does.
 
