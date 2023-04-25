@@ -2,7 +2,7 @@
 something you can click on to jump to another place of the web. (It creates a nonlinear network of information)
 
 # URI, URL
-- URI: A unique string identifying a resource (e.g. www.example.com)
+- URI: A unique string to identify a resource (e.g. www.example.com)
 - URL: URI + protocol (e.g. http://www.example.com)
 
 # The HyperText Markup Language, or HTML
@@ -18,12 +18,10 @@ the standard markup language that is used to define the structure of a webpage(,
 - PUT, PATCH, DELETE, etc
 
 # RESTful API
-A web API that obeys the REST constraints is described as RESTful API.<br>
+An API that obeys the REST constraints is described as RESTful API.<br>
 Server side framework can be just about anything thanks to RESTful API that abstracts the implementation.
 ## A restful API consists of
-* HTTP methods(GET, POST, PUT, DELETE) (HTTP does not maintain any client state)
-* URL like http://myweb/users, called *resource*
-* message(in a form of either JSON or XML but primarily JSON)
+- Uniform interface for communication between clients and servers, including HTTP methods(GET, POST, PUT, DELETE, etc) + URL. (e.g. GET https://myweb/users)
 
 One of the REST constraints is *self-descriptive*, which means an API has to contain enough information that represents what it does.
 
