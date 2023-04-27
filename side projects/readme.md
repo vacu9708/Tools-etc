@@ -1,3 +1,3 @@
 - [To-do list with authentification](https://github.com/vacu9708/Web-development/tree/main/side%20projects/To-do%20list%20with%20authentification)
-- [Real time video call](https://github.com/vacu9708/Web-development/tree/main/side%20projects/Real%20time%20video%20calll)
+- [Video conference](https://github.com/vacu9708/Web-development/tree/main/side%20projects/Real%20time%20video%20calll)
 - [MSA Beer service with spring](https://github.com/vacu9708/Web-development/tree/main/side%20projects/MSA%20beer%20service%20with%20spring)
