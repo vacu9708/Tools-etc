@@ -20,3 +20,8 @@
 - spring MVC: the oldest libary for creating RESTful web services, which is blocking by nature
 - webflux: non blocking version of spring MVC that was introduced in spring 5
 - webflux.fn: functional programming version of webflux
+
+# Concepts
+## Data Transfer Objects
+DTOs contain data and have no behavior, meaning they are used only for data exchange and not for any business logic.<br>
+DTOs are used to transfer data between the presentation layer(controller) and the service layer.
