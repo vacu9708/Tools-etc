@@ -1,7 +1,7 @@
 # Basics
 - Inversion of control: Instead of a program controlling the objects it uses, the control is shifted to a separate framework.
 - ## Dependency Injection
-  [Dependency Inversion](https://github.com/vacu9708/Fundamental-knowledge/tree/main/Development%20methodology/Object%20Oriented%20Programming) is automated by the spring annotation **@Autowired**, which is called **Dependency Injection**. @Autowired is also automated in Spring.
+  [Dependency Inversion](https://github.com/vacu9708/Fundamental-knowledge/tree/main/Development%20methodology/Object%20Oriented%20Programming) is automated by the spring annotation **@Autowired**, which is called **Dependency Injection**. @Autowired can be automatically applied in some annotations such as @Component, @Controller, @Service, etc in Spring.
 
 # MVC pattern
 - **Model**: is data layer responsible for database.
