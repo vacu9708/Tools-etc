@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Build-Jdk-Spec: 17
+Implementation-Title: mssc-beer-inventory-service
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor: Spring Framework Guru
+Created-By: Maven Integration for Eclipse
+
