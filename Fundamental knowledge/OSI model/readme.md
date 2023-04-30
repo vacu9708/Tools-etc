@@ -26,7 +26,7 @@ The primary function of the network layer is to enable different networks to be 
 ### 4. Transport layer
 >Ex) TCP, UDP, gateway
 The data in the transport layer is referred to as Segments. It is responsible for the End to End Delivery of the complete message. The transport layer also provides the acknowledgement of the successful data transmission and re-transmits the data if an error is found.<br>
-- gateway: used to allow connection between discrete networks
+- gateway: allows for connection between discrete networks
 
 ### 5. Session layer
 >Ex) Socket
