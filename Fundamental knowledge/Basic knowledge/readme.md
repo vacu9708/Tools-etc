@@ -24,9 +24,13 @@ Server side framework can be just about anything thanks to RESTful API that abst
 - has uniform interface for communication between clients and servers, including an HTTP method(GET, POST, PUT, DELETE, etc) + URL. (e.g. GET https://myweb/users)
 - does not maintain any client state 
 
-One of the REST constraints is *self-descriptive*, which means an API has to contain enough information that represents what it does.
-
+One of the REST constraints is *self-descriptive*, which means an API has to contain enough information that represents what it does.<br>
 ![image](https://user-images.githubusercontent.com/67142421/183272701-c6526ec7-79dd-4a9e-a72e-204dee53a978.png)<br>
+
+# API
+- An API allows different software applications to communicate.
+- An open API is an API publicly available.
+- An OpenAPI is a specification for describing RESTful APIs, which allows for the automatic generation of code, documentation, and tests based on the API specification.
 
 # UI/UX
 UI refers to visual elements that users interact with. UX refers more generally to users' overall experience, including how they feel about the interaction.
