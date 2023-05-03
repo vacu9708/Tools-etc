@@ -26,7 +26,7 @@ foo2() //ReferenceError: i is not defined
 |Update|Can be updated|Can be updated|Cannot be updated but updating by dereferencing is possible|
 
 # Closure
-Each function in JavaScript form closures. A **closure** is the combination of an inner function and the lexical environment within which the inner function is declared.<br>
+Each function in JavaScript forms closures. A **closure** is the combination of an inner function and the lexical environment within which the inner function is declared.<br>
 A **closure** allows an inner function to access the scope of the outer function.<br>
 ~~~javascript
 function parent_function() {
