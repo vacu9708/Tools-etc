@@ -12,7 +12,11 @@ A type of encryption where a public key and a corresponding private key are used
 ![image](https://user-images.githubusercontent.com/67142421/222992037-5f45d95f-5a57-4a36-af02-6b1850d03899.png)
 
 ## Digital signature
-Data encrypted using a private key can be decrypted using the corresponding public key. This is known as "digital signature" or "signing," where the sender uses their private key to encrypt a digital signature of the message they are sending, and the receiver uses the public key to decrypt and verify the signature.
+Data encrypted using a private key can be decrypted using the corresponding public key. This is known as "digital signature" or "signing".<br>
+In real implementation, It is the hash value of the data that is encrypted.
+1. The sender uses their private key to create a digital signature for the original message.
+2. The recipient uses the public key to decrypt the digital signature and obtain the original message.
+3. The recipient compares the received message with the decrypted original message.
 
 # CORS(Cross-Origin Resource sharing)
 Same-Origin Policy was introduced to prevent malicious requests(CSRF) from sites of different origins(pages).
