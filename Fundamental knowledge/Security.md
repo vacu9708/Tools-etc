@@ -1,16 +1,18 @@
 # Symmetric key encryption
 Traditional encryption where only one key is used to both encrypt and decrypt data.
 
-# Public key encryption
+# Asymmetric key encryption
 A type of encryption where a public key and a corresponding private key are used.
-## Pros
+### Pros
 - Increased security because the private key does not need to be revealed to anyone
 - Easier management of keys because all that needs to be revealed is one public key while Symmetric key encryption requires that many private keys be sent.
-## Cons
+### Cons
 - Complex mathematical computation
-## Example
+## How data is hidden
 ![image](https://user-images.githubusercontent.com/67142421/222992037-5f45d95f-5a57-4a36-af02-6b1850d03899.png)
 
+# D#igital signature
+Data encrypted using a private key can be decrypted using the corresponding public key. This is known as "digital signature" or "signing," where the sender uses their private key to encrypt a digital signature of the message they are sending, and the receiver uses the public key to decrypt and verify the signature.
 
 # CORS(Cross-Origin Resource sharing)
 Same-Origin Policy was introduced to prevent malicious requests(CSRF) from sites of different origins(pages).
