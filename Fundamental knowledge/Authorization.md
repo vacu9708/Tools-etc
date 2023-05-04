@@ -14,7 +14,7 @@ contains token information and public information to identify the user. It is no
 ~~~
 ## Signature
 The header and payload are taken together and encoded into a signature when the token is issued.<br>
-If the payload was tampered with, the signature generated using the original header and payload data will no longer match the signature of the manipulated data.
+If the JWT was tampered with, the signature recalculated using the received header and payload data will no longer match the signature in the JWT.
 
 ## Workflow
 ### Issuing
@@ -23,7 +23,7 @@ If the payload was tampered with, the signature generated using the original hea
 3. The server sends the JWT to the client, typically in the response body or as a cookie. The client verifies the signature using the public key.
 ### Authentification
 1. The client sends the JWT in the HTTP header
-2. The server checks that the token has not expired and verifies the signature using the server's private key(by comparing the received message and the decrypted signature)
+2. The server checks that the token has not expired and verifies the signature using the server's private key(by checking if the recalculated signature matches the signature in the JWT)
 3. The server sends the requested data to the client.
 
 ## Session-cookie VS JWT in authorization
