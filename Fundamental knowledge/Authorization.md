@@ -10,21 +10,21 @@ identifies which algorithm is used to generate the signature
 ## Payload
 contains token information and public information to identify the user. It is not encrypted, so care must be taken so that sensitive data is not included.
 ~~~javascript
-{"issuedAt": "65131721", "ID": "admin"}
+{"issuedAt": "65131721", "ID": "catherine"}
 ~~~
 ## Signature
-The header and payload are taken together and encoded into a signature to ensure that the token wasn't changed.<br>
-If the payload was manipulated, the signature of the manipulated payload doesn't match the signature generated with the original payload.
+The header and payload are taken together and encoded into a signature when the token is issued.<br>
+If the payload was tampered with, the signature generated using the original header and payload data will no longer match the signature of the manipulated data.
 
 ## Workflow
 ### Issuing
-1. The user logs in
-2. If the login information is valid, issue a token using a private key.
-3. The generated token is sent to the client.
+1. Client logs in using their credentials (e.g. username and password).
+2. If the login information is valid, the server generates a JWT containing a header, a payload, and a signature. The signature is created using the server's private key.
+3. The server sends the JWT to the client, typically in the response body or as a cookie. The client verifies the signature using the public key.
 ### Authentification
-1. Client sends the token in the HTTP request header
-2. The server identifies the user from the token.
-3. Server sends the requested data to the client.
+1. The client sends the JWT in the HTTP header
+2. The server checks that the token has not expired and verifies the signature using the server's private key(by comparing the received message and the decrypted signature)
+3. The server sends the requested data to the client.
 
 ## Session-cookie VS JWT in authorization
 ### Session-cookie
@@ -32,6 +32,15 @@ If the payload was manipulated, the signature of the manipulated payload doesn't
 ### JWT
 - All the information is stored in the token(stateless), so no additional storage is required.
 - All the information is stored in the token, so the token is bigger than session ID, which might lead to big traffic.
+
+## Token stealing attacks
+- Cross-site scripting (XSS): An attacker injects malicious code into a website or application, which is then executed in a user's browser. This code can be used to steal the user's access token or refresh token from the client-side storage location.
+
+- Cross-site request forgery (CSRF): An attacker tricks a user into submitting a malicious request to an application that includes the user's access token or refresh token. If the application does not have appropriate CSRF protections in place, it may inadvertently authorize the request and expose the user's token to the attacker.
+
+- Man-in-the-middle (MITM) attack: An attacker intercepts communications between the client application and the server, allowing them to steal the user's access token or refresh token as it is transmitted between the two. This can be mitigated by using HTTPS encryption to protect the communication channel.
+
+- Server-side vulnerabilities: If an attacker gains access to the server or the database where access tokens or refresh tokens are stored, they may be able to steal them directly.
 
 # OAuth 2.0
 Due to the security issue of OAuth 1.0, OAuth 2.0 was developed.
