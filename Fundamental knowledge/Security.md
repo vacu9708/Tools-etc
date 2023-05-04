@@ -11,7 +11,7 @@ A type of encryption where a public key and a corresponding private key are used
 ## How data is hidden
 ![image](https://user-images.githubusercontent.com/67142421/222992037-5f45d95f-5a57-4a36-af02-6b1850d03899.png)
 
-# D#igital signature
+## Digital signature
 Data encrypted using a private key can be decrypted using the corresponding public key. This is known as "digital signature" or "signing," where the sender uses their private key to encrypt a digital signature of the message they are sending, and the receiver uses the public key to decrypt and verify the signature.
 
 # CORS(Cross-Origin Resource sharing)
