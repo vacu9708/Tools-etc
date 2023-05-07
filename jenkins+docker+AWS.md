@@ -14,9 +14,12 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ~~~
-### Execute jenkins
+### Pull jenkins
 ~~~
 docker pull jenkins/jenkins:lts
+~~~
+### Execute jenkins
+~~~
 sudo docker run -d -p 8080:8080 -v /jenkins:/var/jenkins_home --name jenkins -u root jenkins/jenkins:lts
 ~~~
 ### Jenkins page
