@@ -67,7 +67,8 @@ The chain ends when it reaches a prototype whose parent prototype is null.<br>
 
 ![image](https://user-images.githubusercontent.com/67142421/178171952-1f5cbcf8-f262-48d8-bde0-77f568ebb650.png)
 
-# Javascript's event loop is single threaded
+# Javascript's event loop
+The event loop is a single-threaded loop that watches the call stack and checks if there's any code to run in the task queue.<br>
 ![image](https://user-images.githubusercontent.com/67142421/206545525-f88161cc-572b-4628-9db8-291eb7b1a466.png)
 - ## How setTimeout() is processed
 1. setTimeout() is placed into call stack
