@@ -14,13 +14,14 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ~~~
-### Pull jenkins
+### Install and execute jenkins container
 ~~~
 docker pull jenkins/jenkins:lts
-~~~
-### Execute jenkins
-~~~
 sudo docker run -d -p 8080:8080 -v /jenkins:/var/jenkins_home --name jenkins -u root jenkins/jenkins:lts
+~~~
+### if already installed
+~~~
+docker start jenkins
 ~~~
 ### Jenkins page
 1. http://address:8080
