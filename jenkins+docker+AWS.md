@@ -27,9 +27,14 @@ docker start jenkins
 1. http://address:8080
 2. Check the password with: sudo docker logs jenkins
 3. Install the recommended plugins and node.js plugin(or required plugins)
-4. ### key 
+5. ### Copy the public key 
   ~~~
   ssh-keygen
   cd .ssh
   cat id_rsa.pub
   ~~~
+6. Paste the public key here
+![image](https://user-images.githubusercontent.com/67142421/236693430-39e86469-3dfd-438c-801c-965878f6451e.png)
+![image](https://user-images.githubusercontent.com/67142421/236692702-2053cb8c-cd48-46b1-853a-c0c1be437803.png)
+
+
