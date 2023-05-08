@@ -4,10 +4,10 @@ docker build -t <image-name> .
 ### Remove one or more running containers
 ~~~
 docker stop <container-name>
-docker rm <container-name> <name>
+docker rm <container-name>
 ~~~
 ### Create and run a new container from an image
-docker run -p port:port --name <container-name> <image-name>
+docker run -d -p port:port --name <container-name> <image-name>
 ### Docker image list
 docker image ls
 
