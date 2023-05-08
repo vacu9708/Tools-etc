@@ -4,7 +4,7 @@ docker build -t <image-name> .
 ### Remove one or more running containers
 ~~~
 docker stop <container-name>
-docker rm <container-name>
+docker rm <container-name> <name>
 ~~~
 ### Create and run a new container from an image
 docker run -p port:port --name <container-name> <image-name>
