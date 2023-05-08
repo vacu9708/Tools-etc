@@ -26,15 +26,22 @@ docker start jenkins
 ### Jenkins page
 1. http://address:8080
 2. Check the password with: sudo docker logs jenkins
-3. Install the recommended plugins. (or node.js plugin for the npm command if needed. It's unnecessary with docker)
-5. ### Copy the public key 
+3. Install the recommended plugins.
+4. Add github credentials to jenkins (if private repo)
+### 5. Integrate jenkins with github webhook
+Github
+![image](https://user-images.githubusercontent.com/67142421/236819817-cc44373c-91cd-4267-9ced-274b5966f210.png)<br>
+![image](https://user-images.githubusercontent.com/67142421/236820133-010056e3-91d1-4f25-bd56-817282f1c786.png)<br>
+
+Jenkins
+![image](https://user-images.githubusercontent.com/67142421/236828164-13e27554-890d-4d08-9a84-df47956e7f39.png)<br>
+![image](https://user-images.githubusercontent.com/67142421/236828541-483c5b40-2caa-466e-86f2-d9a7648c8a2a.png)<br>
+
+Going forward, any changes pushed to the repository will be pulled into the workspace of Jenkins.
+
+### Copy the public key 
   ~~~
   ssh-keygen
   cd .ssh
   cat id_rsa.pub
   ~~~
-6. Paste the public key here
-![image](https://user-images.githubusercontent.com/67142421/236693430-39e86469-3dfd-438c-801c-965878f6451e.png)
-![image](https://user-images.githubusercontent.com/67142421/236692702-2053cb8c-cd48-46b1-853a-c0c1be437803.png)
-
-
