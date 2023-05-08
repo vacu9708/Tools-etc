@@ -57,4 +57,4 @@ Jenkins
 Going forward, any changes pushed to the repository will be pulled into the workspace of Jenkins.
 
 ## Send files to EC2 and run the container
-Publish over SSH has been deprecated
+Publish over SSH plugin has been deprecated
