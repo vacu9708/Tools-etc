@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/67142421/236676131-64fd9a2f-e1b9-49c1-816e-c469f6f5d62a.png)
+![image](https://user-images.githubusercontent.com/67142421/236849698-b3348a71-ae80-46e3-96f3-8c8cbb2c3871.png)
 
 # Docker commands
 ### Build an image using Dockerfile
