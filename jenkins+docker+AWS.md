@@ -26,7 +26,7 @@ docker start jenkins
 ### Jenkins page
 1. http://address:8080
 2. Check the password with: sudo docker logs jenkins
-3. Install the recommended plugins and node.js plugin(or required plugins)
+3. Install the recommended plugins. (or node.js plugin for the npm command if needed. It's unnecessary with docker)
 5. ### Copy the public key 
   ~~~
   ssh-keygen
