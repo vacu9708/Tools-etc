@@ -18,10 +18,14 @@ docker rm <container-name>
 docker run -p port:port --name <container-name> <image-name>
 ~~~
 - -d means: run in the background
-### Copy all files from a docker image
 - -v <directory on the host system>:<directory in the container> means: the directory on the host system will be accessible from within the container
+### Copy files from container to host
 ~~~
-docker cp <container>:<file> <destination>
+docker cp <source container>:<path in the container> <destination host>
+~~~
+### Copy files from host to container
+~~~
+docker cp <source host> <destination container>:<path in the container>
 ~~~
 ### Docker image list
 ~~~
