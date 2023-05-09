@@ -86,8 +86,7 @@ docker save -o 파일명.tar <image_name>
 ### Copy the image to EC2
 ~~~
 1. pem과 원하는 파일을 wsl로: mv /mnt/c/users/<윈도우 유저>/desktop/<파일> /home
-2. 권한변경: chmod 400 aws-jenkins.pem
-3. wsl에서 전송: scp -i aws-jenkins.pem -r <파일> <ubuntu이름>@<주소>:/home/ubuntu
+2. wsl에서 전송: scp -i aws-jenkins.pem -r <파일> <ubuntu이름>@<주소>:/home/ubuntu
 ~~~
 ### Add the image in EC2
 ~~~
