@@ -5,6 +5,13 @@
 Install Jenkins, Docker in AWS EC2
 
 # (If AWS free tier)
+There is a need to manage the RAM because RAM is very little in AWS free tier<br>
+Use this below instead of npm run build
+~~~json
+"scripts": {
+    "build": "GENERATE_SOURCEMAP=false npx react-scripts build"
+}
+~~~
 Allocating virtual memory
 ~~~
 sudo dd if=/dev/zero of=/mnt/swapfile bs=1M count=2048
