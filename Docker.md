@@ -54,6 +54,10 @@ docker cp <source host> <destination container>:<path in the container>
 ~~~
 docker images
 ~~~
+### Delete everything
+~~~
+docker system prune -a
+~~~
 
 # docker-compose
 Docker Compose is used to define and run a multi-container application. It allows defining a set of containers and their configuration using a YAML file, and then starting and stopping them together with a single command.
