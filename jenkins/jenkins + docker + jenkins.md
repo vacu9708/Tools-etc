@@ -1,4 +1,6 @@
-# CI/CD with docker + jenkins + AWS EC2  
+# CI/CD with docker + jenkins + AWS EC2
+![image](https://github.com/vacu9708/Tools-etc/assets/67142421/8c279e5c-9ad0-45b9-8656-683fe773d7b9)
+
 # 1. Prerequisites
 Install Jenkins, Docker in AWS EC2
 
