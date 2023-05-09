@@ -15,10 +15,11 @@ docker rm <container-name>
 ~~~
 ### Create and run a new container from an image
 ~~~
-docker run -d -p port:port --name <container-name> <image-name>
+docker run -p port:port --name <container-name> <image-name>
 ~~~
-- -d: run in the background
+- -d means: run in the background
 ### Copy all files from a docker image
+- -v <directory on the host system>:<directory in the container> means: the directory on the host system will be accessible from within the container
 ~~~
 docker cp <container>:<file> <destination>
 ~~~
