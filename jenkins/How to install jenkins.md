@@ -50,5 +50,5 @@ sudo systemctl start jenkins.service
 
 # Initial setup on the jenkins page
 1. http://address:8080
-2. Check the password with: sudo docker logs jenkins
+2. Check the password with: sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 3. Install the recommended plugins.
