@@ -4,6 +4,19 @@
 # 1. Prerequisites
 Install Jenkins, Docker in AWS EC2
 
+# (If AWS free tier)
+Allocating virtual memory
+~~~
+sudo dd if=/dev/zero of=/mnt/swapfile bs=1M count=2048
+sudo mkswap /mnt/swapfile
+sudo swapon /mnt/swapfile
+~~~
+Deleting virtual memory
+~~~
+sudo swapoff -v /mnt/swapfile
+sudo rm /mnt/swapfile
+~~~
+
 # 2. Integration of jenkins and github
 ## 1. Configure system
 ![image](https://github.com/vacu9708/Tools-etc/assets/67142421/bd944174-1cb0-46b4-b3d4-ecf280991cec)
