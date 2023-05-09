@@ -14,7 +14,7 @@ docker rm -f <container-name>
 ~~~
 ### Create and run a new container from an image
 ~~~
-docker run -p port:port --name <container-name> <image-name>
+docker run -d -p port:port --name <container-name> <image-name>
 ~~~
 - -d means: run in the background
 - -v <directory on the host system>:<directory in the container> means: the directory on the host system will be accessible from within the container
