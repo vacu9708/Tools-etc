@@ -44,7 +44,7 @@ docker cp <source host> <destination container>:<path in the container>
 ~~~
 ### Docker image list
 ~~~
-docker image ls
+docker images
 ~~~
 
 # docker-compose
