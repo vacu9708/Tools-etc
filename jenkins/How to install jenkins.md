@@ -27,7 +27,7 @@ sudo ufw allow 8080
 sudo ufw allow OpenSSH
 sudo ufw enable
 ~~~
-## Grand sudo privilege to Jenkins
+## Grant sudo privilege to Jenkins
 1. visudo /etc/sudoers
 2. Append: jenkins ALL=(ALL) NOPASSWD: ALL
 3. Reboot
