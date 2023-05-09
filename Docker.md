@@ -37,7 +37,7 @@ Docker Compose is used to define and run a multi-container application. It allow
 docker run -d -p 27017:27017 -v /data/mongodb:/data/db -v /data/mongodb_config:/data/configdb --name mongodb mongo
 docker run -d -p 4000:4000 --name to_do to_do
 ~~~
-### is converted to this docker-compose.yml
+### is converted to this docker-compose.yml below
 ~~~
 version: '3'
 
