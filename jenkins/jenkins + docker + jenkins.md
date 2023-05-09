@@ -5,8 +5,11 @@
 Install Jenkins, Docker in AWS EC2
 
 # 2. Integration of jenkins and github
-### 1. Add github credentials to Jenkins (if private repo)
-### 2. Connect the github webhook to Jenkins
+## 1. Configure system
+![image](https://github.com/vacu9708/Tools-etc/assets/67142421/bd944174-1cb0-46b4-b3d4-ecf280991cec)
+
+## 2. Add github credentials to Jenkins (if private repo)
+## 3. Connect the github webhook to Jenkins
 #### Github
 ![image](https://user-images.githubusercontent.com/67142421/236819817-cc44373c-91cd-4267-9ced-274b5966f210.png)<br>
 ![image](https://user-images.githubusercontent.com/67142421/236820133-010056e3-91d1-4f25-bd56-817282f1c786.png)<br>
