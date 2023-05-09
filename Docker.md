@@ -28,6 +28,10 @@ docker build -t <image-name> .
 ~~~
 docker rm -f <container-name>
 ~~~
+### Remove one or more images
+~~~
+docker rmi <image-name>
+~~~
 ### Create and run a new container from an image
 ~~~
 docker run -d -p port:port --name <container-name> <image-name>
