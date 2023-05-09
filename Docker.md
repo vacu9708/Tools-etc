@@ -10,8 +10,7 @@ docker build -t <image-name> .
 ~~~
 ### Remove one or more running containers
 ~~~
-docker stop <container-name>
-docker rm <container-name>
+docker rm -f <container-name>
 ~~~
 ### Create and run a new container from an image
 ~~~
