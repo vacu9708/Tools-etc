@@ -1,20 +1,3 @@
-# Docker commands
-### Build an image using Dockerfile
-~~~
-docker build -t <image-name> .
-~~~
-### Remove one or more running containers
-~~~
-docker stop <container-name>
-docker rm <container-name>
-~~~
-### Create and run a new container from an image
-~~~
-docker run -d -p port:port --name <container-name> <image-name>
-~~~
-### Docker image list
-docker image ls
-
 # CI/CD with docker + jenkins + AWS EC2  
 ## Install Docker
 ~~~
