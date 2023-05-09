@@ -16,7 +16,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 ## Install and run the jenkins container
 ~~~
 docker pull jenkins/jenkins:lts
-sudo docker run -d -p 8080:8080 -v /jenkins:/var/jenkins_home --name jenkins -u root jenkins/jenkins:lts
+sudo docker run -d -p 8080:8080 -v /jenkins:/var/jenkins_home -u root --name jenkins jenkins/jenkins:lts
 ~~~
 #### Meaning of the docker run command above
 - -d: This flag runs the container in the background in detached mode.
