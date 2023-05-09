@@ -1,4 +1,4 @@
-# Docker process
+# How to create and execute a docker image
 1. Write Dockerfile
 2. Build an image using the Dockerfile
 3. Write and run docker-compose
