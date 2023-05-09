@@ -62,3 +62,19 @@ This can be executed with
 ~~~
 docker-compose up -d
 ~~~
+  
+# Copying docker images to AWS EC2
+### Save the image file as tar
+~~~
+docker save -o 파일명.tar <image_name>
+~~~
+### Copy the image to EC2
+~~~
+1. pem과 원하는 파일 전송: mv /mnt/c/users/<윈도우 유저>/desktop/<위치> /home
+2. 권한변경 필요하면: chmod 400 aws-jenkins.pem
+3. 전송: cd /home -> scp -i aws-jenkins.pem -r <파일> ubuntu@13.211.52.23:/home/ubuntu
+~~~
+### Execute the image in EC2
+~~~
+docker load -i 파일명.tar
+~~~
