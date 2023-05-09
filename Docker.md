@@ -32,6 +32,10 @@ docker rm -f <container-name>
 ~~~
 docker rmi <image-name>
 ~~~
+### Remove all containers
+~~~
+docker rm -f $(docker ps -qa)
+~~~
 ### Create and run a new container from an image
 ~~~
 docker run -d -p port:port --name <container-name> <image-name>
