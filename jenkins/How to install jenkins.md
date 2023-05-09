@@ -1,5 +1,6 @@
 # Installing Jenkins with Docker(has a problem that things outside the Jenkins image are not accessible)
 ## Installation of Docker
+#### [Official guide](https://docs.docker.com/engine/install/ubuntu/)
 ~~~
 sudo apt-get update
 sudo apt-get install ca-certificates curl gnupg
@@ -21,7 +22,7 @@ sudo docker run -d -p 8080:8080 -v /jenkins:/var/jenkins_home -u root --name jen
 ~~~
 
 # Installing Jenkins manually
-#### [Official installtion](https://www.jenkins.io/doc/book/installing/linux/)
+#### [Official guide](https://www.jenkins.io/doc/book/installing/linux/)
 ## Installtion of java(on which Jenkins depends)
 ~~~
 $ sudo apt update
