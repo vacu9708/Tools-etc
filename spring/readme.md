@@ -1,4 +1,8 @@
-# Basics
+# Java basic
+### Interface
+In Java, an interface defines a set of requirements that a class implementing that interface must provide.<br>
+
+# Spring core
 - Inversion of control: Instead of a program controlling the objects it uses, the control is shifted to a separate framework.
 - ## Dependency Injection
   [Dependency Inversion](https://github.com/vacu9708/Fundamental-knowledge/tree/main/Development%20methodology/Object%20Oriented%20Programming) is automated by the spring annotation **@Autowired**, which is called **Dependency Injection**. @Autowired can be automatically applied in some annotations such as @Component, @Controller, @Service, etc in Spring.
@@ -9,7 +13,6 @@
 - **Controller**: refers to a component responsible for handling incoming HTTP requests and passing an appropriate HTTP response to the View.
 - **Service**: is responsible for the business logic and interacting with the Model for the **Controller** to use.
 ![image](https://user-images.githubusercontent.com/67142421/223227356-59a2489a-7cba-4ce4-918e-96aab28311d9.png)
-
 
 # Spring container
 - Spring container: manages spring beans
