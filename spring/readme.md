@@ -4,10 +4,9 @@ In Java, an interface defines a set of requirements that a class implementing th
 
 # Spring core
 - ### Inversion of control
-  Instead of a program controlling the objects it uses, the control is shifted to a separate framework.
-- ### Dependency Injection
+  Instead of a program controlling the objects it uses, the control is shifted to a separate framework.<br>
   [Dependency injection](https://github.com/vacu9708/Fundamental-knowledge/tree/main/Development%20methodology/Object%20Oriented%20Programming) is automated by the spring annotation **@Autowired**.<br>
-  @Autowired can be automatically applied in some annotations such as @Component, @Controller, @Service, etc in Spring.
+  @Autowired are included in some annotations such as @Component, @Controller, @Service, etc in Spring.
 
 # MVC pattern
 - **Model**: is data layer responsible for database.
