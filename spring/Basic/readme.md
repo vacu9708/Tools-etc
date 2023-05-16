@@ -11,8 +11,8 @@ In Java, an interface defines a set of requirements that a class implementing th
 # MVC pattern
 - **Model**: is data layer responsible for database.
 - **View**: is responsible for rendering the data passed by the Controller
-- **Controller**: refers to a component responsible for handling incoming HTTP requests and passing an appropriate HTTP response to the View.
-- **Service**: is responsible for the business logic and interacting with the Model for the **Controller** to use.
+- **Controller**: refers to a component responsible for routing incoming requests, invoking the service associated with a specific URL, and generating responses to the View.
+- **Service**: is responsible for the business logic for the **Controller** to use.
 ![image](https://user-images.githubusercontent.com/67142421/223227356-59a2489a-7cba-4ce4-918e-96aab28311d9.png)
 
 # Spring container
