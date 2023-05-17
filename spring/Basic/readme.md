@@ -1,6 +1,16 @@
 # Java basic
-### Interface
-In Java, an interface defines a set of requirements that a class implementing that interface must provide.<br>
+### Interface and abstract class
+In Java, an interface and an abstract class define a set of requirements that a class implementing that must provide. In other words, They are a "blueprint"<br>
+
+||Interface|Abstract class|
+|---|---|---|
+|Purpose|Both serve as blueprints for classes||
+|Implementation|Can have both implemented methods and non-implemented methods|No implementations|
+|Instantiation|Both cannot be directly instantiated||
+|Inheritance|Supports single inheritance|Supports multiple inheritance|
+
+In summary, abstract classes are blueprints that can have implemented methods. Interfaces are only used as a blueprint.
+
 
 # Spring core
 ### Inversion of control
