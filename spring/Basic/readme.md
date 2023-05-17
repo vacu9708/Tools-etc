@@ -2,7 +2,7 @@
 ### Interface and abstract class
 In Java, an interface and an abstract class define a set of requirements that a class implementing that must provide. In other words, They are a "blueprint"<br>
 
-||Interface|Abstract class|
+||Abstract class|Interface|
 |---|---|---|
 |Purpose|Both serve as blueprints for classes||
 |Instantiation|Both cannot be directly instantiated||
