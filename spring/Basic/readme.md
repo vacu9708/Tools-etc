@@ -5,8 +5,8 @@ In Java, an interface and an abstract class define a set of requirements that a 
 ||Interface|Abstract class|
 |---|---|---|
 |Purpose|Both serve as blueprints for classes||
-|Implementation|Can have both implemented methods and non-implemented methods|No implementations|
 |Instantiation|Both cannot be directly instantiated||
+|Implementation|Can have both implemented methods and non-implemented methods|No implementations|
 |Inheritance|Supports single inheritance|Supports multiple inheritance|
 
 In summary, abstract classes are blueprints that can have implemented methods while interfaces are pure blueprints.
