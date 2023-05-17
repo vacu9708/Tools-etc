@@ -12,7 +12,8 @@ Instead of a program controlling the objects it uses, the control is shifted to 
 Spring scans for classes annotated with @Component (and other stereotype annotations like @Service, @Repository, etc.) and creates instances of those classes as beans.<br>
 #### @Component, @Service, @Repository
 All of these indicate that the class is a candidate for auto-detection as a Spring bean.<br>
-While the three annotations have different names, they are technically equivalent in terms of functionality. The different names help in semantic clarity.
+While the three annotations have different names, they are technically equivalent in terms of functionality. The different names help in semantic clarity.<br>
+>@Controller is not for semantic clarity but specifically used for classes that serve as controllers in the MVC architecture, handling HTTP requests.
 
 # MVC pattern
 - **Model**: is data layer responsible for database.
