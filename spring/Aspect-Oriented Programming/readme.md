@@ -1,4 +1,6 @@
-An aspect is a module of cross-cutting functionality that can be applied to multiple methods in a program.<br>
+An aspect is a module consisting of cross-cutting functionalities that can be applied to multiple methods scattered throughout the application. In AOP, cross-cutting functinalities are defined in a central location called Aspect.<br>
+(Cross-cutting means not localized to a specific module)<br>
+The IoC container takes control of object management and weaves aspects into the appropriate components.<br>
 
 ![image](https://github.com/vacu9708/Tools-etc/assets/67142421/6db5489f-2e67-4e2b-a43d-db5a3c787cc2)<br><br>
 
