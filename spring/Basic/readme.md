@@ -13,7 +13,7 @@ In summary, abstract classes are blueprints that can have implemented methods wh
 
 # Spring core
 ### Inversion of control
-Instead of a program controlling the objects it uses, the control is shifted to a separate framework.<br>
+Instead of a program controlling the objects it uses, the control of object creation and management is shifted to an external container.<br>
 [Dependency injection](https://github.com/vacu9708/Fundamental-knowledge/tree/main/Development%20methodology/Object%20Oriented%20Programming) is automated by the spring annotation **@Autowired**.<br>
 @Autowired are included in some annotations such as @Component, @Controller, @Service, etc in Spring.
 
