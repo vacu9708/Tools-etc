@@ -17,7 +17,6 @@ Instead of a program controlling the objects it uses, the control of object crea
 @Component, @Service, etc instruct the Spring IoC container to create and manage an instance of that class as a bean.<br>
 @Autowired is used for [Dependency injection](https://github.com/vacu9708/Fundamental-knowledge/tree/main/Development%20methodology/Object%20Oriented%20Programming), indicating that a dependency should be automatically injected by the Spring IoC container.<br>
 
-
 ### Auto allocation of classes
 Spring scans for classes annotated with @Component (and other stereotype annotations like @Service, @Repository, etc.) and creates instances of those classes as beans.<br>
 #### @Component, @Service, @Repository
