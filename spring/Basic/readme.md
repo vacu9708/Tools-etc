@@ -41,7 +41,7 @@ While the three annotations have different names, they are technically equivalen
 - webflux: non blocking version of spring MVC that was introduced in spring 5
 - webflux.fn: functional programming version of webflux
 
-# Concepts
-## Data Transfer Objects
-DTOs contain data and have no behavior, meaning they are used only for data exchange and not for any business logic.<br>
-DTOs are used to transfer data between the presentation layer(controller) and the service layer.
+# Data Transfer Objects
+DTOs serve as containers for transferring data between different layers of an application. such as between the presentation layer and the service layer.<br>
+The SQL query retrieves data from a database, and the results are mapped to DTOs. These DTOs are then passed between layers.<br>
+DTOs include only the necessary information for transferring data without unnecessary entity-specific details such as primary keys or database-specific configuration.<br>
