@@ -1,5 +1,5 @@
 - [Javascript](https://github.com/vacu9708/Tools-etc/tree/main/Javascript)
 - [Spring](https://github.com/vacu9708/Tools-etc/tree/main/spring)
-- [Django](https://github.com/vacu9708/Tools-etc/tree/main/django)
+- [Python](https://github.com/vacu9708/Tools-etc/tree/main/python)
 - [Docker](https://github.com/vacu9708/Tools-etc/blob/main/Docker.md)
 - [Jenkins](https://github.com/vacu9708/Tools-etc/tree/main/jenkins)
