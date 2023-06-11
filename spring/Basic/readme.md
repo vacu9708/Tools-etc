@@ -29,7 +29,7 @@ While the three annotations have different names, they are technically equivalen
 - **Controller**: refers to a component responsible for routing incoming requests, invoking the service associated with a specific URL, and generating responses to the View.
 - **Service**: is responsible for the business logic for the **Controller** to use.
 - **Model**: represents the structure of the application's data and includes a repository layer.
-- **Repository**: belongs to the **Model** layer and acts as an intermediary between the Model and the database. The Repository layer provides an interface for manipulating data. (Create, Read, Update, Delete)
+- **Repository**: belongs to the **Model** layer and acts as an intermediary between the Model and the database. The Repository layer serves as an interface for manipulating data. (Create, Read, Update, Delete)
 - **View**: is responsible for rendering the data passed by the Controller
 
 ![image](https://user-images.githubusercontent.com/67142421/223227356-59a2489a-7cba-4ce4-918e-96aab28311d9.png)
