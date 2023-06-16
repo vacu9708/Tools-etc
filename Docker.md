@@ -58,6 +58,11 @@ docker images
 ~~~
 docker system prune -a
 ~~~
+### Docker volume
+Volumes mapped to storage outside the container need to be created because the storage inside the container is not maintained.
+~~~
+-v <host-path>:<container-path>
+~~~
 
 # docker-compose
 Docker Compose is used to define and run a multi-container application. It allows defining a set of containers and their configuration using a YAML file, and then starting and stopping them together with a single command.
