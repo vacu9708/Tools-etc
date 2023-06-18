@@ -36,12 +36,12 @@ docker rmi <image-name>
 ~~~
 docker rm -f $(docker ps -qa)
 ~~~
-### Create and run a new container from an image
+### Create and run a new container from images
 ~~~
-docker run -d -p port:port --name <container-name> <image-name>
+docker run -d -p port:port --name <container-name> <image-name1> <image-name2>
 ~~~
-- -d means: run in the background
-- -v <directory on the host system>:<directory in the container> means: the directory on the host system will be accessible from within the container
+- `-d`: run in the background
+- `-v` <directory on the host system>:<directory in the container> means: the directory on the host system will be accessible from within the container
 ### Copy files from container to host
 ~~~
 docker cp <source container>:<path in the container> <destination host>
