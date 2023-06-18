@@ -11,19 +11,15 @@ In Java, an interface and an abstract class define a set of requirements that a 
 
 In summary, abstract classes are blueprints that can have implemented methods while interfaces are pure blueprints.
 
-# Spring core
-### Inversion of control
+# Inversion of Control
 Instead of a program controlling the objects it uses, the control of object creation and management is shifted to an external container.<br>
-@Autowired indicates dependencies of the class should be automatically injected by the Spring IoC container.<br>
-@Component, @Service, etc instruct the Spring IoC container to create and manage an instance of that class as a bean and include the functionality of @Autowired by default.<br>
-[Dependency injection](https://github.com/vacu9708/Fundamental-knowledge/tree/main/Development%20methodology/Object%20Oriented%20Programming)
+Spring scans for classes annotated with @Component, @Service, @Repository, etc and creates an instance of those classes as a bean.<br>
+While @Component, @Service, @Repository, etc have different names, they are technically equivalent in terms of functionality. The different names help in semantic clarity.<br>
+>@Controller is not for semantic clarity but specifically used for classes that serve as controllers in the MVC architecture, handling HTTP requests.<br>
 
-### Auto allocation of classes
-Spring scans for classes annotated with @Component (and other stereotype annotations like @Service, @Repository, etc.) and creates instances of those classes as beans.<br>
-#### @Component, @Service, @Repository
-All of these indicate that the class is a candidate for auto-detection as a Spring bean.<br>
-While the three annotations have different names, they are technically equivalent in terms of functionality. The different names help in semantic clarity.<br>
->@Controller is not for semantic clarity but specifically used for classes that serve as controllers in the MVC architecture, handling HTTP requests.
+### Dependnency injection
+Objects annotated with @Autowired and objects in function arguments are automatically injected by the Spring IoC container.<br>
+[Dependency injection](https://github.com/vacu9708/Fundamental-knowledge/tree/main/Development%20methodology/Object%20Oriented%20Programming)<br>
 
 # MVC pattern
 - **Controller**: refers to a component responsible for routing incoming requests, invoking the service associated with a specific URL, and generating responses to the View.
@@ -36,7 +32,7 @@ While the three annotations have different names, they are technically equivalen
 
 # Spring container
 - Spring container: manages spring beans
-- Bean factory: basic spring container that is used for memory is severely constrained
+- Bean factory: basic spring container that is used for memory and is severely constrained
 - Application context: advanced spring container that most enterprise applications use
 
 # Spring REST
