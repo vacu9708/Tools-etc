@@ -43,4 +43,4 @@ Going forward, any changes pushed to the repository will be pulled into the work
 # 3. Write Dockerfile and docker-compose, and then include them in the root folder of the source
 
 # 4. Write script to create and run the container
-![image](https://github.com/vacu9708/Tools-etc/assets/67142421/036a23fc-9298-4846-8d92-78d3d7842e8c)
+![image](https://github.com/vacu9708/Tools-etc/assets/67142421/db8c299b-82ab-4c6d-9d1f-65446636ab20)
