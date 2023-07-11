@@ -1,7 +1,7 @@
 # Installing Jenkins with Docker(has a problem that things outside the Jenkins image are not accessible)
 ~~~
 docker pull jenkins/jenkins:lts
-sudo docker run -d -p 8000:8000 -v /jenkins:/var/jenkins_home -u root --name jenkins jenkins/jenkins:lts
+sudo docker run -d -p 8080:8080 -v /jenkins:/var/jenkins_home -u root --name jenkins jenkins/jenkins:lts
 ~~~
 
 # Installing Jenkins manually
