@@ -26,7 +26,7 @@ sudo rm /mnt/swapfile
 
 # 2. Integration of jenkins and github
 ## 1. Configure system
-![image](https://github.com/vacu9708/Tools-etc/assets/67142421/87cb601f-7a69-4c57-80c1-885859367ace)
+![image](https://github.com/vacu9708/Tools-etc/assets/67142421/9634b5a8-10b3-459b-be11-3b6e752347c3)
 
 ## 2. Add github credentials to Jenkins (if private repo)
 
@@ -43,4 +43,4 @@ Going forward, any changes pushed to the repository will be pulled into the work
 # 3. Write Dockerfile and docker-compose, and then include them in the root folder of the source
 
 # 4. Write script to create and run the container
-![image](https://github.com/vacu9708/Tools-etc/assets/67142421/6c38c622-8fa0-4852-9d79-60f8e32843d8)
+![image](https://github.com/vacu9708/Tools-etc/assets/67142421/784cc11b-3bd4-4576-90a5-91e7a597bd04)
