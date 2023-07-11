@@ -25,13 +25,17 @@ sudo apt-get install jenkins
 ## Change the port
 `1.`
 ~~~
-sudo nano /etc/default/jenkins
+systemctl edit jenkins
 ~~~
-`2.` Search for HTTP_PORT= and edit it
+`2.` Add
+~~~
+[Service]
+Environment="JENKINS_PORT=8079"
+~~~
 
 ## Open firewall
 ~~~
-sudo ufw allow 8080
+sudo ufw allow 8079
 sudo ufw allow OpenSSH
 sudo ufw enable
 ~~~
@@ -45,6 +49,12 @@ sudo systemctl start jenkins.service
 ~~~
 
 # Initial setup on the jenkins page
-1. http://address:8080
+1. http://<host_address>:8079
 2. Check the password with: sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 3. Install the recommended plugins.
+
+# How to restart Jenkins and check its status
+~~~
+sudo systemctl restart jenkins
+sudo systemctl status jenkins
+~~~
