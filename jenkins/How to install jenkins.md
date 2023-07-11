@@ -21,6 +21,14 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
 sudo apt-get update
 sudo apt-get install jenkins
 ~~~
+
+## Change the port
+`1.`
+~~~
+sudo nano /etc/default/jenkins
+~~~
+`2.` Search for HTTP_PORT= and edit it
+
 ## Open firewall
 ~~~
 sudo ufw allow 8080
