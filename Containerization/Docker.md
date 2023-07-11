@@ -92,7 +92,8 @@ services:
 ~~~
 This can be executed with
 ~~~
-docker-compose up -d
+docker-compose down --rmi all -f <file name>
+docker-compose up -d -f <file name>
 ~~~
   
 # Copying docker images to AWS EC2
