@@ -8,8 +8,8 @@ sudo docker run -d -p 8080:8080 -v /jenkins:/var/jenkins_home -u root --name jen
 #### [Official guide](https://www.jenkins.io/doc/book/installing/linux/)
 ## Installtion of java(on which Jenkins depends)
 ~~~
-$ sudo apt update
-$ sudo apt install openjdk-11-jdk -y
+sudo apt update
+sudo apt install openjdk-11-jdk -y
 ~~~
 ## Installation of Jenkins
 ~~~
