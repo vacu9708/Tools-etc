@@ -42,5 +42,5 @@ Going forward, any changes pushed to the repository will be pulled into the work
 # 3. Write Dockerfile and docker-compose, and then include them in the root folder of the source
 
 # 4. Write script to create and run the container
-Don't forget the permissions!!! (chmod and sudo)
+Don't forget the permissions!!! (chmod and sudo)<br>
 ![image](https://github.com/vacu9708/Tools-etc/assets/67142421/24d98cc3-bc75-423c-80b9-60a9b73cab9e)
