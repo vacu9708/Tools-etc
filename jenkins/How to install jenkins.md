@@ -43,7 +43,7 @@ sudo ufw enable
 ## Grant sudo privilege to Jenkins
 1. visudo /etc/sudoers
 2. Append: jenkins ALL=(ALL) NOPASSWD: ALL
-3. Reboot
+3. reboot (using the ubuntu command)
 ## Start jenkins
 ~~~
 sudo systemctl start jenkins.service
