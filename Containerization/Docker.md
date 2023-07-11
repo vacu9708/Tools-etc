@@ -65,30 +65,46 @@ Volumes mapped to storage outside the container need to be created because the s
 ~~~
 
 # docker-compose
-Docker Compose is used to define and run a multi-container application. It allows defining a set of containers and their configuration using a YAML file, and then starting and stopping them together with a single command.
+Docker Compose is used to define and run a multi-container application. It allows defining a set of containers and their configuration using a YML file, and then starting and stopping them together with a single command.
 ~~~
-docker run -d -p 27017:27017 -v /data/mongodb:/data/db -v /data/mongodb_config:/data/configdb --name mongodb mongo
-docker run -d -p 4000:4000 --name to_do to_do
+docker build -t gateway:gateway -f ./gateway/Dockerfile ./gateway
+
+docker run -d \
+  --name gateway \
+  -p 8080:8080 \
+  --add-host="localhost:host-gateway" \
+  gateway:gateway
+
+docker run -d \
+  --name redis \
+  -p 6379:6379 \
+  -v /redis_data:/redis_data \
+  redis \
+  redis-server --appendonly yes
 ~~~
 ### is converted to this docker-compose.yml below
 ~~~
 version: '3'
-
+name: shopping_mall
 services:
-  mongodb:
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    image: gateway:gateway
     ports:
-      - "27017:27017"
+      - 8080:8080
+    extra_hosts:
+      - "localhost:host-gateway"
+
+  redis:
+    image: redis
+    container_name: redis
+    command: redis-server --appendonly yes
+    ports:
+      - '6379:6379'
     volumes:
-      - /data/mongodb:/data/db
-      - /data/mongodb_config:/data/configdb
-    container_name: mongodb
-    image: mongo
-    restart: always
-  to_do:
-    ports:
-      - "4000:4000"
-    container_name: to_do
-    image: to_do
+      - '/redis_data:/redis_data'
 ~~~
 This can be executed with
 ~~~
