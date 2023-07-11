@@ -6,12 +6,12 @@ sudo docker run -d -p 8080:8080 -v /jenkins:/var/jenkins_home -u root --name jen
 
 # Installing Jenkins manually
 #### [Official guide](https://www.jenkins.io/doc/book/installing/linux/)
-## Installtion of java(on which Jenkins depends)
+## Install JAva(on which Jenkins depends)
 ~~~
 sudo apt update
 sudo apt install openjdk-11-jdk -y
 ~~~
-## Installation of Jenkins
+## Install Jenkins
 ~~~
 curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
@@ -39,6 +39,7 @@ sudo ufw allow 8079
 sudo ufw allow OpenSSH
 sudo ufw enable
 ~~~
+
 ## Grant sudo privilege to Jenkins
 1. visudo /etc/sudoers
 2. Append: jenkins ALL=(ALL) NOPASSWD: ALL
@@ -48,7 +49,12 @@ sudo ufw enable
 sudo systemctl start jenkins.service
 ~~~
 
-# Initial setup on the jenkins page
+## Make the Jenkins workspace free from all permissions
+~~~
+chmod -R 777 /var/lib/jenkins/workspace
+~~~
+
+# Initial setup on the Jenkins page
 1. http://<host_address>:8079
 2. Check the password with: sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 3. Install the recommended plugins.
