@@ -25,7 +25,7 @@ is not for semantic clarity but specifically used for classes that serve as cont
 is used at the method level to explicitly declare individual bean definitions within a @Configuration class. 
 
 ### Dependnency injection
-Objects annotated with @Autowired and objects in function arguments are automatically injected by the Spring IoC container.<br>
+Objects annotated with @Autowired are automatically injected by the Spring IoC container.<br>
 [Dependency injection](https://github.com/vacu9708/Fundamental-knowledge/tree/main/Development%20methodology/Object%20Oriented%20Programming)<br>
 
 # MVC pattern
