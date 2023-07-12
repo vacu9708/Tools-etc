@@ -13,9 +13,16 @@ In summary, abstract classes are blueprints that can have implemented methods wh
 
 # Inversion of Control
 Instead of a program controlling the objects it uses, the control of object creation and management is shifted to an external container.<br>
-Spring scans for classes annotated with @Component, @Service, @Repository, etc and creates an instance of those classes as a bean.<br>
-While @Component, @Service, @Repository, etc have different names, they are technically equivalent in terms of functionality. The different names help in semantic clarity.<br>
->@Controller is not for semantic clarity but specifically used for classes that serve as controllers in the MVC architecture, handling HTTP requests.<br>
+
+### @Component
+Spring scans for classes annotated with @Component, @Service, @Repository, @Controller and so on and creates instances of those classes as beans.<br>
+While @Component, @Service, @Repository have different names, they are technically equivalent in terms of functionality. The different names help in semantic clarity.<br>
+
+### @Controller
+is not for semantic clarity but specifically used for classes that serve as controllers in the MVC architecture, handling HTTP requests.<br>
+
+### @Bean
+is used at the method level to explicitly declare individual bean definitions within a @Configuration class. 
 
 ### Dependnency injection
 Objects annotated with @Autowired and objects in function arguments are automatically injected by the Spring IoC container.<br>
