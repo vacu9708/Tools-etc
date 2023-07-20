@@ -26,7 +26,7 @@ is used at the method level to explicitly declare individual bean definitions wi
 
 ### Dependnency injection
 Objects annotated with @Autowired are automatically injected by the Spring IoC container.<br>
-[Dependency injection](https://github.com/vacu9708/Fundamental-knowledge/tree/main/Development%20methodology/Object%20Oriented%20Programming)<br>
+`Dependency injection` means providing the dependencies of a class from outside of the class, rather than creating them within the class itself.
 
 # MVC pattern
 - **Controller**: refers to a component responsible for routing incoming requests, invoking the service associated with a specific URL, and generating responses to the View.
