@@ -4,7 +4,7 @@ The IoC container takes control of object management and weaves aspects into the
 
 ![image](https://github.com/vacu9708/Tools-etc/assets/67142421/6db5489f-2e67-4e2b-a43d-db5a3c787cc2)<br><br>
 
-Suppose we want to add logging functionality to all methods in the "UserService" class to track the execution time of each method.<br>
+Suppose we want to add logging functionality to methods in the "UserService" class to track the execution time of each method.<br>
 In the traditional OOP, the logging functionality had to be included in every method that needs it.<br>
 With AOP, there is no need to include it in every method that needs the functionality because The modularized LoggingAspect goes to where it is needed on its own.<br>
 
