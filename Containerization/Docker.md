@@ -86,6 +86,10 @@ docker load -i 파일명.tar
 ~~~
 docker ps -a
 ~~~
+### Run all stopped containers
+~~~
+docker start $(docker ps -a -q --filter "status=exited")
+~~~
 ### List all images
 ~~~
 docker images
