@@ -55,6 +55,7 @@ sudo systemctl start jenkins.service
 ~~~
 
 ## Make the Jenkins workspace free from all permissions
+This is needed for commands such as the build command ./mvwn clean package
 ~~~
 chmod -R 777 /var/lib/jenkins/workspace
 ~~~
