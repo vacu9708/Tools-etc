@@ -1,0 +1,2 @@
+### How to send files to EC2
+scp -i <key_name>.pem -r <directory to send> ubuntu@<EC2 address>:/home
