@@ -35,9 +35,9 @@ Environment="JENKINS_PORT=8079"
 
 ## Open firewall
 ~~~
+sudo ufw enable
 sudo ufw allow 8079
 sudo ufw allow OpenSSH
-sudo ufw enable
 ~~~
 
 ## Initial setup on the Jenkins page
