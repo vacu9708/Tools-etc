@@ -27,7 +27,7 @@ sudo apt-get install jenkins -y
 ~~~
 systemctl edit jenkins
 ~~~
-`2.` Add
+`2.` Add this to the configuration file
 ~~~
 [Service]
 Environment="JENKINS_PORT=8079"
@@ -40,9 +40,14 @@ sudo ufw allow OpenSSH
 sudo ufw enable
 ~~~
 
+## Initial setup on the Jenkins page
+1. http://<host_address>:8079
+2. Check the password with: sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+3. Install the recommended plugins.
+
 ## Grant sudo privilege to Jenkins
 1. visudo /etc/sudoers
-2. Append in the block # User privilege specification: jenkins ALL=(ALL) NOPASSWD: ALL)
+2. Append "jenkins ALL=(ALL) NOPASSWD: ALL)" below "# User privilege specification"
 3. reboot (using the ubuntu command)
 ## Start jenkins
 ~~~
@@ -53,11 +58,6 @@ sudo systemctl start jenkins.service
 ~~~
 chmod -R 777 /var/lib/jenkins/workspace
 ~~~
-
-# Initial setup on the Jenkins page
-1. http://<host_address>:8079
-2. Check the password with: sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-3. Install the recommended plugins.
 
 # How to restart Jenkins and check its status
 ~~~
