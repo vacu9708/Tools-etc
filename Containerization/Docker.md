@@ -66,7 +66,7 @@ docker-compose down --rmi all -f <file name>
 docker-compose up -d -f <file name>
 ~~~
   
-# Copying docker images to AWS EC2
+# How to copy docker images to AWS EC2
 ### Save the image file as tar
 ~~~
 docker save -o 파일명.tar <image_name>
@@ -81,7 +81,15 @@ docker save -o 파일명.tar <image_name>
 docker load -i 파일명.tar
 ~~~
 
-# Docker commands
+# Other docker commands
+### List all containers
+~~~
+docker ps -a
+~~~
+### List all images
+~~~
+docker images
+~~~
 ### Build an image using Dockerfile
 ~~~
 docker build -t <image-name> .
@@ -111,10 +119,6 @@ docker cp <source container>:<path in the container> <destination host>
 ### Copy files from host to container
 ~~~
 docker cp <source host> <destination container>:<path in the container>
-~~~
-### Docker image list
-~~~
-docker images
 ~~~
 ### Delete everything
 ~~~
