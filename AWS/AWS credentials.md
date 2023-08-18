@@ -1,4 +1,4 @@
-### 1. Make a file named "credentials" located at <user>/.aws
+### 1. Make a file named "credentials" located at \<user>/.aws
 ### 2. Complete the format of the credentials file
 ~~~
 [default]
