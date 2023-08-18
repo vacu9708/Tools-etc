@@ -46,6 +46,7 @@ sudo ufw enable
 3. Install the recommended plugins.
 
 ## Grant sudo privilege to Jenkins
+Docker requires the sudo privilege
 1. visudo /etc/sudoers
 2. Append "jenkins ALL=(ALL) NOPASSWD: ALL)" below "# User privilege specification"
 3. reboot (using the ubuntu command)
