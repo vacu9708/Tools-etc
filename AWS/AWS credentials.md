@@ -5,7 +5,7 @@
 aws_access_key_id=<value from AWS access portal>
 aws_secret_access_key=<value from AWS access portal>
 ~~~
-3. Set the location of the credentials file
+### 3. Set the location of the credentials file
 Java example
 ~~~java
 @Bean
