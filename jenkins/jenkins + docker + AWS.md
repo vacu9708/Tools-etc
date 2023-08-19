@@ -43,4 +43,4 @@ Going forward, any changes pushed to the repository will be pulled into the work
 
 # 4. Write script to create and run the container
 Don't forget the permissions!!! (chmod and sudo)<br>
-![image](https://github.com/vacu9708/Tools-etc/assets/67142421/24d98cc3-bc75-423c-80b9-60a9b73cab9e)
+![image](https://github.com/vacu9708/Tools-etc/assets/67142421/d215562c-16dd-42a7-b423-60220025dd64)
