@@ -1,7 +1,1 @@
-- [Javascript](https://github.com/vacu9708/Tools-etc/tree/main/Javascript)
-- [Spring](https://github.com/vacu9708/Tools-etc/tree/main/spring)
-- [Python](https://github.com/vacu9708/Tools-etc/tree/main/python)
-- [Docker, Kubernetes](https://github.com/vacu9708/Tools-etc/tree/main/Containerization)
-- [Jenkins](https://github.com/vacu9708/Tools-etc/tree/main/jenkins)
-- [Messaging system(Kafka)](https://github.com/vacu9708/Tools-etc/tree/main/Messaging%20system(Kafka))
-- [AWS](https://github.com/vacu9708/Tools-etc/tree/main/AWS)
+This directory is only for personal usage so that I can remember how to use the tools.
