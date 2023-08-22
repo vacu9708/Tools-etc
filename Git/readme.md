@@ -37,7 +37,7 @@ git push -f
 - git branch : Current branch
 - git branch -d : Remove a branch
 
-# (Useless)How to merge into the current branch in local
+# How to merge into the current branch in local
 git pull origin [current branch]
 git merge [branch]: Merge the branch into the current branch
 add, commit, push
