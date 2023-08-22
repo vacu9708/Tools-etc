@@ -13,7 +13,7 @@ Use this below instead of npm run build
 ~~~
 Allocating virtual memory
 ~~~
-sudo dd if=/dev/zero of=/mnt/swapfile bs=1M count=2048
+sudo dd if=/dev/zero of=/mnt/swapfile bs=1M count=4096
 sudo mkswap /mnt/swapfile
 sudo swapon /mnt/swapfile
 ~~~
