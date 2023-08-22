@@ -1,5 +1,1 @@
-- [Basic](https://github.com/vacu9708/Web-development/blob/main/Javascript/Basic.md)
-- [Callback VS Promise](https://github.com/vacu9708/Web-development/blob/main/Javascript/Callback%20VS%20Promise.md)
-- [Closure](https://github.com/vacu9708/Web-development/blob/main/Javascript/Closure.md)
-- [OOP of javascript](https://github.com/vacu9708/Web-development/blob/main/Javascript/OOP%20of%20javascript)
-- [Event loop](https://github.com/vacu9708/Web-development/blob/main/Javascript/eventloop.md)
+
