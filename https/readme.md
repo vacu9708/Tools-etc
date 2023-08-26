@@ -1,15 +1,15 @@
 Let's encrypt(certbot)
-## Install certbot
-sudo snap install --classic certbot
+## Automatic (Open port 80 in the firewal!!!)
+sudo certbot certonly --standalone -d <domain_address>
 
-## Standalone server (방화벽 설정!!)
-sudo certbot certonly --standalone -d <웹 주소>
+## Manual
+1. sudo certbot certonly --manual -d <domain_address>
+2. Open the manual server and follow the guide
 
-## Manual server
-sudo certbot certonly --manual -d <domain address>
+## Move the certificate
+- cp -rL /etc/letsencrypt/live/ /mnt/c/users/<windows_user>/Desktop/
+- Or use nano /etc/letsencrypt/live/
 
-## Common
-1. Follow the guide
-2. cp -rf -d /etc/letsencrypt/live/ /mnt/c/users/<윈도우 유저>/Desktop/ 혹은 nano로 복사
-### How to convert pem to p12 (Spring cannot read pem)
-sudo openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 -name ttp -CAfile chain.pem -caname root
+## How to convert pem to p12 (Spring cannot read pem)
+1. sudo openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 -name ttp -CAfile chain.pem -caname root
+2. Enter sudo password
