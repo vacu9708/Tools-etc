@@ -1,8 +1,0 @@
-Let's encrypt(certbot)
-# Standalone server (방화벽 설정!!)
-sudo certbot certonly --standalone -d <웹 주소>
-
-# Manual server
-1. sudo certbot certonly --manual -d <domain address>
-2. Follow the guide
-3. cp -rf -d /etc/letsencrypt/live/ /mnt/c/users/<윈도우 유저>/Desktop/ 혹은 nano로 복사
