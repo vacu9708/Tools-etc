@@ -1,0 +1,8 @@
+INDEX VERSION 1.131+G:\Software\github\Web-development\side projects\MSA beer service with spring\.metadata\.plugins\org.eclipse.jdt.core
+313625873.index
+1005880409.index
+3777500712.index
+3383086551.index
+2030405317.index
+3599356413.index
+1865797976.index
