@@ -1,4 +1,7 @@
 Let's encrypt(certbot)
+## Install certbot
+sudo snap install --classic certbot
+
 ## Standalone server (방화벽 설정!!)
 sudo certbot certonly --standalone -d <웹 주소>
 
