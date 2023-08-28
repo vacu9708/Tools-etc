@@ -10,9 +10,9 @@ Kafka provides a publish-subscribe model for decoupled asynchronous processing, 
 - Stream processing: Kafka can be integrated with stream processing frameworks like Apache Flink, Apache Spark, or Apache Samza to perform real-time data processing on the streaming data.
 
 # Usage examples
-Used for decoupled asynchronous processing
-- Sending large traffic of emails in a separate service
-- Processing large queries in a separate service
+Used for asynchronous processing in a decoupled service
+- Sending large traffic of emails 
+- Processing large queries
 
 # Kafka cluster
 - **ZooKeeper manages Kafka brokers**: ZooKeeper is a centralized coordination service that Kafka relies on for managing and coordinating the Kafka brokers within a Kafka cluster. It helps maintain metadata, tracks the live brokers, handles leader election, and enables synchronization and coordination among the brokers.
