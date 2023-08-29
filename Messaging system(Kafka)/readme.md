@@ -39,3 +39,11 @@ When a message is published into insertOrder, only one of the 3 consumers in the
 - `Publish/Subscribe` allows broadcasting messages to multiple subscribers interested in a particular topic or channel.
 - `Request/Response` enables synchronous communication between a requester and a responder, where a response is expected.
 - `Point-to-Point` ensures messages are processed by a single receiver, providing ordered and reliable message delivery.
+
+# Load balancing
+1. Create consumers within a consumer group
+2. Create a topic with as many partitions as the number of consumers within a consumer group
+Kafka will automatically perform load balancing across multiple consumers.
+### Caution
+Kafka performs load balancing based on the workload of messages not on the workload of each consumer.<br>
+Allow multiple concurrent consumer threads for I/O wait.
