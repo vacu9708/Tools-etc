@@ -44,6 +44,7 @@ When a message is published into insertOrder, only one of the 3 consumers in the
 # Load balancing
 1. Create consumers within a consumer group
 2. Create a topic with as many partitions as the number of consumers within a consumer group
+
 Kafka will automatically perform load balancing across multiple consumers.
 ### Caution
 Kafka performs load balancing based on the workload of messages not on the workload of each consumer.<br>
