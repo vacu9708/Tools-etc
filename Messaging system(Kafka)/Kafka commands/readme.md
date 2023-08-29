@@ -10,7 +10,7 @@ docker exec -it broker kafka-topics --bootstrap-server broker:9092 --create --to
 ~~~
 docker exec -it <kafka-container-id> kafka-topics --bootstrap-server <bootstrap-server>:<port> --delete --topic <topic-name>
 ~~~
-#### `Exampel`
+#### `Example`
 ~~~
 docker exec -it broker kafka-topics --bootstrap-server broker:9092 --create --delete email
 ~~~
