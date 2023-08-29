@@ -1,3 +1,8 @@
+# Messaging patterns
+- `Publish/Subscribe` allows broadcasting messages to multiple subscribers interested in a particular topic or channel.
+- `Request/Response` enables synchronous communication between a requester and a responder, where a response is expected.
+- `Point-to-Point` ensures messages are processed by a single receiver, providing ordered and reliable message delivery.
+
 # Kafka
 Kafka is an open-source distributed streaming platform designed to handle high-throughput, fault-tolerant, and scalable data streaming applications.<br>
 Kafka provides a publish-subscribe model for decoupled asynchronous processing, where producers publish data to Kafka topics, and consumers subscribe to those topics to consume the data.
@@ -35,10 +40,6 @@ Without the consumer group, each consumer within a group could potentially read 
 #### `Example`
 Let's say there is a Kafka topic called "insertOrder" with 3 partitions and a consumer group called "orderInserters" with 3 consumers.<br>
 When a message is published into insertOrder, only one of the 3 consumers in the group reads that message.
-# Messaging patterns
-- `Publish/Subscribe` allows broadcasting messages to multiple subscribers interested in a particular topic or channel.
-- `Request/Response` enables synchronous communication between a requester and a responder, where a response is expected.
-- `Point-to-Point` ensures messages are processed by a single receiver, providing ordered and reliable message delivery.
 
 # Load balancing
 1. Create consumers within a consumer group
