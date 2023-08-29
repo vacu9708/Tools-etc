@@ -6,3 +6,7 @@ docker exec -it <kafka-container-id> kafka-topics --bootstrap-server <bootstrap-
 ~~~
 docker exec -it <kafka-container-id> kafka-topics --bootstrap-server <bootstrap-server>:<port> --delete --topic <topic-name>
 ~~~
+### How to see the partitions
+~~~
+docker exec -it broker kafka-topics --bootstrap-server broker:9092 --describe --topic email
+~~~
