@@ -35,8 +35,8 @@ A Kafka topic can be divided into multiple partitions, which are the basic unit 
 ### Consumer group
 A Kafka consumer group consists of one or more consumers. The group ensures that each message is consumed by one consumer within the group, helping in load balancing.<br>
 Without the consumer group, each consumer within a group could potentially read all messages from all partitions of the topic.<br>
-- If you have more consumers than partitions, then some of your consumers will be idle.
-- If you have more partitions than consumers, more than one partition may get assigned to a single consumer.
+- If there are more consumers than partitions, then some of the consumers will be idle.
+- If there are more partitions than consumers, more than one partition may get assigned to a single consumer.
 #### `Example`
 Let's say there is a Kafka topic called "insertOrder" with 3 partitions and a consumer group called "orderInserters" with 3 consumers.<br>
 When a message is published into insertOrder, only one of the 3 consumers in the group reads that message.
