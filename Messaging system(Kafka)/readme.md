@@ -45,7 +45,5 @@ When a message is published into insertOrder, only one of the 3 consumers in the
 1. Create consumers within a consumer group
 2. Create a topic with as many partitions as the number of consumers within a consumer group
 
-Kafka will automatically perform load balancing across multiple consumers.
-### Caution
-Kafka performs load balancing based on the workload of messages not on the workload of each consumer.<br>
-Allow multiple concurrent consumer threads for I/O wait.
+Kafka will automatically perform load balancing across multiple consumers based on the round robin strategy.<br>
+Each consumer takes turns consuming the message, so all consumers in the group will get a chance to consume messages over time, even if there are long intervals between the messages being produced.<br>
