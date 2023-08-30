@@ -45,11 +45,13 @@ When a message is published into insertOrder, only one of the 3 consumers in the
 1. Create consumers within a consumer group
 2. Create a topic with as many partitions as the number of consumers within a consumer group
 
-Kafka will automatically perform load balancing across multiple consumers based on the round robin strategy.<br>
+Kafka will automatically perform load balancing across multiple consumers.<br>
 Each consumer takes turns consuming the message, so all consumers in the group will get a chance to consume messages over time, even if there are long intervals between the messages being produced.<br>
 
-# Batch
+## Batch
 A collection of records that are grouped together within a single partition for more efficient storage and transmission.<br>
-The default load balancer is Sticky partitioner
+The default load balancer of Kafka is Sticky partitioner. It was Round robin before.
 - Stick to a partition until a batch is full or linger.ms has elapsed.
 - After sending the batch, change the partition that is "sticky"
+
+Over time, the records are still spread evenly across partitions, so the balance of the cluster is not affected.
