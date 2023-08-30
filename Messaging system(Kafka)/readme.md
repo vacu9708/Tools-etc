@@ -50,7 +50,8 @@ Each consumer takes turns consuming the message, so all consumers in the group w
 
 ## Batch
 A collection of records that are grouped together within a single partition for more efficient storage and transmission.<br>
-The default load balancer of Kafka is Sticky partitioner. It was Round robin before.
+The default load balancer of Kafka is Sticky partitioner. It was Round robin before.<br>
+It minimizes the number of separate requests, which can lead to reduced latency and fewer CPU cycles
 - Stick to a partition until a batch is full or linger.ms has elapsed.
 - After sending the batch, change the partition that is "sticky"
 
