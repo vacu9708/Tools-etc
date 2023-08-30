@@ -33,13 +33,16 @@ git push -f
 - git diff head : Differences in the local branch
 - git diff head..origin/<branch> (--name-only) : Dfferences between the remote branch and local changes that have been committed.
 
-# Delete a branch on the remote
-- git push origin --delete [name]
+# How to resolve a merge conflict that occured in the file to which a commit was pulled
+1. Modify the file where the conflict occured
+2. Commit the file
+3. Pull
 
 # etc
 - git log : commit log
 - git branch : Current branch
-- git branch -d : Remove a branch
+- git push origin --delete [name] : Delete a remote branch
+- git branch -D : Delete a local branch
 
 # How to merge into the current branch in local
 ~~~
