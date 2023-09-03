@@ -23,7 +23,7 @@ Used for asynchronous processing in a decoupled computer
 ![image](https://github.com/vacu9708/Tools-etc/assets/67142421/bf734bec-5d32-4a35-b8e1-1472d6576886)<br>
 ### ZooKeeper
 ZooKeeper is used for managing the brokers' metadata and maintaining cluster state.<br>
-A microservice sends a message to a Kafka broker to publish it, not to ZooKeeper.
+A microservice sends messages to a Kafka broker to publish it, not to ZooKeeper.
 ### Broker
 Each Kafka broker is responsible for managing one or more Kafka topics.<br>
 Brokers handle operations related to topics, such as topic creation and partition assignment.<br>
