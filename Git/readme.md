@@ -1,3 +1,5 @@
+Git is a distributed version control system used for tracking changes in source code during software development. 
+
 # How to create a new branch
 ~~~
 git init
